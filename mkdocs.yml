@@ -20,20 +20,20 @@ nav:
     - 'Use Case Introduction': 'Part 2/01 UseCase1.md'
     - 'Demonstration Steps': 'Part 2/02 UseCase1Steps.md'
   - Use Case 2:
-    - 'Use Case Introduction': 'Part 2/01 UseCase2.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase2Steps.md'
+    - 'Use Case Introduction': 'Part 3/01 UseCase2.md'
+    - 'Demonstration Steps': 'Part 3/02 UseCase2Steps.md'
   - Use Case 3:
-    - 'Use Case Introduction': 'Part 2/01 UseCase3.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase3Steps.md'
+    - 'Use Case Introduction': 'Part 4/01 UseCase3.md'
+    - 'Demonstration Steps': 'Part 4/02 UseCase3Steps.md'
   - Use Case 4:
-    - 'Use Case Introduction': 'Part 2/01 UseCase4.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase4Steps.md'
+    - 'Use Case Introduction': 'Part 5/01 UseCase4.md'
+    - 'Demonstration Steps': 'Part 5/02 UseCase4Steps.md'
   - Use Case 5:
-    - 'Use Case Introduction': 'Part 2/01 UseCase5.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase5Steps.md'
+    - 'Use Case Introduction': 'Part 6/01 UseCase5.md'
+    - 'Demonstration Steps': 'Part 6/02 UseCase5Steps.md'
   - Use Case 6:
-    - 'Use Case Introduction': 'Part 2/01 UseCase6.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase6Steps.md'
+    - 'Use Case Introduction': 'Part 7/01 UseCase6.md'
+    - 'Demonstration Steps': 'Part 7/02 UseCase6Steps.md'
   - 'Next steps': 'NextSteps.md'
 
 theme:
