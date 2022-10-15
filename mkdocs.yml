@@ -1,0 +1,89 @@
+# Project info
+site_name: IBM Sterling Data Exchange Level 3 Demonstration Guide
+site_description: IBM Sterling Data Exchange Level 3 Demonstration Guide
+site_author: Andrew R. Jones (andrewj@us.ibm.com)
+copyright: Copyright &copy; 2022 IBM
+
+# Repository
+repo_name: IBM/PEMStandard-BDAwithB2Bi
+#repo_url: https://github.com/IBM/https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/tree/gh-pages
+#edit_uri: edit/master/docs
+docs_dir: docs
+
+
+nav:
+  - Introduction: 'index.md'
+  - Overview:
+    - 'The Demonstration': 'Part 1/01 Introduction.md'
+    - 'Demonstration Environment Preparation': 'Part 1/02 DemoPreparation.md'
+  - Use Case 1:
+    - 'Use Case Introduction': 'Part 2/01 UseCase1.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase1Steps.md'
+  - Use Case 2:
+    - 'Use Case Introduction': 'Part 2/01 UseCase2.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase2Steps.md'
+  - Use Case 3:
+    - 'Use Case Introduction': 'Part 2/01 UseCase3.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase3Steps.md'
+  - Use Case 4:
+    - 'Use Case Introduction': 'Part 2/01 UseCase4.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase4Steps.md'
+  - Use Case 5:
+    - 'Use Case Introduction': 'Part 2/01 UseCase5.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase5Steps.md'
+  - Use Case 6:
+    - 'Use Case Introduction': 'Part 2/01 UseCase6.md'
+    - 'Demonstration Steps': 'Part 2/02 UseCase6Steps.md'
+  - 'Next steps': 'NextSteps.md'
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+plugins:
+    - mkdocs-video
+    - macros
+    - search
+
+markdown_extensions:
+  - sane_lists
+  - pymdownx.details
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
+  - attr_list
+
+extra:
+  generator: false
+  learningplan:
+    name: "IBM Sterling Data Exchange Level 3"
+    url: "https://yourlearning.ibm.com/activity/PLAN-TBD"
+  offering:
+    name: "IBM Sterling Data Exchange"
+  guide:
+    name: "IBM Sterling Data Exchange - Level 3 Demonstration Guide"
+    url: "https://ibm.github.io/SalesEnablement-SterlingDataExchange-L3/"
+  tz_environment:
+    name: "Sterling File Gateway/B2B Integrator on OpenShift on IBM Cloud (ROKS)"
+    environmentURL: "https://techzone.ibm.com/collection/rapid-lab-sfg-b2bi-on-rhocp"
+    reservationURL: "https://techzone.ibm.com/my/reservations"
+    centOSServerAdmin: "root"
+    windowsServerAdminPW: "passw0rd"
