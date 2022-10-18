@@ -316,422 +316,325 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 31. Paste the **oc login** command line copied in step 29 into the terminal window and press enter.
 
 !!! example "Example output"
+    itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501
+    Logged into "https://c103-e.us-south.containers.cloud.ibm.com:31501" as "IAM#andrew@jones-tx.com" using the token provided.
 
-oc login --token=sha256~md3g_YckqzHoQMKovnejOaujNrW7Q_Cu31i8KxWZn_A --server=https://c109-e.us-east.containers.cloud.ibm.com:30720
+    You have access to 66 projects, the list has been suppressed. You can list all projects with 'oc projects'
 
-output:
+    Using project "default".
+    Welcome! See 'oc help' to get started.
+    itzuser@itz-2700039nft-srv4:~/b2bi$
 
-Logged into "https://c109-e.us-east.containers.cloud.ibm.com:30720" as "IAM#andrew@jones-tx.com" using the token provided.
+32. Run the environment setup and DB2 deploy scripts.
 
-You have access to 66 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-Using project "default".
-Welcome! See 'oc help' to get started.
-
-###
-
+```
 . env.sh ; ./deploy_db2.sh
+```
 
-output:
+??? example "Example output"
+    Now using project "db2" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
 
-Now using project "db2" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
-
-You can add applications to this project with the 'new-app' command. For example, try:
+    You can add applications to this project with the 'new-app' command. For example, try:
 
     oc new-app rails-postgresql-example
 
-to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
 
     kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
 
-serviceaccount/db2 created
-clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "db2"
-secret/db2-secret created
-service/db2-ci created
-service/db2-lb created
-statefulset.apps/db2 created
+    serviceaccount/db2 created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "db2"
+    secret/db2-secret created
+    service/db2-ci created
+    service/db2-lb created
+    statefulset.apps/db2 created
 
+Note, wait approximately 1 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
 
+33. Verify DB2 is up and running in the OpenShift cluster.
 
-#####
-# wait a few minutes
-
+```
 oc logs -f ${DB2_NAME}-0
+```
+
+!!! failure
+    If no output is seen from the above command, or if it returns the message: _Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating_  wait and rerun oc logs -f ${DB2_NAME}-0 until the output starts steaming as shown in the example output below.
+
+!!! example "Example output"
+    (*) Previous setup has not been detected. Creating the users...
+    (*) Creating users ...
+    (*) Creating instance ...
+    DB2 installation is being initialized.
+
+     Total number of tasks to be performed: 4
+    Total estimated time for all tasks to be performed: 309 second(s)
+
+    Task #1 start
+    Description: Setting default global profile registry variables
+    Task #1 end
+
+    Task #2 start
+    Description: Initializing instance list
+    Estimated time 5 second(s)
+    Task #2 end
+
+    Task #3 start
+    Description: Configuring DB2 instances
+    Estimated time 300 second(s)
+    Task #3 end
+
+    Task #4 start
+    Description: Updating global profile registry
+    Estimated time 3 second(s)
+    Task #4 end
+
+    The execution completed successfully.
+
+    For more information see the DB2 installation log at "/tmp/db2icrt.log.71".
+    DBI1446I  The db2icrt command is running.
 
 
-# if no output or if you receive message “Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating”
-# then wait and rerun oc logs -f ${DB2_NAME}-0 until output starts steaming
-# wait until you see the line:
-# /database/config/db2inst1/sqllib/ctrl/db2strst.lck
-
-output:
-
-(*) Previous setup has not been detected. Creating the users...
-(*) Creating users ...
-(*) Creating instance ...
-DB2 installation is being initialized.
-
- Total number of tasks to be performed: 4
-Total estimated time for all tasks to be performed: 309 second(s)
-
-Task #1 start
-Description: Setting default global profile registry variables
-Estimated time 1 second(s)
-Task #1 end
-
-Task #2 start
-Description: Initializing instance list
-Estimated time 5 second(s)
-Task #2 end
-
-Task #3 start
-Description: Configuring DB2 instances
-Estimated time 300 second(s)
-Task #3 end
-
-Task #4 start
-Description: Updating global profile registry
-Estimated time 3 second(s)
-Task #4 end
-
-The execution completed successfully.
-
-For more information see the DB2 installation log at "/tmp/db2icrt.log.71".
-DBI1446I  The db2icrt command is running.
+    DBI1070I  Program db2icrt completed successfully.
 
 
-DBI1070I  Program db2icrt completed successfully.
+    10/18/2022 16:44:36     0   0   SQL1032N  No start database manager command was issued.
+    SQL1032N  No start database manager command was issued.  SQLSTATE=57019
+    (*) Cataloging existing databases
+    ls: cannot access /database/data/db2inst1/NODE0000: No such file or directory
+    (*) Applying Db2 license ...
+
+    LIC1402I  License added successfully.
 
 
-10/18/2022 16:44:36     0   0   SQL1032N  No start database manager command was issued.
-SQL1032N  No start database manager command was issued.  SQLSTATE=57019
-(*) Cataloging existing databases
-ls: cannot access /database/data/db2inst1/NODE0000: No such file or directory
-(*) Applying Db2 license ...
+    LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.5/license/en_US.iso88591"
+    (*) Saving the checksum of the current nodelock file ...
+    (*) Updating DBM CFG parameters ...
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    No Cgroup memory limit detected, instance memory will follow automatic tuning
+    (*) Remounting /database with suid...
 
-LIC1402I  License added successfully.
+    DB2 State : Operable
+    DB2 has not been started
+    Starting DB2...
 
+    10/18/2022 16:44:43     0   0   SQL1063N  DB2START processing was successful.
+    SQL1063N  DB2START processing was successful.
+    ssh-keygen: generating new host keys: RSA1 RSA DSA ECDSA ED25519
+    (*) All databases are now active.
+    (*) Setup has completed.
+    false
 
-LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.5/license/en_US.iso88591"
-(*) Saving the checksum of the current nodelock file ...
-(*) Updating DBM CFG parameters ...
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-No Cgroup memory limit detected, instance memory will follow automatic tuning
-(*) Remounting /database with suid...
+    2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
+    PID     : 15858                TID : 139996146354048 PROC : db2start
+    INSTANCE: db2inst1             NODE : 000
+    HOSTNAME: db2-0
+    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+    MESSAGE : Released lock on the file:
+    DATA #1 : String, 50 bytes
+    /database/config/db2inst1/sqllib/ctrl/db2strst.lck
 
-DB2 State : Operable
-DB2 has not been started
-Starting DB2...
+!!! warning "Do not proceed until"
+    Do not proceed to the next step until the following line appears in the output:
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
 
-10/18/2022 16:44:43     0   0   SQL1063N  DB2START processing was successful.
-SQL1063N  DB2START processing was successful.
-ssh-keygen: generating new host keys: RSA1 RSA DSA ECDSA ED25519
-(*) All databases are now active.
-(*) Setup has completed.
-false
+34. Stop the **oc logs** command by entering ++ctrl++**+c** on the keyboard.
 
-2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
-PID     : 15858                TID : 139996146354048 PROC : db2start
-INSTANCE: db2inst1             NODE : 000
-HOSTNAME: db2-0
-FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
-MESSAGE : Released lock on the file:
-DATA #1 : String, 50 bytes
-/database/config/db2inst1/sqllib/ctrl/db2strst.lck
+!!! example "Example output"
+    ...
+    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+    MESSAGE : Released lock on the file:
+    DATA #1 : String, 50 bytes
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+    ^C
+    itzuser@itz-2700039nft-srv4:~/b2bi$
 
-###
+35. Prepare the DB2 instance running in OpenShift.
 
-enter <ctrl> c
-
-
-###
-
+```
 ./prepare_db2.sh
+```
 
+Note, this script does not generate output.
+
+36. Remotely connect to the DB2 container running in OpenShift.
+
+```
 oc rsh pod/${DB2_NAME}-0 su - db2inst1
+```
 
-output:
+!!! example "Example output"
+    Last login: Tue Oct 18 20:47:33 UTC 2022
+    [db2inst1@db2-0 ~]$
 
-Last login: Tue Oct 18 16:44:44 UTC 2022
-[db2inst1@db2-0 ~]$
+Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
-### Now at the [db2inst1@db2-0 !]$ prompt:
+37. Run the **db2reg.sh**  script.
 
+```
 ./db2reg.sh
+```
 
-output:
+??? example "Example output"
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
 
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
+38. Create the B2Bi tables in DB2.
 
-# next command will take ~10 minutes 11:48
+```
 db2 -stvf create_scc_db_b2bidb.sql
+```
 
-output:
+Note, this command will take approximately 10 minutes to complete.
 
-CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32
-DB20000I  The CREATE DATABASE command completed successfully.
+??? example "Example output"
+    CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32
+    DB20000I  The CREATE DATABASE command completed successfully.
 
-CONNECT TO B2BIDB
+    CONNECT TO B2BIDB
 
-   Database Connection Information
+       Database Connection Information
 
- Database server        = DB2/LINUXX8664 11.5.5.1
- SQL authorization ID   = DB2INST1
- Local database alias   = B2BIDB
-
-
-UPDATE DATABASE CONFIG USING STMT_CONC LITERALS
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING SELF_TUNING_MEM ON
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING LOCKLIST AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING MAXLOCKS AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING PCKCACHESZ AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING SHEAPTHRES_SHR AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING SORTHEAP AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING NUM_IOCLEANERS AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-SQL1363W  One or more of the parameters submitted for immediate modification
-were not changed dynamically. For these configuration parameters, the database
-must be shutdown and reactivated before the configuration parameter changes
-become effective.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING NUM_IOSERVERS AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-SQL1363W  One or more of the parameters submitted for immediate modification
-were not changed dynamically. For these configuration parameters, the database
-must be shutdown and reactivated before the configuration parameter changes
-become effective.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING DFT_PREFETCH_SZ AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING MAXAPPLS AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING APPLHEAPSZ AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING APPL_MEMORY AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING DBHEAP AUTOMATIC
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING LOGFILSIZ 65536
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-SQL1363W  One or more of the parameters submitted for immediate modification
-were not changed dynamically. For these configuration parameters, the database
-must be shutdown and reactivated before the configuration parameter changes
-become effective.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING LOGPRIMARY 40
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-SQL1363W  One or more of the parameters submitted for immediate modification
-were not changed dynamically. For these configuration parameters, the database
-must be shutdown and reactivated before the configuration parameter changes
-become effective.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING LOGSECOND 12
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING NUM_LOG_SPAN 40
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING DFT_DEGREE 1
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-
-UPDATE DATABASE CONFIG FOR B2BIDB USING LOGBUFSZ 2152
-DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
-SQL1363W  One or more of the parameters submitted for immediate modification
-were not changed dynamically. For these configuration parameters, the database
-must be shutdown and reactivated before the configuration parameter changes
-become effective.
-
-CREATE BUFFERPOOL REG4KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 4K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL REG8KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 8K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL REG16KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 16K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL REG32KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 32K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL STEMP4KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 4K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL STEMP8KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 8K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL STEMP16KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 16K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL STEMP32KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 32K
-DB20000I  The SQL command completed successfully.
-
-CREATE BUFFERPOOL UTEMP4KBP IMMEDIATE ALL DBPARTITIONNUMS SIZE AUTOMATIC NUMBLOCKPAGES 0 PAGESIZE 4K
-DB20000I  The SQL command completed successfully.
-
-CREATE REGULAR TABLESPACE REG4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE AUTORESIZE YES EXTENTSIZE 32 BUFFERPOOL REG4KBP NO FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE REGULAR TABLESPACE REG8KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 8 K MANAGED BY AUTOMATIC STORAGE AUTORESIZE YES EXTENTSIZE 32 BUFFERPOOL REG8KBP NO FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE REGULAR TABLESPACE REG16KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 16 K MANAGED BY AUTOMATIC STORAGE AUTORESIZE YES EXTENTSIZE 32 BUFFERPOOL REG16KBP NO FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE REGULAR TABLESPACE REG32KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 32 K MANAGED BY AUTOMATIC STORAGE AUTORESIZE YES EXTENTSIZE 32 BUFFERPOOL REG32KBP NO FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE SYSTEM TEMPORARY TABLESPACE STEMP4KTS IN DATABASE PARTITION GROUP IBMTEMPGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL STEMP4KBP FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE SYSTEM TEMPORARY TABLESPACE STEMP8KTS IN DATABASE PARTITION GROUP IBMTEMPGROUP PAGESIZE 8 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL STEMP8KBP FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE SYSTEM TEMPORARY TABLESPACE STEMP16KTS IN DATABASE PARTITION GROUP IBMTEMPGROUP PAGESIZE 16 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL STEMP16KBP FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE SYSTEM TEMPORARY TABLESPACE STEMP32KTS IN DATABASE PARTITION GROUP IBMTEMPGROUP PAGESIZE 32 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL STEMP32KBP FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING
-DB20000I  The SQL command completed successfully.
-
-CONNECT RESET
-DB20000I  The SQL command completed successfully.
+     Database server        = DB2/LINUXX8664 11.5.5.1
+     SQL authorization ID   = DB2INST1
+     Local database alias   = B2BIDB
 
 
-#####
+    UPDATE DATABASE CONFIG USING STMT_CONC LITERALS
+    DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
+    ...
+    **Long output truncated in this example**
+    ...
+    CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING
+    DB20000I  The SQL command completed successfully.
 
+    CONNECT RESET
+    DB20000I  The SQL command completed successfully.
+
+39. Run the final DB2 update script.
+
+```
 ./db2-update.sh
+```
 
-output:
+??? example "Example output"
+    Database Connection Information
 
-Database Connection Information
+    Database server        = DB2/LINUXX8664 11.5.5.1
+    SQL authorization ID   = DB2INST1
+    Local database alias   = B2BIDB
 
-Database server        = DB2/LINUXX8664 11.5.5.1
-SQL authorization ID   = DB2INST1
-Local database alias   = B2BIDB
+    DB20000I  The SQL command completed successfully.
+    DB20000I  The TERMINATE command completed successfully.
+    DB20000I  The FORCE APPLICATION command completed successfully.
+    DB21024I  This command is asynchronous and may not be effective immediately.
 
-DB20000I  The SQL command completed successfully.
-DB20000I  The TERMINATE command completed successfully.
-DB20000I  The FORCE APPLICATION command completed successfully.
-DB21024I  This command is asynchronous and may not be effective immediately.
+    DB20000I  The DEACTIVATE DATABASE command completed successfully.
+    10/18/2022 16:53:39     0   0   SQL1064N  DB2STOP processing was successful.
+    SQL1064N  DB2STOP processing was successful.
+    10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.
+    SQL1063N  DB2START processing was successful.
 
-DB20000I  The DEACTIVATE DATABASE command completed successfully.
-10/18/2022 16:53:39     0   0   SQL1064N  DB2STOP processing was successful.
-SQL1064N  DB2STOP processing was successful.
-10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.
-SQL1063N  DB2START processing was successful.
+40. Exit the connection to the DB2 conatiner in Openshift.
 
-### at db2 prompted
-
+```
 exit
+```
 
-output:
-logout
+??? example "Example output"
+    logout
+    itzuser@itz-2700039nft-srv4:~/b2bi$
 
-## at VSI prompt:
+Notice the command line prompt has changed back to the prompt for the VSI connection.
 
+41. Deploy MQ to OpenShift.
+
+```
 ./deploy_mq.sh
+```
 
-output:
-Now using project "mq" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
+??? example "Example output"
+    Now using project "mq" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
 
-You can add applications to this project with the 'new-app' command. For example, try:
+    You can add applications to this project with the 'new-app' command. For example, try:
 
-    oc new-app rails-postgresql-example
+       oc new-app rails-postgresql-example
 
-to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
 
-    kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
+      kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
 
-serviceaccount/mq created
-clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "mq"
-service/mq-data created
-service/mq-web created
-W1018 16:54:39.757566   34060 shim_kubectl.go:58] Using non-groupfied API resources is deprecated and will be removed in a future release, update apiVersion to "route.openshift.io/v1" for your resource
-route.route.openshift.io/mq-web created
-secret/mq-secret created
-statefulset.apps/mq created
+    serviceaccount/mq created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "mq"
+    service/mq-data created
+    service/mq-web created
+    W1018 16:54:39.757566   34060 shim_kubectl.go:58] Using non-groupfied API resources is deprecated and will be removed in a future release, update apiVersion to "route.openshift.io/v1" for your resource
+    route.route.openshift.io/mq-web created
+    secret/mq-secret created
+    statefulset.apps/mq created
 
+!!! important
+    Note, the next steps require editing of a file using the **vi** editor on the VSI. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding.
 
-###
+    ![type:video](./_videos/EditENV-sh-final.mp4)
+
+42. Open the **vi** editor.
+
+```
 vi  env.sh
-use keyboard arrows to go down to the "export APIKEY=""" linke and then over to the last "
+```
 
+43. Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
-# switch to your browser window and
-open browser: https://myibm.ibm.com/products-services/containerlibrary (will require you to reauthenticate)
+44. Create a new key if one does not already exist by clicking the **Get new key** button.
+45. Click the **Copy key** button.
 
+![](_attachments/EntitlementKey.png)
 
-# after authenticating,
+46. Return to the **terminal** and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
+47. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
+48. Verify the env.sh file looks like the example output below.
 
-If no Entitlement key appears in the text box, click "Get new key"
-when key visible, click "Copy key"
+```
+cat env.sh
+```
 
-# return to shell and the vi editor
-press i # you will see INSERT at bottom of screen
-ctrl v
+!!! example "Example output"
+    itzuser@itz-2700039nft-srv4:~/b2bi$ cat env.sh
+    #!/usr/bin/bash
+    ## Locate your APIKEY (Entitlement Key For Container Software)
+    ## here: https://myibm.ibm.com/products-services/containerlibrary
+    ## Requires IBM ID and permission.
+    export PROJECT_NAME="b2bi"
+    export PROJECT_DIR="$HOME/b2bi"
+    export DB2_NAME="db2"
+    export MQ_NAME="mq"
+    export APIKEY="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NjYwMjQ5NDQsImp0aSI6Ijk5ODk4NmQ2YTAzZjRlMmM5NjZiMjRhM2U1ZGI0YjAwIn0.Q5aJS54gE_qQkaqw1C25YqqjIsHYK6VbFHpEUpW5ar0"
+    export EMAIL="andrew@jones-tx.com"
+    itzuser@itz-2700039nft-srv4:~/b2bi$
 
-<esc>
+49. Deploy the B2Bi containers on OpenShift.
 
-arrow dow to teh EMAIL line and between quotes, enter your email address
+```
+./deploy_b2bi.sh
+```
 
-output:
+Note, this command will take approximately 20 minutes to comlete.
 
-#!/usr/bin/bash
-## Locate your APIKEY (Entitlement Key For Container Software)
-## here: https://myibm.ibm.com/products-services/containerlibrary
-## Requires IBM ID and permission.
-export PROJECT_NAME="b2bi"
-export PROJECT_DIR="$HOME/b2bi"
-export DB2_NAME="db2"
-export MQ_NAME="mq"
-export APIKEY="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NjYwMjQ5NDQsImp0aSI6Ijk5ODk4NmQ2YTAzZjRlMmM5NjZiMjRhM2U1ZGI0YjAwIn0.Q5aJS54gE_qQkaqw1C25YqqjIsHYK6VbFHpEUpW5ar0"
-export EMAIL="andrew@jones-tx.com"
-
-
-
-<esc>
-:x
- # to save and exit
-
-# next command will take about 20 minutes 12:12
-
- ./deploy_b2bi.sh
+??? example "Example output"
