@@ -30,7 +30,7 @@ Follow the steps to login to IBM Cloud.
 
 5. Click **Clusters**.
 
-![](_attachments/CloudDashboardOpenShiftMenu.png)
+![](_attachments/OpenShiftOverview.png)
 
 6. Click the OpenShift cluster name in the table.
 
@@ -60,9 +60,12 @@ Leave this window open. It will be used again later.
 
 ![](_attachments/ITZ-VSI-Reservation.png)
 
+!!! important "Take note"
+    Take note of the **Public IP**, **SSH Port**, and **Username** fields in the reservation. These values will be needed later.
+
 By default, most browsers will utilize the default **Downloads** directory in the users home directory.
 
-## Connect to the Virtual Server INSTANCE
+## Connect to the Virtual Server Instance (VSI)
 
 The next step must be performed on the users local computer. The directions below are specific to users with a Mac computer (MacOS). All instructions listed here should be the same for users running on Linux machines.
 
@@ -73,7 +76,7 @@ The next step must be performed on the users local computer. The directions belo
 
 ![](_attachments/MacSpotlight.png)
 
-13. Enter the following command to change to the directory whereto default Downloads directory where the ITZ private key was downloaded to
+13. Enter the following command to change to the Downloads directory where the ITZ private key was downloaded.
 
 ```
 cd Downloads
@@ -82,35 +85,37 @@ cd Downloads
 14. Verify the **SSH key** file is found in the **Downloads** directory.
 
 ```
-ls -l pem-ibmcloudvsi-download.pem
+ls -l {{tz_environment.sshKeyFile}}
 ```
 
 ??? example "Example output"
-    -rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem
+    -rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 {{tz_environment.sshKeyFile}}
 
 ??? failure "No such file or directory?"
-    If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory.
+    If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as {{tz_environment.sshKeyFile}}.  Check the Downloads directory for the most recent file names.
 
 15. Change the permissions of the **SSH key** file.
 
-chmod 0600 pem_ibmcloudvsi_download.pem
+```
+chmod 0600 {{tz_environment.sshKeyFile}}
+```
 
 16. Verify the **SSH key** file has the proper permissions.
 
-ls -l pem-ibmcloudvsi-download.pem
+ls -l {{tz_environment.sshKeyFile}}
 
 ??? example "Example output"
-    -rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem
+    -rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 {{tz_environment.sshKeyFile}}
 
 17. Use **ssh** to connect to the remote VSI and enter **yes** when prompted to continue.
 
 !!! Warning
     Substitute the strings PORT, USER, and PUBLICIP with the values in the VSI reservation as illustrated in the image in step 11 above.
 
-```ssh  -i pem-ibmcloudvsi-download.pem -p SSHPORT USERNAME@PUBLICIP```
+```ssh  -i {{tz_environment.sshKeyFile}} -p SSHPORT USERNAME@PUBLICIP```
 
 ??? example "Example output"
-    MacBook-Pro-2:Downloads andrewjones$ ssh -i pem_ibmcloudvsi_download.pem -p 2223 itzuser@169.59.6.211
+    MacBook-Pro-2:Downloads andrewjones$ ssh -i {{tz_environment.sshKeyFile}} -p 2223 itzuser@169.59.6.211
 
     The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.
     ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.
@@ -158,32 +163,51 @@ bash <(curl -sL https://ibm.biz/ocp-cli)
 
 !!! example "Example output"
     Updating the operating system. Wait!
+
     Installing Docker. Wait!
-    Starting Docker. Wait!
+
     Adding user to docker group. Wait!
+
     Setting up docker to start at reboot. Wait!
+
     Installing common utilities. Wait!
+
     Installing ibmcloud utility. Wait!
+
     Installing Helm. Wait!
+
     Installing OpenShift oc utility. Wait!
+
     Installing Kubernetes kubectl. Wait!
+
     cleaning up. Wait!
+
     All done.
+
     Client Version: 4.10.0
-    version.BuildInfo{Version:"v3.10.1", GitCommit:"9f88ccb6aee40b9a0535fcc7efea6055e1ef72c9", GitTreeState:"clean", GoVersion:"go1.18.7"}
-    Flag --short has been deprecated, and will be removed in the future. The --short output will become the default.
+
+    version.BuildInfo{Version:"v3.10.1", GitCommit:"9f88ccb6aee40b9a0535fcc7efea6055e1ef72c9",
+    GitTreeState:"clean", GoVersion:"go1.18.7"}
+
+    Flag --short has been deprecated, and will be removed in the future. The --short output will
+
+    become the default.
+
     Client Version: v1.25.3
+
     Kustomize Version: v4.5.7
+
     ibmcloud version 2.11.1+c18277d-2022-09-23T21:49:24+00:00
+
     Reboot your instance now: sudo shutdown -r now
 
 !!! warning "If the reboot message is not seen"
-    If the reboot message is not seen in the output of the previous command, a problem occurred. You will need to re-run the last command.  When doing so, ignore error messages about items already installed.
+    If the reboot message is not seen in the output of the previous command a problem occurred. Re-run the last command.  When doing so, ignore error messages about items already installed.
 
 19. Restart the VSI.
 
 ```
-sudo shutdown -r known
+sudo shutdown -r now
 ```
 
 ??? example "Example output"
@@ -194,7 +218,7 @@ Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and 
 
 ## Download the B2Bi installation scripts
 
-20. Use **ssh** to connect to the remote VSI and enter **yes** when prompted to continue.
+20. Use **ssh** to re-connect to the remote VSI.
 
 !!! Warning
     Substitute the strings PORT, USER, and PUBLICIP with the values in the VSI reservation as illustrated in the image in step 11 above.
@@ -202,6 +226,7 @@ Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and 
 ```ssh  -i pem-ibmcloudvsi-download.pem -p SSHPORT USERNAME@PUBLICIP```
 
 ??? example "Example output"
+    MacBook-Pro-2:Downloads andrewjones$ ssh -i {{tz_environment.sshKeyFile}} -p 2223 itzuser@169.59.6.211
     Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-124-generic x86_64)
 
     * Documentation:  https://help.ubuntu.com
@@ -249,7 +274,7 @@ cd $PROJECT_DIR
 24. Download the B2Bi installation script.
 
 ```
-wget -O {{b2bi.installScript}} {{gitRepo}}/${{b2bi.installPath}}/{{b2bi.installScript}}?raw=true
+wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScript}}?raw=true
 ```
 <!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
 
@@ -282,14 +307,23 @@ unzip rapid-lab-b2bi-newlab-61051.zip
 
 ??? example "Example output"
     Archive:  rapid-lab-b2bi-newlab-61051.zip
+
       inflating: deploy_mq.sh
+
       inflating: edited-values.yaml
+
       inflating: prepare_db2.sh
+
       inflating: deploy_db2.sh
+
       inflating: README.md
+
       inflating: COPYING
+
       inflating: env.sh
+
       inflating: deploy_b2bi.sh
+
       inflating: db2jcc4.jar
 
 ## Authenticate to the OpenShift cluster
@@ -317,12 +351,15 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 
 !!! example "Example output"
     itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501
+
     Logged into "https://c103-e.us-south.containers.cloud.ibm.com:31501" as "IAM#andrew@jones-tx.com" using the token provided.
 
     You have access to 66 projects, the list has been suppressed. You can list all projects with 'oc projects'
 
     Using project "default".
+
     Welcome! See 'oc help' to get started.
+
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
 32. Run the environment setup and DB2 deploy scripts.
@@ -361,9 +398,9 @@ oc logs -f ${DB2_NAME}-0
     If no output is seen from the above command, or if it returns the message: _Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating_  wait and rerun oc logs -f ${DB2_NAME}-0 until the output starts steaming as shown in the example output below.
 
 !!! example "Example output"
-    (*) Previous setup has not been detected. Creating the users...
-    (*) Creating users ...
-    (*) Creating instance ...
+    (\*) Previous setup has not been detected. Creating the users...
+    (\*) Creating users ...
+    (\*) Creating instance ...
     DB2 installation is being initialized.
 
      Total number of tasks to be performed: 4
@@ -429,15 +466,22 @@ oc logs -f ${DB2_NAME}-0
 
     2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
     PID     : 15858                TID : 139996146354048 PROC : db2start
-    INSTANCE: db2inst1             NODE : 000
-    HOSTNAME: db2-0
-    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
-    MESSAGE : Released lock on the file:
-    DATA #1 : String, 50 bytes
-    /database/config/db2inst1/sqllib/ctrl/db2strst.lck
 
-!!! warning "Do not proceed until"
+    INSTANCE: db2inst1             NODE : 000
+
+    HOSTNAME: db2-0
+
+    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+
+    MESSAGE : Released lock on the file:
+
+    DATA #1 : String, 50 bytes
+
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+
+!!! warning "Do not proceed until..."
     Do not proceed to the next step until the following line appears in the output:
+
     **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
 
 34. Stop the **oc logs** command by entering ++ctrl++**+c** on the keyboard.
@@ -445,10 +489,15 @@ oc logs -f ${DB2_NAME}-0
 !!! example "Example output"
     ...
     FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+
     MESSAGE : Released lock on the file:
+
     DATA #1 : String, 50 bytes
+
     **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+
     ^C
+
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
 35. Prepare the DB2 instance running in OpenShift.
@@ -467,6 +516,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
 !!! example "Example output"
     Last login: Tue Oct 18 20:47:33 UTC 2022
+
     [db2inst1@db2-0 ~]$
 
 Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
@@ -480,18 +530,25 @@ Note, a remote connection is now open to the DB2 container running in OpenShift 
 ??? example "Example output"
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
+
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
 
@@ -505,6 +562,7 @@ Note, this command will take approximately 10 minutes to complete.
 
 ??? example "Example output"
     CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32
+
     DB20000I  The CREATE DATABASE command completed successfully.
 
     CONNECT TO B2BIDB
@@ -515,16 +573,20 @@ Note, this command will take approximately 10 minutes to complete.
      SQL authorization ID   = DB2INST1
      Local database alias   = B2BIDB
 
-
     UPDATE DATABASE CONFIG USING STMT_CONC LITERALS
+
     DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
+
     ...
     **Long output truncated in this example**
     ...
+
     CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING
+
     DB20000I  The SQL command completed successfully.
 
     CONNECT RESET
+
     DB20000I  The SQL command completed successfully.
 
 39. Run the final DB2 update script.
@@ -546,9 +608,13 @@ Note, this command will take approximately 10 minutes to complete.
     DB21024I  This command is asynchronous and may not be effective immediately.
 
     DB20000I  The DEACTIVATE DATABASE command completed successfully.
+
     10/18/2022 16:53:39     0   0   SQL1064N  DB2STOP processing was successful.
+
     SQL1064N  DB2STOP processing was successful.
+
     10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.
+
     SQL1063N  DB2START processing was successful.
 
 40. Exit the connection to the DB2 conatiner in Openshift.
@@ -584,13 +650,17 @@ Notice the command line prompt has changed back to the prompt for the VSI connec
     clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "mq"
     service/mq-data created
     service/mq-web created
+
     W1018 16:54:39.757566   34060 shim_kubectl.go:58] Using non-groupfied API resources is deprecated and will be removed in a future release, update apiVersion to "route.openshift.io/v1" for your resource
+
     route.route.openshift.io/mq-web created
+
     secret/mq-secret created
+
     statefulset.apps/mq created
 
 !!! important
-    Note, the next steps require editing of a file using the **vi** editor on the VSI. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding.
+    Note, the next steps require editing of a file using the **vi** editor on the VSI. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.
 
     ![type:video](./_videos/EditENV-sh-final.mp4)
 
@@ -617,15 +687,15 @@ cat env.sh
 
 !!! example "Example output"
     itzuser@itz-2700039nft-srv4:~/b2bi$ cat env.sh
-    #!/usr/bin/bash
-    ## Locate your APIKEY (Entitlement Key For Container Software)
-    ## here: https://myibm.ibm.com/products-services/containerlibrary
-    ## Requires IBM ID and permission.
+    \#!/usr/bin/bash
+    \#\# Locate your APIKEY (Entitlement Key For Container Software)
+    \#\# here: https://myibm.ibm.com/products-services/containerlibrary
+    \#\# Requires IBM ID and permission.
     export PROJECT_NAME="b2bi"
     export PROJECT_DIR="$HOME/b2bi"
     export DB2_NAME="db2"
     export MQ_NAME="mq"
-    export APIKEY="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NjYwMjQ5NDQsImp0aSI6Ijk5ODk4NmQ2YTAzZjRlMmM5NjZiMjRhM2U1ZGI0YjAwIn0.Q5aJS54gE_qQkaqw1C25YqqjIsHYK6VbFHpEUpW5ar0"
+    export APIKEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     export EMAIL="andrew@jones-tx.com"
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
@@ -635,6 +705,24 @@ cat env.sh
 ./deploy_b2bi.sh
 ```
 
-Note, this command will take approximately 20 minutes to comlete.
+Note, this command will take 30+ minutes to complete.
 
 ??? example "Example output"
+    Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".
+
+    You can add applications to this project with the 'new-app' command. For example, try:
+
+      oc new-app rails-postgresql-example
+
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+      kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
+
+    persistentvolumeclaim/ibm-cloud-file-nfs-storage-pvc created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
+    deployment.apps/ibm-cloud-file-nfs-storage-pod created
+    Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)
+
+    ...
+    **Long output truncated in this example**
+    ...
