@@ -84,8 +84,10 @@ The following acronyms are used throughout this demonstration guide:
     - Applicability Statement 2 (AS2))
     - Application programming interfaces (APIs)
     - Artificial Intelligence (AI)
+    - Business to Business Integrator (B2Bi)
     - Electronic Data Interchange (EDI)
     - IBM Sterling Partner Engagement Manager (PEM)
+    - IBM Technology Zone (ITZ)
     - Virtual Machine (VM)
 
 It is now time to proceed to Part 1, an overview of {{offering.name}}.

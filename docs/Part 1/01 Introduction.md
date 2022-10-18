@@ -1,7 +1,6 @@
-{{offering.name}} (PEM) is a software based engagement system that enables faster onboarding, collaboration, interaction, monitoring, management, and visibility into the interactions between companies and their partners, customers, and suppliers. PEM significantly reduces the time and resources required to onboard new partners while enhancing the ability to manage
-and maintain relationships with existing partners. By standardizing and automating processes, PEM helps to reduce costly manual errors and increases efficiency by enabling partners to maintain their own records.
+{{offering.name}} ...
 
-You can learn more about PEM <a href="https://www.ibm.com/products/partner-engagement-manager" target="_blank">here</a>.
+
 
 In this demonstration, XXXXXXX
 
