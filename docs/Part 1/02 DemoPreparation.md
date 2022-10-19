@@ -24,6 +24,9 @@ Follow the steps to login to IBM Cloud.
 
 ![](_attachments/RightCloudAccount.png)
 
+XXXXXXX - need to add instructions to check cloud ID as it may not be {{tz_environment.cloudAccount}}!!!!
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 4. Click the **OpenShift** ![](_attachments/OpenShiftIcon.png) icon in the left-hand menu bar.
 
 ![](_attachments/CloudDashboardOpenShiftMenu.png)
@@ -240,7 +243,7 @@ Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and 
 21. Create a new directory B2Bi installation scripts.
 
 ```
-mkdir B2Bi
+mkdir b2bi
 ```
 
 22. Set the **PROJECT_DIR** environment variable.
@@ -644,6 +647,8 @@ vi  env.sh
 45. Click the **Copy key** button.
 
 ![](_attachments/EntitlementKey.png)
+
+XXXXXXXXXXXXXXXXXX NEED TO ADD INSTRUCTIONS IF THEY DON'T SHOW AN ENTITLEMENT  XXXXXXXXXXXXXXXXXX
 
 46. Return to the **terminal** and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
 47. Enter your e-mail address between the quotes on the **export EMAIL=""** line.

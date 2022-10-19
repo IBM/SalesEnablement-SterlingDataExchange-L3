@@ -92,5 +92,5 @@ extra:
     cloudAccount: "2112072 - ITZ - V2"
     sshKeyFile: "pem-ibmcloudvsi-download.pem"
   b2bi:
-    installScript: "rapid-lab-b2bi-newlab-61051.zip"
+    installScript: "rapid-lab-b2bi-newdb-61051.zip"
     installPath: "blob/main/tools"
