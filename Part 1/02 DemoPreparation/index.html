@@ -900,28 +900,28 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 <ol start="14">
 <li>Verify the <strong>SSH key</strong> file is found in the <strong>Downloads</strong> directory.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls -l pem-ibmcloudvsi-download.pem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls -l pem_ibmcloudvsi_download.pem
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
-<p>-rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 pem-ibmcloudvsi-download.pem</p>
+<p>-rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem</p>
 </details>
 <details class="failure">
 <summary>No such file or directory?</summary>
-<p>If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as pem-ibmcloudvsi-download.pem.  Check the Downloads directory for the most recent file names.</p>
+<p>If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as pem_ibmcloudvsi_download.pem.  Check the Downloads directory for the most recent file names.</p>
 </details>
 <ol start="15">
 <li>Change the permissions of the <strong>SSH key</strong> file.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chmod 0600 pem-ibmcloudvsi-download.pem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chmod 0600 pem_ibmcloudvsi_download.pem
 </code></pre></div>
 <ol start="16">
 <li>Verify the <strong>SSH key</strong> file has the proper permissions.</li>
 </ol>
-<p>ls -l pem-ibmcloudvsi-download.pem</p>
+<p>ls -l pem_ibmcloudvsi_download.pem</p>
 <details class="example">
 <summary>Example output</summary>
-<p>-rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 pem-ibmcloudvsi-download.pem</p>
+<p>-rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem</p>
 </details>
 <ol start="17">
 <li>Use <strong>ssh</strong> to connect to the remote VSI and enter <strong>yes</strong> when prompted to continue.</li>
@@ -930,10 +930,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 <p class="admonition-title">Warning</p>
 <p>Substitute the strings PORT, USER, and PUBLICIP with the values in the VSI reservation as illustrated in the image in step 11 above.</p>
 </div>
-<p><code>ssh  -i pem-ibmcloudvsi-download.pem -p SSHPORT USERNAME@PUBLICIP</code></p>
+<p><code>ssh  -i pem_ibmcloudvsi_download.pem -p SSHPORT USERNAME@PUBLICIP</code></p>
 <details class="example">
 <summary>Example output</summary>
-<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem-ibmcloudvsi-download.pem -p 2223 itzuser@169.59.6.211</p>
+<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem_ibmcloudvsi_download.pem -p 2223 itzuser@169.59.6.211</p>
 <p>The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.</p>
 <p>ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.</p>
 <p>This key is not known by any other names</p>
@@ -1002,7 +1002,7 @@ Connection to <em>PUBLICIP</em> closed.</p>
 <p><code>ssh  -i pem-ibmcloudvsi-download.pem -p SSHPORT USERNAME@PUBLICIP</code></p>
 <details class="example">
 <summary>Example output</summary>
-<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem-ibmcloudvsi-download.pem -p 2223 itzuser@169.59.6.211
+<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem_ibmcloudvsi_download.pem -p 2223 itzuser@169.59.6.211
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-124-generic x86_64)</p>
 <ul>
 <li>Documentation:  https://help.ubuntu.com</li>
@@ -1067,11 +1067,11 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <ol start="25">
 <li>Unzip the installation script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>unzip rapid-lab-b2bi-newlab-61051.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>unzip rapid-lab-b2bi-newdb-61051.zip
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
-<p>Archive:  rapid-lab-b2bi-newlab-61051.zip</p>
+<p>Archive:  rapid-lab-b2bi-newdb-61051.zip</p>
 <p>inflating: deploy_mq.sh</p>
 <p>inflating: edited-values.yaml</p>
 <p>inflating: prepare_db2.sh</p>
@@ -1132,7 +1132,10 @@ service/db2-ci created
 service/db2-lb created
 statefulset.apps/db2 created</p>
 </details>
-<p>Note, wait approximately 1 minutes for the DB2 containers to start loading in OpenShift before executing the next step.</p>
+<div class="admonition warning">
+<p class="admonition-title">Wait 5 minutes...</p>
+<p>Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.</p>
+</div>
 <ol start="33">
 <li>Verify DB2 is up and running in the OpenShift cluster.</li>
 </ol>
@@ -1242,7 +1245,10 @@ successfully.</p>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>db2 -stvf create_scc_db_b2bidb.sql
 </code></pre></div>
-<p>Note, this command will take approximately 10 minutes to complete.</p>
+<div class="admonition warning">
+<p class="admonition-title">This will take ~5 minutes</p>
+<p>This command will take approximately 5 minutes to complete.</p>
+</div>
 <details class="example">
 <summary>Example output</summary>
 <p>CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32</p>
@@ -1326,12 +1332,11 @@ service/mq-web created</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>vi  env.sh
 </code></pre></div>
 <ol start="43">
-<li>
-<p>Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</p>
-</li>
-<li>
-<p>Create a new key if one does not already exist by clicking the <strong>Get new key</strong> button.</p>
-</li>
+<li>Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</li>
+</ol>
+<p>Note, re-authentication to ibm.com may be required.</p>
+<ol start="44">
+<li>Create a new key if one does not already exist by clicking the <strong>Get new key</strong> button.</li>
 <li>Click the <strong>Copy key</strong> button.</li>
 </ol>
 <p><img alt="" src="../_attachments/EntitlementKey.png" /></p>
@@ -1364,6 +1369,12 @@ itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>./deploy_b2bi.sh
 </code></pre></div>
 <p>Note, this command will take 30+ minutes to complete.</p>
+<div class="admonition tip">
+<p class="admonition-title">Monitor events in OpenShift web console</p>
+<p>Use the OpenShift web console to monitor the <strong>b2bi</strong> project events and pod creation.
+<img alt="" src="../_attachments/OSEventsB2Bi.png" /></p>
+<p><img alt="" src="../_attachments/OSPodsB2Bi.png" /></p>
+</div>
 <details class="example">
 <summary>Example output</summary>
 <p>Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".</p>
