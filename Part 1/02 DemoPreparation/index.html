@@ -932,31 +932,16 @@
 <details class="example">
 <summary>Example output</summary>
 <p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem-ibmcloudvsi-download.pem -p 2223 itzuser@169.59.6.211</p>
-<p>The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.
-ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '[169.59.6.211]:2223' (ED25519) to the list of known hosts.
-Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)</p>
-<ul>
-<li>Documentation:  https://help.ubuntu.com</li>
-<li>Management:     https://landscape.canonical.com</li>
-<li>Support:        https://ubuntu.com/advantage</li>
-</ul>
-<p>System information as of Tue Oct 18 16:03:34 UTC 2022</p>
-<p>System load:  0.0               Processes:             113
-  Usage of /:   1.2% of 97.26GB   Users logged in:       0
-  Memory usage: 5%                IPv4 address for eth0: 10.36.166.233
-  Swap usage:   0%                IPv4 address for eth1: 169.59.6.211</p>
-<p>1 update can be applied immediately.
-To see these additional updates run: apt list --upgradable</p>
-<p>The list of available updates is more than a week old.
-To check for new updates run: sudo apt update</p>
-<p>The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.</p>
-<p>Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.</p>
+<p>The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.</p>
+<p>ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.</p>
+<p>This key is not known by any other names</p>
+<p>Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</p>
+<p>Warning: Permanently added '[169.59.6.211]:2223' (ED25519) to the list of known hosts.</p>
+<p>Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)</p>
+<div class="highlight"><pre><span></span><code>...
+**Long output - truncated in this example**
+...
+</code></pre></div>
 <p>To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.</p>
 </details>
@@ -1003,7 +988,7 @@ GitTreeState:"clean", GoVersion:"go1.18.7"}</p>
 <p>Connection to <em>PUBLICIP</em> closed by remote host.
 Connection to <em>PUBLICIP</em> closed.</p>
 </details>
-<p>Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and then continue using</p>
+<p>Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and then continue the steps below.</p>
 <h2 id="download-the-b2bi-installation-scripts">Download the B2Bi installation scripts</h2>
 <ol start="20">
 <li>Use <strong>ssh</strong> to re-connect to the remote VSI.</li>
@@ -1059,21 +1044,21 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 
 <details class="example">
 <summary>Example output</summary>
-<p>--2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
-Resolving github.com (github.com)... 140.82.113.4
-Connecting to github.com (github.com)|140.82.113.4|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
---2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip
-Reusing existing connection to github.com:443.
-HTTP request sent, awaiting response... 302 Found
-Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
---2022-10-18 20:12:57--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 4061226 (3.9M) [application/zip]
-Saving to: ‘rapid-lab-b2bi-newlab-61051.zip’</p>
+<p>--2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true</p>
+<p>Resolving github.com (github.com)... 140.82.113.4</p>
+<p>Connecting to github.com (github.com)|140.82.113.4|:443... connected.</p>
+<p>HTTP request sent, awaiting response... 302 Found</p>
+<p>Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]</p>
+<p>--2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip</p>
+<p>Reusing existing connection to github.com:443.</p>
+<p>HTTP request sent, awaiting response... 302 Found</p>
+<p>Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]</p>
+<p>--2022-10-18 20:12:57--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip</p>
+<p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...</p>
+<p>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.</p>
+<p>HTTP request sent, awaiting response... 200 OK</p>
+<p>Length: 4061226 (3.9M) [application/zip]</p>
+<p>Saving to: ‘rapid-lab-b2bi-newlab-61051.zip’</p>
 <p>rapid-lab-b2bi-newlab-61051.zip                             100%[=========================================================================================================================================&gt;]   3.87M  --.-KB/s    in 0.03s</p>
 <p>2022-10-18 20:12:57 (147 MB/s) - ‘rapid-lab-b2bi-newlab-61051.zip’ saved [4061226/4061226]</p>
 </details>
@@ -1157,10 +1142,10 @@ statefulset.apps/db2 created</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
-<p>(*) Previous setup has not been detected. Creating the users...
-(*) Creating users ...
-(*) Creating instance ...
-DB2 installation is being initialized.</p>
+<p>(*) Previous setup has not been detected. Creating the users...</p>
+<p>(*) Creating users ...</p>
+<p>(*) Creating instance ...</p>
+<p>DB2 installation is being initialized.</p>
 <p>Total number of tasks to be performed: 4
 Total estimated time for all tasks to be performed: 309 second(s)</p>
 <p>Task #1 start
@@ -1178,34 +1163,10 @@ Task #3 end</p>
 Description: Updating global profile registry
 Estimated time 3 second(s)
 Task #4 end</p>
-<p>The execution completed successfully.</p>
-<p>For more information see the DB2 installation log at "/tmp/db2icrt.log.71".
-DBI1446I  The db2icrt command is running.</p>
-<p>DBI1070I  Program db2icrt completed successfully.</p>
-<p>10/18/2022 16:44:36     0   0   SQL1032N  No start database manager command was issued.
-SQL1032N  No start database manager command was issued.  SQLSTATE=57019
-(<em>) Cataloging existing databases
-ls: cannot access /database/data/db2inst1/NODE0000: No such file or directory
-(</em>) Applying Db2 license ...</p>
-<p>LIC1402I  License added successfully.</p>
-<p>LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.5/license/en_US.iso88591"
-(<em>) Saving the checksum of the current nodelock file ...
-(</em>) Updating DBM CFG parameters ...
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-successfully.
-No Cgroup memory limit detected, instance memory will follow automatic tuning
-(*) Remounting /database with suid...</p>
-<p>DB2 State : Operable
-DB2 has not been started
-Starting DB2...</p>
-<p>10/18/2022 16:44:43     0   0   SQL1063N  DB2START processing was successful.
-SQL1063N  DB2START processing was successful.
-ssh-keygen: generating new host keys: RSA1 RSA DSA ECDSA ED25519
-(<em>) All databases are now active.
-(</em>) Setup has completed.
-false</p>
+<div class="highlight"><pre><span></span><code>...
+**Long output - truncated in this example**
+...
+</code></pre></div>
 <p>2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
 PID     : 15858                TID : 139996146354048 PROC : db2start</p>
 <p>INSTANCE: db2inst1             NODE : 000</p>
@@ -1292,7 +1253,7 @@ successfully.</p>
 <p>UPDATE DATABASE CONFIG USING STMT_CONC LITERALS</p>
 <p>DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.</p>
 <p>...
-<strong>Long output truncated in this example</strong>
+<strong>Long output - truncated in this example</strong>
 ...</p>
 <p>CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING</p>
 <p>DB20000I  The SQL command completed successfully.</p>
@@ -1412,7 +1373,7 @@ clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "defaul
 deployment.apps/ibm-cloud-file-nfs-storage-pod created
 Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)</p>
 <p>...
-<strong>Long output truncated in this example</strong>
+<strong>Long output - truncated in this example</strong>
 ...</p>
 </details>
 
