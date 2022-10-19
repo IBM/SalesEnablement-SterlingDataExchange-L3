@@ -601,7 +601,7 @@ db2 -stvf create_scc_db_b2bidb.sql
 
     SQL1063N  DB2START processing was successful.
 
-40. Exit the connection to the DB2 conatiner in Openshift.
+40. Exit the connection to the DB2 container in OpenShift.
 
 ```
 exit
@@ -693,15 +693,14 @@ cat env.sh
 ./deploy_b2bi.sh
 ```
 
-Note, this command will take 30+ minutes to complete.
+!!! warning "This will take approximately 60 minutes"
+    This command will take approximately 60 minutes to complete.
 
 ??? tip "Monitor events in OpenShift web console"
     Use the OpenShift web console to monitor the **b2bi** project events and pod creation.
     ![](_attachments/OSEventsB2Bi.png)
 
     ![](_attachments/OSPodsB2Bi.png)
-
-
 
 ??? example "Example output"
     Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".
@@ -722,3 +721,33 @@ Note, this command will take 30+ minutes to complete.
     ...
     **Long output - truncated in this example**
     ...
+
+    NAME: sterling-fg
+
+    LAST DEPLOYED: Wed Oct 19 17:11:30 2022
+
+    NAMESPACE: b2bi
+
+    STATUS: deployed
+
+    REVISION: 1
+
+    NOTES:
+
+    Please wait while the application is getting deployed.
+
+    1. Run the below command to check the status of application server replica sets. At least 1 replica must be in 'READY' state.
+
+         kubectl get replicasets -l release=sterling-fg -n b2bi
+
+    2. Run the below command to check the status of the application server pods for the release.
+
+        kubectl get pods -l release=sterling-fg -n b2bi -o wide
+
+    To view the logs for a pod, run the below command.
+
+        kubectl logs <pod name> -n b2bi
+
+    3. Access the application by running the following url
+
+That concludes the setup of the environment. Proceed to the next part of the demonstration guide to access the {{offering.name}}.
