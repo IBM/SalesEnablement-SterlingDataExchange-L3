@@ -84,7 +84,7 @@ B2BiSFTPAdapterName1.png
 
 Review the settings on the **SFTP Server Adapter: Configuration** form.
 
-B2BiSFTPDefaultSettings1
+B2BiSFTPDefaultSettings1.png
 
 The default **SFTP Server Listen Port** must be changed to the B2Bi service port configured in OpenShift.
 
@@ -95,3 +95,62 @@ OpenShiftRoutesPageToServices.png
 Find and click the **sterling-fg-b2bi-aski-backend-svc** link.
 
 OSServicesASI.png
+
+Locate and copy the **Service Port** number for **adapters-1** in the **Service port mapping** table.
+
+OSServicesASIOverview.png
+
+Record this **Service Port** number, it will be used several times during this demonstration.
+
+Switch back to the **B2Bi Dashboard** browser window or tab.
+
+B2BiSFTPDefaultSettings1.png
+
+Enter or copy the recorded **Service Port** number into the **SFTP Server Listen Port** entry field and click **Next**.
+
+B2BiSFTPDefaultSettings2.png
+
+Click **Next** on the **SFTP Server Adapter: Configuration: Document Storage** page.
+
+B2BiSFTPStroage.png
+
+Review the default settings on the **SFTP Server Adapter: Add Policies** page and click **Next**.
+
+B2BiSFTPPolicies.png
+
+Review the default settings on the **SFTP Server Adapter: Configuration** page and click **Next**.
+
+B2BiSFTPConfigPage.png
+
+Review the default settings on the **SFTP Server Adapter: Extractability** page and click **Next**.
+
+B2BiSFTPExtractability.png
+
+Review the **SFTP Server Adapter: Confirmation** page and click **Finish**.
+
+B2BiSFTPFinish.png
+
+Click **Return** after the new SFTP adapter has been created.
+
+B2BiSFTPConfirmation.png
+
+Click the **checkbox** next to the **SFTP Server Adapter** to start the adapter.
+
+B2BiSFTPStartAdapter.png
+
+Click the ![](_attachments/BangIcon.png) next to the **SFTP Server Adapter**.
+
+B2BiSFTPAdapterEnabled.png
+
+Verify the **SFTP Server Adapter** is **Running**.
+
+B2BiSFTPAdapterStatus.png
+
+Close the **Adapter Information** pop-up window.
+
+
+B2BiSFTPAdapterStatus2.png
+
+Click the **Logout** link to log out of the **B2Bi dashboard**.
+
+B2BiLogout.png
