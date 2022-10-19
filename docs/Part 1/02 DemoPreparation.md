@@ -118,37 +118,21 @@ ls -l {{tz_environment.sshKeyFile}}
     MacBook-Pro-2:Downloads andrewjones$ ssh -i {{tz_environment.sshKeyFile}} -p 2223 itzuser@169.59.6.211
 
     The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.
+
     ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.
+
     This key is not known by any other names
+
     Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
     Warning: Permanently added '[169.59.6.211]:2223' (ED25519) to the list of known hosts.
+
     Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)
 
-     * Documentation:  https://help.ubuntu.com
-     * Management:     https://landscape.canonical.com
-     * Support:        https://ubuntu.com/advantage
+        ...
+        **Long output - truncated in this example**
+        ...
 
-      System information as of Tue Oct 18 16:03:34 UTC 2022
-
-      System load:  0.0               Processes:             113
-      Usage of /:   1.2% of 97.26GB   Users logged in:       0
-      Memory usage: 5%                IPv4 address for eth0: 10.36.166.233
-      Swap usage:   0%                IPv4 address for eth1: 169.59.6.211
-
-    1 update can be applied immediately.
-    To see these additional updates run: apt list --upgradable
-
-
-    The list of available updates is more than a week old.
-    To check for new updates run: sudo apt update
-
-
-    The programs included with the Ubuntu system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
-
-    Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-    applicable law.
 
     To run a command as administrator (user "root"), use "sudo <command>".
     See "man sudo_root" for details.
@@ -214,7 +198,7 @@ sudo shutdown -r now
     Connection to _PUBLICIP_ closed by remote host.
     Connection to _PUBLICIP_ closed.
 
-Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and then continue using
+Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and then continue the steps below.
 
 ## Download the B2Bi installation scripts
 
@@ -280,19 +264,33 @@ wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installSc
 
 ??? example "Example output"
     --2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
+
     Resolving github.com (github.com)... 140.82.113.4
+
     Connecting to github.com (github.com)|140.82.113.4|:443... connected.
+
     HTTP request sent, awaiting response... 302 Found
+
     Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
+
     --2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip
+
     Reusing existing connection to github.com:443.
+
     HTTP request sent, awaiting response... 302 Found
+
     Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
+
     --2022-10-18 20:12:57--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip
+
     Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+
     Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+
     HTTP request sent, awaiting response... 200 OK
+
     Length: 4061226 (3.9M) [application/zip]
+
     Saving to: ‘rapid-lab-b2bi-newlab-61051.zip’
 
     rapid-lab-b2bi-newlab-61051.zip                             100%[=========================================================================================================================================>]   3.87M  --.-KB/s    in 0.03s
@@ -399,11 +397,14 @@ oc logs -f ${DB2_NAME}-0
 
 !!! example "Example output"
     (\*) Previous setup has not been detected. Creating the users...
+
     (\*) Creating users ...
+
     (\*) Creating instance ...
+
     DB2 installation is being initialized.
 
-     Total number of tasks to be performed: 4
+    Total number of tasks to be performed: 4
     Total estimated time for all tasks to be performed: 309 second(s)
 
     Task #1 start
@@ -425,44 +426,11 @@ oc logs -f ${DB2_NAME}-0
     Estimated time 3 second(s)
     Task #4 end
 
-    The execution completed successfully.
 
-    For more information see the DB2 installation log at "/tmp/db2icrt.log.71".
-    DBI1446I  The db2icrt command is running.
+        ...
+        **Long output - truncated in this example**
+        ...
 
-
-    DBI1070I  Program db2icrt completed successfully.
-
-
-    10/18/2022 16:44:36     0   0   SQL1032N  No start database manager command was issued.
-    SQL1032N  No start database manager command was issued.  SQLSTATE=57019
-    (*) Cataloging existing databases
-    ls: cannot access /database/data/db2inst1/NODE0000: No such file or directory
-    (*) Applying Db2 license ...
-
-    LIC1402I  License added successfully.
-
-
-    LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.5/license/en_US.iso88591"
-    (*) Saving the checksum of the current nodelock file ...
-    (*) Updating DBM CFG parameters ...
-    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-    successfully.
-    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
-    successfully.
-    No Cgroup memory limit detected, instance memory will follow automatic tuning
-    (*) Remounting /database with suid...
-
-    DB2 State : Operable
-    DB2 has not been started
-    Starting DB2...
-
-    10/18/2022 16:44:43     0   0   SQL1063N  DB2START processing was successful.
-    SQL1063N  DB2START processing was successful.
-    ssh-keygen: generating new host keys: RSA1 RSA DSA ECDSA ED25519
-    (*) All databases are now active.
-    (*) Setup has completed.
-    false
 
     2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
     PID     : 15858                TID : 139996146354048 PROC : db2start
@@ -578,7 +546,7 @@ Note, this command will take approximately 10 minutes to complete.
     DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
 
     ...
-    **Long output truncated in this example**
+    **Long output - truncated in this example**
     ...
 
     CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING
@@ -724,5 +692,5 @@ Note, this command will take 30+ minutes to complete.
     Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)
 
     ...
-    **Long output truncated in this example**
+    **Long output - truncated in this example**
     ...
