@@ -841,8 +841,11 @@
 <li>On the <strong>IBM Cloud Dashboard</strong> set the current account to <strong>2112072 - ITZ - V2</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/RightCloudAccount.png" /></p>
-<p>XXXXXXX - need to add instructions to check cloud ID as it may not be 2112072 - ITZ - V2!!!!
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+<details class="failure">
+<summary>Not seeing 2112072 - ITZ - V2?</summary>
+<p>It is possible ITZ provisioned the OpenShift cluster in a different IBM Cloud account. Select the account specified in the ITZ reservation.
+<img alt="" src="../_attachments/OSITZReservation.png" /></p>
+</details>
 <ol start="4">
 <li>Click the <strong>OpenShift</strong> <img alt="" src="../_attachments/OpenShiftIcon.png" /> icon in the left-hand menu bar.</li>
 </ol>
@@ -918,7 +921,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 <ol start="16">
 <li>Verify the <strong>SSH key</strong> file has the proper permissions.</li>
 </ol>
-<p>ls -l pem_ibmcloudvsi_download.pem</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls -l pem_ibmcloudvsi_download.pem
+</code></pre></div>
 <details class="example">
 <summary>Example output</summary>
 <p>-rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem</p>
@@ -951,7 +955,7 @@ See "man sudo_root" for details.</p>
 <ol start="18">
 <li>Use the following command to install all required tools.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash &lt;(curl -sL https://ibm.biz/ocp-cli)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>bash &lt;(curl -sL https://ibm.biz/ocp-cli)
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -983,7 +987,7 @@ GitTreeState:"clean", GoVersion:"go1.18.7"}</p>
 <ol start="19">
 <li>Restart the VSI.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo shutdown -r now
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo shutdown -r now
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1025,22 +1029,22 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <ol start="21">
 <li>Create a new directory B2Bi installation scripts.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir b2bi
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir b2bi
 </code></pre></div>
 <ol start="22">
 <li>Set the <strong>PROJECT_DIR</strong> environment variable.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export PROJECT_DIR=$HOME/b2bi
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export PROJECT_DIR=$HOME/b2bi
 </code></pre></div>
 <ol start="23">
 <li>Change directories to <strong>PROJECT_DIR</strong>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cd $PROJECT_DIR
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cd $PROJECT_DIR
 </code></pre></div>
 <ol start="24">
 <li>Download the B2Bi installation script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>wget -O rapid-lab-b2bi-newdb-61051.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>wget -O rapid-lab-b2bi-newdb-61051.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
 </code></pre></div>
 <!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
 
@@ -1067,7 +1071,7 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <ol start="25">
 <li>Unzip the installation script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>unzip rapid-lab-b2bi-newdb-61051.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unzip rapid-lab-b2bi-newdb-61051.zip
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1116,7 +1120,7 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <ol start="32">
 <li>Run the environment setup and DB2 deploy scripts.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>. env.sh ; ./deploy_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>. env.sh ; ./deploy_db2.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1136,10 +1140,18 @@ statefulset.apps/db2 created</p>
 <p class="admonition-title">Wait 5 minutes...</p>
 <p>Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.</p>
 </div>
+<details class="tip">
+<summary>Monitor events in OpenShift web console</summary>
+<div class="highlight"><pre><span></span><code>Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+![](_attachments/OSEventsDB2.png)
+
+![](_attachments/OSPodsDB2.png)
+</code></pre></div>
+</details>
 <ol start="33">
 <li>Verify DB2 is up and running in the OpenShift cluster.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc logs -f ${DB2_NAME}-0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc logs -f ${DB2_NAME}-0
 </code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Failure</p>
@@ -1202,13 +1214,13 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <ol start="35">
 <li>Prepare the DB2 instance running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./prepare_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./prepare_db2.sh
 </code></pre></div>
 <p>Note, this script does not generate output.</p>
 <ol start="36">
 <li>Remotely connect to the DB2 container running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -1219,7 +1231,7 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <ol start="37">
 <li>Run the <strong>db2reg.sh</strong>  script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>./db2reg.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>./db2reg.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1243,7 +1255,7 @@ successfully.</p>
 <ol start="38">
 <li>Create the B2Bi tables in DB2.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>db2 -stvf create_scc_db_b2bidb.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>db2 -stvf create_scc_db_b2bidb.sql
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">This will take ~5 minutes</p>
@@ -1271,7 +1283,7 @@ successfully.</p>
 <ol start="39">
 <li>Run the final DB2 update script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./db2-update.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./db2-update.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1290,9 +1302,9 @@ DB21024I  This command is asynchronous and may not be effective immediately.</p>
 <p>SQL1063N  DB2START processing was successful.</p>
 </details>
 <ol start="40">
-<li>Exit the connection to the DB2 conatiner in Openshift.</li>
+<li>Exit the connection to the DB2 container in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>exit
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>exit
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1303,7 +1315,7 @@ itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 <ol start="41">
 <li>Deploy MQ to OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>./deploy_mq.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>./deploy_mq.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -1329,7 +1341,7 @@ service/mq-web created</p>
 <ol start="42">
 <li>Open the <strong>vi</strong> editor.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>vi  env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>vi  env.sh
 </code></pre></div>
 <ol start="43">
 <li>Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</li>
@@ -1346,7 +1358,7 @@ service/mq-web created</p>
 <li>Enter your e-mail address between the quotes on the <strong>export EMAIL=""</strong> line.</li>
 <li>Verify the env.sh file looks like the example output below.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>cat env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cat env.sh
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -1366,15 +1378,18 @@ itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 <ol start="49">
 <li>Deploy the B2Bi containers on OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>./deploy_b2bi.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>./deploy_b2bi.sh
 </code></pre></div>
-<p>Note, this command will take 30+ minutes to complete.</p>
-<div class="admonition tip">
-<p class="admonition-title">Monitor events in OpenShift web console</p>
+<div class="admonition warning">
+<p class="admonition-title">This will take approximately 60 minutes</p>
+<p>This command will take approximately 60 minutes to complete.</p>
+</div>
+<details class="tip">
+<summary>Monitor events in OpenShift web console</summary>
 <p>Use the OpenShift web console to monitor the <strong>b2bi</strong> project events and pod creation.
 <img alt="" src="../_attachments/OSEventsB2Bi.png" /></p>
 <p><img alt="" src="../_attachments/OSPodsB2Bi.png" /></p>
-</div>
+</details>
 <details class="example">
 <summary>Example output</summary>
 <p>Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".</p>
@@ -1389,7 +1404,31 @@ Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-
 <p>...
 <strong>Long output - truncated in this example</strong>
 ...</p>
+<p>NAME: sterling-fg</p>
+<p>LAST DEPLOYED: Wed Oct 19 17:11:30 2022</p>
+<p>NAMESPACE: b2bi</p>
+<p>STATUS: deployed</p>
+<p>REVISION: 1</p>
+<p>NOTES:</p>
+<p>Please wait while the application is getting deployed.</p>
+<ol>
+<li>
+<p>Run the below command to check the status of application server replica sets. At least 1 replica must be in 'READY' state.</p>
+<p>kubectl get replicasets -l release=sterling-fg -n b2bi</p>
+</li>
+<li>
+<p>Run the below command to check the status of the application server pods for the release.</p>
+<p>kubectl get pods -l release=sterling-fg -n b2bi -o wide</p>
+</li>
+</ol>
+<p>To view the logs for a pod, run the below command.</p>
+<div class="highlight"><pre><span></span><code>kubectl logs &lt;pod name&gt; -n b2bi
+</code></pre></div>
+<ol start="3">
+<li>Access the application by running the following url</li>
+</ol>
 </details>
+<p>That concludes the setup of the environment. Proceed to the next part of the demonstration guide to access the IBM Sterling Data Exchange.</p>
 
 
 
