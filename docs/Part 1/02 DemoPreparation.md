@@ -24,8 +24,9 @@ Follow the steps to login to IBM Cloud.
 
 ![](_attachments/RightCloudAccount.png)
 
-XXXXXXX - need to add instructions to check cloud ID as it may not be {{tz_environment.cloudAccount}}!!!!
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+??? failure "Not seeing {{tz_environment.cloudAccount}}?"
+    It is possible ITZ provisioned the OpenShift cluster in a different IBM Cloud account. Select the account specified in the ITZ reservation.
+    ![](_attachments/OSITZReservation.png)
 
 4. Click the **OpenShift** ![](_attachments/OpenShiftIcon.png) icon in the left-hand menu bar.
 
@@ -105,7 +106,9 @@ chmod 0600 {{tz_environment.sshKeyFile}}
 
 16. Verify the **SSH key** file has the proper permissions.
 
+```
 ls -l {{tz_environment.sshKeyFile}}
+```
 
 ??? example "Example output"
     -rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 {{tz_environment.sshKeyFile}}
@@ -389,6 +392,14 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 
 !!! warning "Wait 5 minutes..."
     Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
+
+??? tip "Monitor events in OpenShift web console"
+        Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+        ![](_attachments/OSEventsDB2.png)
+
+        ![](_attachments/OSPodsDB2.png)
+
+
 
 33. Verify DB2 is up and running in the OpenShift cluster.
 
@@ -684,7 +695,7 @@ cat env.sh
 
 Note, this command will take 30+ minutes to complete.
 
-!!! tip "Monitor events in OpenShift web console"
+??? tip "Monitor events in OpenShift web console"
     Use the OpenShift web console to monitor the **b2bi** project events and pod creation.
     ![](_attachments/OSEventsB2Bi.png)
 
