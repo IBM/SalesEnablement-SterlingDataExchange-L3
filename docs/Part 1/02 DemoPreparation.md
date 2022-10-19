@@ -303,11 +303,11 @@ wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installSc
 25. Unzip the installation script.
 
 ```
-unzip rapid-lab-b2bi-newlab-61051.zip
+unzip {{b2bi.installScript}}
 ```
 
 ??? example "Example output"
-    Archive:  rapid-lab-b2bi-newlab-61051.zip
+    Archive:  {{b2bi.installScript}}
 
       inflating: deploy_mq.sh
 
@@ -387,7 +387,8 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
     service/db2-lb created
     statefulset.apps/db2 created
 
-Note, wait approximately 1 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
+!!! warning "Wait 5 minutes..."
+    Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
 
 33. Verify DB2 is up and running in the OpenShift cluster.
 
@@ -529,7 +530,8 @@ Note, a remote connection is now open to the DB2 container running in OpenShift 
 db2 -stvf create_scc_db_b2bidb.sql
 ```
 
-Note, this command will take approximately 10 minutes to complete.
+!!! warning "This will take ~5 minutes"
+    This command will take approximately 5 minutes to complete.
 
 ??? example "Example output"
     CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32
@@ -643,6 +645,8 @@ vi  env.sh
 
 43. Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
+Note, re-authentication to ibm.com may be required.
+
 44. Create a new key if one does not already exist by clicking the **Get new key** button.
 45. Click the **Copy key** button.
 
@@ -679,6 +683,14 @@ cat env.sh
 ```
 
 Note, this command will take 30+ minutes to complete.
+
+!!! tip "Monitor events in OpenShift web console"
+    Use the OpenShift web console to monitor the **b2bi** project events and pod creation.
+    ![](_attachments/OSEventsB2Bi.png)
+
+    ![](_attachments/OSPodsB2Bi.png)
+
+
 
 ??? example "Example output"
     Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".
