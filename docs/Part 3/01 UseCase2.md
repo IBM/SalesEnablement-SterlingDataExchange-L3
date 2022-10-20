@@ -156,3 +156,63 @@ Setting the file pattern to the regular express **.+** allows for file names of 
 Click **Next>>** on the **Producer**  page.
 
 FG_TemplateCreateProducerNext.png
+
+Click the **Add** button on the **Consumer** page.
+
+FG_TemplateCreateConsumerAdd.png
+
+Click the **Add** button on the **New Delivery Channel** pop-up window.
+
+FG_TemplateCreateConsumerNewDeliveryChannel.png
+
+Click **Unknown** in the **Consumer File Type** pull-down menu.
+
+FG_TemplateCreateConsumerNewDeliveryChannelFileTypeMenu.png
+
+Enter **${ProducerFileName}** in the **File name format*** field.
+
+```
+${ProducerFileName}
+```
+
+Review the help information regarding file name formats by overing over the **File name format** entry field and then click **Save**.
+
+FG_TemplateCreateConsumerNewDeliveryChannelFileTypeFormat.png
+
+Click **Save** on the **New Delivery Channel** pop-up window.
+
+FG_TemplateCreateConsumerNewDeliveryChannelSave.png
+
+Click **Save** on the **Consumer** page.
+
+FG_TemplateCreateConsumerSave.png
+
+Click **OK** on the **Routing Channel Template successfully created.** pop-up message.
+
+FS_TemplateCreated.png
+
+Review the settings for the new **Passthrough** routing channel template.
+
+FS_TemplateSummary.png
+
+Click the **Channels** option under the **Routes** menu.
+
+FG_RoutesChannelsMenu.png
+
+Click the **Create** button at bottom right to create a new **Channel**.
+
+FG_ChannelCreate.png
+
+Select **Passthrough** for the **Routing Channel Template**, **partner1** for the **Producer**, and **partner2**  for the **Consumer**, and then click **Save** to create the new channel.
+
+FG-ChannelCreateP1toP2.png
+
+Click **OK** on the **Success** pop-up window.
+
+FG_ChannelCreateP1toP2Success.png
+
+Repeat the last 3 steps to create a channel from partner2 to partner 1.
+
+FG-ChannelCreateP2toP1
+
+In the next chapter, the fun begins as the partners start to securely exchange files.
