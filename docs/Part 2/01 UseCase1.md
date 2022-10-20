@@ -116,7 +116,7 @@ Click **Next** on the **SFTP Server Adapter: Configuration: Document Storage** p
 
 Review the default settings on the **SFTP Server Adapter: Add Policies** page and click **Next**.
 
-![](_attachments/B2BiSFTPPolicies.png)
+![](_attachments/B2BiSFPPolicies.png)
 
 Review the default settings on the **SFTP Server Adapter: Configuration** page and click **Next**.
 

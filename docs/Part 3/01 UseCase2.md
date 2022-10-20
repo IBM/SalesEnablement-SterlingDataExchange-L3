@@ -58,11 +58,14 @@ Under **Partner**, click the **Add** link.
 
 Enter **partner1** in the **Partner Name** field, 10 digits in the **Phone** field and **partner1@localhost.com** in the **Email Address** field, and then click **Next**.
 
+
+XXxXxxxxxXXXX MISSING IMAGE!!!!
+
 ![](_attachments/FG_CommunitiesPartner1.png)
 
 Enter **partner1** in the **User Name** field, **password** in the **Password** field, **password** in the **Confirm Passwod** field, **Partner** in the **Given Name** field, and **Surname** field, and then click **Next**.
 
-F![](_attachments/G_CommunitiesPartner1Password.png)
+F![](_attachments/FG_CommunitiesPartner1Password.png)
 
 Click **partner1 is a Producer of Data** and then click **Next**.
 
@@ -124,11 +127,11 @@ Review the **Special Characters** settings and then click **Next>>**.
 
 Add **All Partners** to both the **Producer Groups** and **Consumer Groups** tables.
 
-![](_attachments/FG_TemplateCreateSpecialGroups1.png)
+![](_attachments/FG_TemplateCreateGroups1.png)
 
 Click **Next>>** after adding **All Partners** to both groups.
 
-![](_attachments/FG_TemplateCreateSpecialGroups2.png)
+![](_attachments/FG_TemplateCreateGroups2.png)
 
 Review the **Provisioning Facts** page and then click **Next>>**.
 
