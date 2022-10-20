@@ -1,6 +1,6 @@
 Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide technical sellers from IBM and Business Partners with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
 
-To obtain the associated {{learning.plan.name}} badge, in addition to completing all the steps in this demonstration guide, in addition:
+To obtain the associated {{learningplan.name}} badge, in addition to completing all the steps in this demonstration guide, in addition:
 
 **IBM Technical Sellers** must develop and record a Stand & Deliver presentation. This video is intended to simulate delivery of a “live” demo in front of a client — on camera. IBMers will have flexibility in defining a hypothetical client, the pain points the client has, and the goals they aspire to achieve. The recording will then cover the seller’s hands-on demonstration and pitch to the client of the value of the IBM solution using the environment and techniques of this lab. Specific criteria that must be demonstrated as part of the Stand & Deliver recordings is provided within the documentation that accompanies the Level 3 course in Your Learning.
 
