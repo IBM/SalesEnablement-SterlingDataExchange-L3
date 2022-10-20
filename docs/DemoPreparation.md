@@ -653,7 +653,7 @@ Notice the command line prompt has changed back to the prompt for the VSI connec
 vi  env.sh
 ```
 
-43. Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
+43. Open the IBM Cloud **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
 Note, re-authentication to ibm.com may be required.
 
