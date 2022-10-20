@@ -63,12 +63,11 @@ Next, an SFTP adapter must be created which will utilize the OpenShift service p
 
 Click the **Services** menu item under **Deployment** in the left-hand menu bar.
 
-B2BiMainMenuDeploymentToServices
+B2BiMainMenuDeploymentToServices.png
 
 Click the **Configuration** menu item under **Services**.
 
 B2BiMainMenuServicesToConfiguration.png
-
 
 Enter **sftp** in the **Service Name** field and click the **Go!** button in the **Search** box.
 
@@ -92,7 +91,7 @@ Switch back to the OpenShift web console browser window or tab and click the **S
 
 OpenShiftRoutesPageToServices.png
 
-Find and click the **sterling-fg-b2bi-aski-backend-svc** link.
+Find and click the **sterling-fg-b2bi-asi-backend-svc** link.
 
 OSServicesASI.png
 

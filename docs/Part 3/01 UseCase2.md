@@ -215,4 +215,8 @@ Repeat the last 3 steps to create a channel from partner2 to partner 1.
 
 FG-ChannelCreateP2toP1
 
+Click **Sign Out**.
+
+FG-SignOut.png
+
 In the next chapter, the fun begins as the partners start to securely exchange files.
