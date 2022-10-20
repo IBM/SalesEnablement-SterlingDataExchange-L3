@@ -394,13 +394,11 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
     Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
 
 ??? tip "Monitor events in OpenShift web console"
-        Use the OpenShift web console to monitor the **DB2** project events and pod creation.
-        ![](_attachments/OSEventsDB2.png)
+    Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+    ![](_attachments/OSEventsDB2.png)
+    ![](_attachments/OSPodsDB2.png)
 
-        ![](_attachments/OSPodsDB2.png)
 
-![](_attachments/OSEventsDB2.png)
-![](_attachments/OSPodsDB2.png)
 
 33. Verify DB2 is up and running in the OpenShift cluster.
 
