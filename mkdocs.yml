@@ -13,16 +13,12 @@ docs_dir: docs
 
 
 nav:
-  - Introduction: 'index.md'
-  - Overview:
-    - 'The Demonstration': 'Part 1/01 Introduction.md'
-    - 'Demonstration Environment Preparation': 'Part 1/02 DemoPreparation.md'
-  - Use Case 1:
-    - 'Use Case Introduction': 'Part 2/01 UseCase1.md'
-  - Use Case 2:
-    - 'Use Case Introduction': 'Part 3/01 UseCase2.md'
-  - Use Case 3:
-    - 'Use Case Introduction': 'Part 4/01 UseCase3.md'
+  - 'Introduction': 'index.md'
+  - 'Demonstration Overview': 'Overview.md'
+  - 'Environment Preparation and B2Bi Installation': 'DemoPreparation.md'
+  - 'B2Bi Configuration Part 1': 'ConfigurationPart1.md'
+  - 'B2Bi Configuration Part 2': 'ConfigurationPart2.md'
+  - 'Client Demonstration': 'ClientDemonstration.md'
   - 'Next Steps': 'NextSteps.md'
 
 theme:
