@@ -399,7 +399,8 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 
         ![](_attachments/OSPodsDB2.png)
 
-
+![](_attachments/OSEventsDB2.png)
+![](_attachments/OSPodsDB2.png)
 
 33. Verify DB2 is up and running in the OpenShift cluster.
 

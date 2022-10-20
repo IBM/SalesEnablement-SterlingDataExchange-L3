@@ -1,3 +1,8 @@
+XXXXXXXXXXXXXXXXXX
+URLS in this page and the messaging needs to be updated for IBM Sterling Data Exchange
+XXXXXXXXXXXXXXXXXX
+
+
 This guide provided information to assist IBM and Business Partner sellers and technical sellers in demonstrating {{offering.name}}. Links to specific PEM topics were provided throughout this demonstration guide. Take the time to read the official <a href="https://www.ibm.com/docs/en/elm/7.0.3?topic=overview-elm" target="_blank">{{offering.name}} documentation</a> to learn the full capabilities of the offering.
 
 Note, similar demonstration of PEM are available on IBM Technology Zone <a href="https://techzone.ibm.com/collection/ai-applications-live-demos-collection#tab-2" target="_blank">here</a>.
