@@ -88,6 +88,7 @@ The following acronyms are used throughout this demonstration guide:
     - Electronic Data Interchange (EDI)
     - IBM Sterling Partner Engagement Manager (PEM)
     - IBM Technology Zone (ITZ)
+    - User Interface (UI)
     - Virtual Machine (VM)
 
 It is now time to proceed to Part 1, an overview of {{offering.name}}.

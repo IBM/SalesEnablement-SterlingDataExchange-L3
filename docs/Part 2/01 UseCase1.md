@@ -154,3 +154,6 @@ B2BiSFTPAdapterStatus2.png
 Click the **Logout** link to log out of the **B2Bi dashboard**.
 
 B2BiLogout.png
+
+
+XXXXXX at 3:08 in video!!! XXXXXX
