@@ -1,6 +1,6 @@
 Create Partner community
 
-Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): **sterling-fg-b2bi-asi-internal-route-filegateway portal
+Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): **sterling-fg-b2bi-asi-internal-route-filegateway** application.
 
 ![](_attachments/OSRoutesFileGateway.png)
 
