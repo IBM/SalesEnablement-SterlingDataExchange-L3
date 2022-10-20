@@ -480,81 +480,162 @@
 <li>route and service partners</li>
 </ul>
 <p>Secure File Transfer Protocol (SFTP)</p>
-<p><img alt="" src="../_attachments/OSOverviewToRoutes.png" />
-<img alt="" src="../_attachments/OSRoutesMenu.png" /></p>
-<p>Notice all the routes that are currently defined in the b2bi Project, there are 15 of them</p>
+<ol>
+<li>In the OpenShift web console, click <strong>Routes</strong> under the <strong>Network</strong> section in left-hand panel.</li>
+</ol>
+<p><img alt="" src="../_attachments/OSOverviewToRoutes.png" /></p>
+<ol start="2">
+<li>Click the <strong>All Projects</strong> pull-down menu and click the <strong>b2bi</strong> project.</li>
+</ol>
+<p><img alt="" src="../_attachments/OSRoutesMenu.png" /></p>
+<ol start="3">
+<li>Notice all the routes that are currently defined in the b2bi Project, there are 15 of them</li>
+</ol>
 <p><img alt="" src="../_attachments/OSB2BiAllRoutes.png" /></p>
-<p>To start the setup of the test partner accounts, launch the B2Bi dashboard by clicking on the route for the sterling-fg-b2bi-asi-internal-route-dashboard route in the <strong>Location</strong> column. Do not click the Route name... click the Route link in the <strong>Location</strong> column of the table.</p>
+<ol start="4">
+<li>To start the setup of the test partner accounts, launch the IBM Sterling B2Bi dashboard by clicking on the route for the sterling-fg-b2bi-asi-internal-route-dashboard route in the <strong>Location</strong> column. Do not click the Route name... click the Route link in the <strong>Location</strong> column of the table.</li>
+</ol>
 <p><img alt="" src="../_attachments/OSB2BiDashboardRoute.png" /></p>
-<p>If a security risk is received in the brwoser, accept it. In a production environment certificates would be configured for these web pages.</p>
+<ol start="5">
+<li>If a security risk is received in the browser, accept it. In a production environment certificates would be configured for these web pages.</li>
+</ol>
 <p><img alt="" src="../_attachments/FFSecurityRisk1.png" />
 <img alt="" src="../_attachments/FFSecurityRisk2.png" /></p>
-<p>Note: shown are for the Firefox browser.They will look different depending on browser.</p>
-<p>As this is a new install, in this demonstration the default user ids and passwords will be used. To keep things simple in this demonstration, all passwords will be set to "password".  Not secure, but this will be a short lived demonstration environment.</p>
-<p>Log in the the IBM Sterling B2B Integrator (B2Bi) dashboard using the id: admin and password password.</p>
+<p>Note: the images above are from Firefox running on MacOS. They will look different depending on browser and operating system.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>As this is a new install, in this demonstration the default user ids and passwords will be used. To keep things simple in this demonstration, all passwords will be set to <strong>password</strong>.  Not secure, but this will be a short lived demonstration environment.</p>
+</div>
+<ol start="6">
+<li>Enter <strong>admin</strong> in the <strong>User ID</strong> field and <strong>password</strong> in the <strong>Password</strong> field, and then click <strong>Sign In</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiAdminLogin.png" /></p>
 <p>First, a <strong>SSH Host Identity</strong> needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.</p>
-<p>Click the <strong>Deployment</strong> menu item in left-hand menu bar.</p>
+<ol start="7">
+<li>Click the <strong>Deployment</strong> menu item in left-hand menu bar.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiMainMenuToDeployment.png" /></p>
-<p>Click the <strong>SSH Host Identity Key</strong> menu item in the left-hand menu bar.
-B2BiMainMenuDeploymentToHIK.png</p>
-<p>Click the <strong>Go!</strong> button in the <strong>Create: New Host Identity Key</strong> box.</p>
+<ol start="8">
+<li>Click the <strong>SSH Host Identity Key</strong> menu item in the left-hand menu bar.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToHIK.png" /></p>
+<ol start="9">
+<li>Click the <strong>Go!</strong> button in the <strong>Create: New Host Identity Key</strong> box.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiHIK-CreatePage.png" /></p>
-<p>Enter <strong>demo</strong> in the <strong>Host Name:</strong> field of the "New Host Identity Key" form and then click the <strong>Next</strong> button.</p>
+<ol start="10">
+<li>Enter <strong>demo</strong> in the <strong>Host Name:</strong> field of the "New Host Identity Key" form and then click the <strong>Next</strong> button.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiHIK-HostName.png" /></p>
-<p>Click <strong>Finish</strong>.</p>
+<ol start="11">
+<li>Click <strong>Finish</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiHIK-Finish.png" /></p>
-<p>Click <strong>OK</strong></p>
+<ol start="12">
+<li>Click <strong>OK</strong></li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiHIKCreated.png" /></p>
-<p>Wait until the completed message is received and the click the <strong>Return</strong> button.</p>
+<ol start="13">
+<li>Wait until the completed message is received and the click the <strong>Return</strong> button.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiHIKCreatedCompleted.png" /></p>
 <p>Next, an SFTP adapter must be created which will utilize the OpenShift service port for B2Bi.</p>
-<p>Click the <strong>Services</strong> menu item under <strong>Deployment</strong> in the left-hand menu bar.</p>
+<ol start="14">
+<li>Click the <strong>Services</strong> menu item under <strong>Deployment</strong> in the left-hand menu bar.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToServices.png" /></p>
-<p>Click the <strong>Configuration</strong> menu item under <strong>Services</strong>.</p>
+<ol start="15">
+<li>Click the <strong>Configuration</strong> menu item under <strong>Services</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiMainMenuServicesToConfiguration.png" /></p>
-<p>Enter <strong>sftp</strong> in the <strong>Service Name</strong> field and click the <strong>Go!</strong> button in the <strong>Search</strong> box.</p>
+<ol start="16">
+<li>Enter <strong>sftp</strong> in the <strong>Service Name</strong> field and click the <strong>Go!</strong> button in the <strong>Search</strong> box.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiServicesConfiguratonForm.png" /></p>
-<p>Locate the <strong>SFTP Server Adapter</strong> entry in the table and click the <strong>edit</strong> button.</p>
+<ol start="17">
+<li>Locate the <strong>SFTP Server Adapter</strong> entry in the table and click the <strong>edit</strong> button.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiServicesConfigurationSearchResults.png" /></p>
-<p>Review the default settings and click <strong>Next</strong>.</p>
+<ol start="18">
+<li>Review the default settings and click <strong>Next</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterName1.png" /></p>
-<p>Review the settings on the <strong>SFTP Server Adapter: Configuration</strong> form.</p>
+<ol start="19">
+<li>Review the settings on the <strong>SFTP Server Adapter: Configuration</strong> form.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1.png" /></p>
 <p>The default <strong>SFTP Server Listen Port</strong> must be changed to the B2Bi service port configured in OpenShift.</p>
-<p>Switch back to the OpenShift web console browser window or tab and click the <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</p>
+<ol start="20">
+<li>Switch back to the OpenShift web console browser window or tab and click the <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</li>
+</ol>
 <p><img alt="" src="../_attachments/OpenShiftRoutesPageToServices.png" /></p>
-<p>Find and click the <strong>sterling-fg-b2bi-asi-backend-svc</strong> link.</p>
+<ol start="21">
+<li>Find and click the <strong>sterling-fg-b2bi-asi-backend-svc</strong> link.</li>
+</ol>
 <p><img alt="" src="../_attachments/OSServicesASI.png" /></p>
-<p>Locate and copy the <strong>Service Port</strong> number for <strong>adapters-1</strong> in the <strong>Service port mapping</strong> table.</p>
+<ol start="22">
+<li>Locate and copy the <strong>Service Port</strong> number for <strong>adapters-1</strong> in the <strong>Service port mapping</strong> table.</li>
+</ol>
 <p><img alt="" src="../_attachments/OSServicesASIOverview.png" /></p>
+<ol start="23">
+<li>
 <p>Record this <strong>Service Port</strong> number, it will be used several times during this demonstration.</p>
+</li>
+<li>
 <p>Switch back to the <strong>B2Bi Dashboard</strong> browser window or tab.</p>
+</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1.png" /></p>
-<p>Enter or copy the recorded <strong>Service Port</strong> number into the <strong>SFTP Server Listen Port</strong> entry field and click <strong>Next</strong>.</p>
+<ol start="25">
+<li>Enter or copy the recorded <strong>Service Port</strong> number into the <strong>SFTP Server Listen Port</strong> entry field and click <strong>Next</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2.png" /></p>
-<p>Click <strong>Next</strong> on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page.</p>
+<ol start="26">
+<li>Click <strong>Next</strong> on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPStroage.png" /></p>
-<p>Review the default settings on the <strong>SFTP Server Adapter: Add Policies</strong> page and click <strong>Next</strong>.</p>
+<ol start="27">
+<li>Review the default settings on the <strong>SFTP Server Adapter: Add Policies</strong> page and click <strong>Next</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFPPolicies.png" /></p>
-<p>Review the default settings on the <strong>SFTP Server Adapter: Configuration</strong> page and click <strong>Next</strong>.</p>
+<ol start="28">
+<li>Review the default settings on the <strong>SFTP Server Adapter: Configuration</strong> page and click <strong>Next</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPConfigPage.png" /></p>
-<p>Review the default settings on the <strong>SFTP Server Adapter: Extractability</strong> page and click <strong>Next</strong>.</p>
+<ol start="29">
+<li>Review the default settings on the <strong>SFTP Server Adapter: Extractability</strong> page and click <strong>Next</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPExtractability.png" /></p>
-<p>Review the <strong>SFTP Server Adapter: Confirmation</strong> page and click <strong>Finish</strong>.</p>
+<ol start="30">
+<li>Review the <strong>SFTP Server Adapter: Confirmation</strong> page and click <strong>Finish</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPFinish.png" /></p>
-<p>Click <strong>Return</strong> after the new SFTP adapter has been created.</p>
+<ol start="31">
+<li>Click <strong>Return</strong> after the new SFTP adapter has been created.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPConfirmation.png" /></p>
-<p>Click the <strong>checkbox</strong> next to the <strong>SFTP Server Adapter</strong> to start the adapter.</p>
+<ol start="32">
+<li>Click the <strong>checkbox</strong> next to the <strong>SFTP Server Adapter</strong> to start the adapter.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPStartAdapter.png" /></p>
-<p>Click the <img alt="" src="../_attachments/BangIcon.png" /> next to the <strong>SFTP Server Adapter</strong>.</p>
+<ol start="33">
+<li>Click the <img alt="" src="../_attachments/BangIcon.png" /> next to the <strong>SFTP Server Adapter</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled.png" /></p>
-<p>Verify the <strong>SFTP Server Adapter</strong> is <strong>Running</strong>.</p>
+<ol start="34">
+<li>Verify the <strong>SFTP Server Adapter</strong> is <strong>Running</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus.png" /></p>
-<p>Close the <strong>Adapter Information</strong> pop-up window.</p>
+<ol start="35">
+<li>Close the <strong>Adapter Information</strong> pop-up window.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus2.png" /></p>
-<p>Click the <strong>Logout</strong> link to log out of the <strong>B2Bi dashboard</strong>.</p>
+<ol start="36">
+<li>Click the <strong>Logout</strong> link to log out of the <strong>B2Bi dashboard</strong>.</li>
+</ol>
 <p><img alt="" src="../_attachments/B2BiLogout.png" /></p>
+<p>XXXXXXXXXXXXXXXXXX
+Need a transition</p>
 
 
 
