@@ -19,13 +19,10 @@ nav:
     - 'Demonstration Environment Preparation': 'Part 1/02 DemoPreparation.md'
   - Use Case 1:
     - 'Use Case Introduction': 'Part 2/01 UseCase1.md'
-    - 'Demonstration Steps': 'Part 2/02 UseCase1Steps.md'
   - Use Case 2:
     - 'Use Case Introduction': 'Part 3/01 UseCase2.md'
-    - 'Demonstration Steps': 'Part 3/02 UseCase2Steps.md'
   - Use Case 3:
     - 'Use Case Introduction': 'Part 4/01 UseCase3.md'
-    - 'Demonstration Steps': 'Part 4/02 UseCase3Steps.md'
   - 'Next Steps': 'NextSteps.md'
 
 theme:
