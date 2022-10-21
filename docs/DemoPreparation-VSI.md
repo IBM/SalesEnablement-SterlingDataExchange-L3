@@ -1,0 +1,606 @@
+This demonstration requires the Custom ROKS requests: https://techzone.ibm.com/collection/custom-roks-vmware-requests IBM Technology Zone (ITZ) environments. At this point, all users should have completed the steps in the {{learningplan.name}} learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the {{learningplan.name}} <a href="" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the **Ready** state in ITZ. If not, please complete those steps before proceeding.
+
+![](_attachments/TZReady.png)
+
+The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately 1 hour for all steps to complete.
+
+## Accept invitation to join the ITZ IBM Cloud account for the Custom ROKS reservation
+
+1. Open the **You are invited to join an account in IBM Cloud** email received from IBM Cloud and click the **Join now** link.
+
+![](_attachments/JoinCloud.png)
+
+2. In the browser window that opens, click the **Join Account** button.
+
+![](_attachments/JoinAccount.png)
+
+Follow the steps to login to IBM Cloud.
+
+3. On the **IBM Cloud Dashboard** set the current account to **{{tz_environment.cloudAccount}}**.
+
+![](_attachments/RightCloudAccount.png)
+
+??? failure "Not seeing {{tz_environment.cloudAccount}}?"
+    It is possible ITZ provisioned the OpenShift cluster in a different IBM Cloud account. Select the account specified in the ITZ reservation.
+    ![](_attachments/OSITZReservation.png)
+
+4. Click the **OpenShift** ![](_attachments/OpenShiftIcon.png) icon in the left-hand menu bar.
+
+![](_attachments/CloudDashboardOpenShiftMenu.png)
+
+5. Click **Clusters**.
+
+![](_attachments/OpenShiftOverview.png)
+
+6. Click the OpenShift cluster name in the table.
+
+![](_attachments/OpenShiftClusters.png)
+
+Note: the cluster name will be different than seen in the above image.
+
+7. Click the **OpenShift web console** button.
+
+![](_attachments/OpenShiftClusterOverview.png)
+
+At this time, a page like the one below should be in a new browser window or tab.
+
+![](_attachments/OSWebConsoleOverview.png)
+
+Leave this browser window open. It will be used again later.
+
+## Install all required IBM Cloud and other tools
+
+In this part of the demonstration, you will use the IBM Cloud Shell. If you are not familiar with IBM Cloud Shell, you can learn about it <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-getting-started" target="_blank">here</a>.
+
+!!! tip
+    Use the **copy** capability of the demonstration guide to copy and paste commands to the IBM Cloud Command Shell to avoid typing errors.
+
+8. In the IBM Cloud Portal, with the demonstration account selected (**{{ account }}**), click the IBM Cloud Shell icon.
+
+![](_attachments/CloudShellMenu2.png)
+
+The IBM Cloud Shell will open in a new browser tab or window. It may take a few seconds for the shell to initialize.
+
+![](_attachments/CloudShell.png)
+
+9. Create a new directory for the B2Bi installation scripts.
+
+```
+mkdir b2bi
+```
+
+10. Set the **PROJECT_DIR** environment variable.
+
+```
+export PROJECT_DIR=$HOME/b2bi
+```
+
+11. Change directories to **PROJECT_DIR**.
+
+```
+cd $PROJECT_DIR
+```
+
+12. Download the B2Bi installation script.
+
+```
+wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScript}}?raw=true
+```
+<!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
+
+??? example "Example output"
+    --2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
+
+    Resolving github.com (github.com)... 140.82.113.4
+
+    Connecting to github.com (github.com)|140.82.113.4|:443... connected.
+
+    HTTP request sent, awaiting response... 302 Found
+
+    Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
+
+    --2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip
+
+    Reusing existing connection to github.com:443.
+
+    HTTP request sent, awaiting response... 302 Found
+
+    Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]
+
+    --2022-10-18 20:12:57--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip
+
+    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+
+    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+
+    HTTP request sent, awaiting response... 200 OK
+
+    Length: 4061226 (3.9M) [application/zip]
+
+    Saving to: ‘rapid-lab-b2bi-newlab-61051.zip’
+
+    rapid-lab-b2bi-newlab-61051.zip                             100%[=========================================================================================================================================>]   3.87M  --.-KB/s    in 0.03s
+
+    2022-10-18 20:12:57 (147 MB/s) - ‘rapid-lab-b2bi-newlab-61051.zip’ saved [4061226/4061226]
+
+13. Unzip the installation script.
+
+```
+unzip {{b2bi.installScript}}
+```
+
+??? example "Example output"
+    Archive:  {{b2bi.installScript}}
+
+      inflating: deploy_mq.sh
+
+      inflating: edited-values.yaml
+
+      inflating: prepare_db2.sh
+
+      inflating: deploy_db2.sh
+
+      inflating: README.md
+
+      inflating: COPYING
+
+      inflating: env.sh
+
+      inflating: deploy_b2bi.sh
+
+      inflating: db2jcc4.jar
+
+## Authenticate to the OpenShift cluster
+
+For the next steps, the **OpenShift** login command to authenticate to the cluster in the ITZ reservation must be retrieved an executed.
+
+14. Switch to the **OpenShift web console** browser window or tab.
+
+![](_attachments/OSWebConsoleOverview.png)
+
+15. Click the **IAM** identity drop-down menu at top left of the **OpenShift web console** and click the **Copy Login Command** option.
+
+![](_attachments/OSCopyLoginMenu.png)
+
+16. Click the **Display token** link.
+
+![](_attachments/DisplayTokenLink.png)
+
+17. Copy and paste the string in the **Log in with this token** field.
+
+![](_attachments/OSLoginAPIToken.png)
+
+18. Switch to the **SSH** terminal window from earlier.
+19. Paste the **oc login** command line copied in step 29 into the terminal window and press enter.
+
+!!! example "Example output"
+    itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501
+
+    Logged into "https://c103-e.us-south.containers.cloud.ibm.com:31501" as "IAM#andrew@jones-tx.com" using the token provided.
+
+    You have access to 66 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+    Using project "default".
+
+    Welcome! See 'oc help' to get started.
+
+    itzuser@itz-2700039nft-srv4:~/b2bi$
+
+20. Run the environment setup and DB2 deploy scripts.
+
+```
+. env.sh ; ./deploy_db2.sh
+```
+
+??? example "Example output"
+    Now using project "db2" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
+
+    You can add applications to this project with the 'new-app' command. For example, try:
+
+    oc new-app rails-postgresql-example
+
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
+
+    serviceaccount/db2 created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "db2"
+    secret/db2-secret created
+    service/db2-ci created
+    service/db2-lb created
+    statefulset.apps/db2 created
+
+!!! warning "Wait 5 minutes..."
+    Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
+
+??? tip "Monitor events in OpenShift web console"
+    Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+    ![](_attachments/OSEventsDB2.png)
+    ![](_attachments/OSPodsDB2.png)
+
+
+
+21. Verify DB2 is up and running in the OpenShift cluster.
+
+```
+oc logs -f ${DB2_NAME}-0
+```
+
+!!! failure
+    If no output is seen from the above command, or if it returns the message: _Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating_  wait and rerun oc logs -f ${DB2_NAME}-0 until the output starts steaming as shown in the example output below.
+
+!!! example "Example output"
+    (\*) Previous setup has not been detected. Creating the users...
+
+    (\*) Creating users ...
+
+    (\*) Creating instance ...
+
+    DB2 installation is being initialized.
+
+    Total number of tasks to be performed: 4
+    Total estimated time for all tasks to be performed: 309 second(s)
+
+    Task #1 start
+    Description: Setting default global profile registry variables
+    Task #1 end
+
+    Task #2 start
+    Description: Initializing instance list
+    Estimated time 5 second(s)
+    Task #2 end
+
+    Task #3 start
+    Description: Configuring DB2 instances
+    Estimated time 300 second(s)
+    Task #3 end
+
+    Task #4 start
+    Description: Updating global profile registry
+    Estimated time 3 second(s)
+    Task #4 end
+
+
+        ...
+        **Long output - truncated in this example**
+        ...
+
+
+    2022-10-18-16.44.43.180954+000 I33681E386            LEVEL: Warning
+    PID     : 15858                TID : 139996146354048 PROC : db2start
+
+    INSTANCE: db2inst1             NODE : 000
+
+    HOSTNAME: db2-0
+
+    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+
+    MESSAGE : Released lock on the file:
+
+    DATA #1 : String, 50 bytes
+
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+
+!!! warning "Do not proceed until..."
+    Do not proceed to the next step until the following line appears in the output:
+
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+
+22. Stop the **oc logs** command by entering ++ctrl++**+c** on the keyboard.
+
+!!! example "Example output"
+    ...
+    FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078
+
+    MESSAGE : Released lock on the file:
+
+    DATA #1 : String, 50 bytes
+
+    **/database/config/db2inst1/sqllib/ctrl/db2strst.lck**
+
+    ^C
+
+    itzuser@itz-2700039nft-srv4:~/b2bi$
+
+23. Prepare the DB2 instance running in OpenShift.
+
+```
+./prepare_db2.sh
+```
+
+Note, this script does not generate output.
+
+36. Remotely connect to the DB2 container running in OpenShift.
+
+```
+oc rsh pod/${DB2_NAME}-0 su - db2inst1
+```
+
+!!! example "Example output"
+    Last login: Tue Oct 18 20:47:33 UTC 2022
+
+    [db2inst1@db2-0 ~]$
+
+Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
+
+24. Run the **db2reg.sh**  script.
+
+```
+./db2reg.sh
+```
+
+??? example "Example output"
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+    DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
+    successfully.
+
+25. Create the B2Bi tables in DB2.
+
+```
+db2 -stvf create_scc_db_b2bidb.sql
+```
+
+!!! warning "This will take ~5 minutes"
+    This command will take approximately 5 minutes to complete.
+
+??? example "Example output"
+    CREATE DATABASE B2BIDB AUTOMATIC STORAGE YES USING CODESET UTF-8 TERRITORY US COLLATE USING IDENTITY PAGESIZE 4096 DFT_EXTENT_SZ 32
+
+    DB20000I  The CREATE DATABASE command completed successfully.
+
+    CONNECT TO B2BIDB
+
+       Database Connection Information
+
+     Database server        = DB2/LINUXX8664 11.5.5.1
+     SQL authorization ID   = DB2INST1
+     Local database alias   = B2BIDB
+
+    UPDATE DATABASE CONFIG USING STMT_CONC LITERALS
+
+    DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
+
+    ...
+    **Long output - truncated in this example**
+    ...
+
+    CREATE USER TEMPORARY TABLESPACE UTEMP4KTS IN DATABASE PARTITION GROUP IBMDEFAULTGROUP PAGESIZE 4 K MANAGED BY AUTOMATIC STORAGE EXTENTSIZE 32 BUFFERPOOL UTEMP4KBP FILE SYSTEM CACHING
+
+    DB20000I  The SQL command completed successfully.
+
+    CONNECT RESET
+
+    DB20000I  The SQL command completed successfully.
+
+26. Run the final DB2 update script.
+
+```
+./db2-update.sh
+```
+
+??? example "Example output"
+    Database Connection Information
+
+    Database server        = DB2/LINUXX8664 11.5.5.1
+    SQL authorization ID   = DB2INST1
+    Local database alias   = B2BIDB
+
+    DB20000I  The SQL command completed successfully.
+    DB20000I  The TERMINATE command completed successfully.
+    DB20000I  The FORCE APPLICATION command completed successfully.
+    DB21024I  This command is asynchronous and may not be effective immediately.
+
+    DB20000I  The DEACTIVATE DATABASE command completed successfully.
+
+    10/18/2022 16:53:39     0   0   SQL1064N  DB2STOP processing was successful.
+
+    SQL1064N  DB2STOP processing was successful.
+
+    10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.
+
+    SQL1063N  DB2START processing was successful.
+
+27. Exit the connection to the DB2 container in OpenShift.
+
+```
+exit
+```
+
+??? example "Example output"
+    logout
+    itzuser@itz-2700039nft-srv4:~/b2bi$
+
+Notice the command line prompt has changed back to the prompt for the VSI connection.
+
+28. Deploy MQ to OpenShift.
+
+```
+./deploy_mq.sh
+```
+
+??? example "Example output"
+    Now using project "mq" on server "https://c109-e.us-east.containers.cloud.ibm.com:30720".
+
+    You can add applications to this project with the 'new-app' command. For example, try:
+
+       oc new-app rails-postgresql-example
+
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+      kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
+
+    serviceaccount/mq created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:privileged added: "mq"
+    service/mq-data created
+    service/mq-web created
+
+    W1018 16:54:39.757566   34060 shim_kubectl.go:58] Using non-groupfied API resources is deprecated and will be removed in a future release, update apiVersion to "route.openshift.io/v1" for your resource
+
+    route.route.openshift.io/mq-web created
+
+    secret/mq-secret created
+
+    statefulset.apps/mq created
+
+!!! important
+    Note, the next steps require editing of a file using the **vi** editor on the VSI. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.
+
+    ![type:video](./_videos/EditENV-sh-final.mp4)
+
+29. Open the **vi** editor.
+
+```
+vi  env.sh
+```
+
+30. Open the IBM Cloud **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
+
+<!-- https://www.ibm.com/partnerworld/program/benefits/partner-package -->
+
+Note, re-authentication to ibm.com may be required.
+
+31. Create a new key if one does not already exist by clicking the **Get new key** button.
+32. Click the **Copy key** button.
+
+![](_attachments/EntitlementKey.png)
+
+XXXXXXXXXXXXXXXXXX NEED TO ADD INSTRUCTIONS IF THEY DON'T SHOW AN ENTITLEMENT  XXXXXXXXXXXXXXXXXX
+
+33. Return to the **terminal** and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
+34. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
+35. Verify the env.sh file looks like the example output below.
+
+```
+cat env.sh
+```
+
+!!! example "Example output"
+    itzuser@itz-2700039nft-srv4:~/b2bi$ cat env.sh
+    \#!/usr/bin/bash
+    \#\# Locate your APIKEY (Entitlement Key For Container Software)
+    \#\# here: https://myibm.ibm.com/products-services/containerlibrary
+    \#\# Requires IBM ID and permission.
+    export PROJECT_NAME="b2bi"
+    export PROJECT_DIR="$HOME/b2bi"
+    export DB2_NAME="db2"
+    export MQ_NAME="mq"
+    export APIKEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    export EMAIL="andrew@jones-tx.com"
+    itzuser@itz-2700039nft-srv4:~/b2bi$
+
+36. Deploy the B2Bi containers on OpenShift.
+
+```
+./deploy_b2bi.sh
+```
+
+!!! warning "This will take approximately 10 minutes"
+    This command will take approximately 10 minutes to complete.
+
+??? tip "Monitor events in OpenShift web console"
+    Use the OpenShift web console to monitor the **b2bi** project events and pod creation.
+    ![](_attachments/OSEventsB2Bi.png)
+
+    ![](_attachments/OSPodsB2Bi.png)
+
+??? example "Example output"
+    Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".
+
+    You can add applications to this project with the 'new-app' command. For example, try:
+
+      oc new-app rails-postgresql-example
+
+    to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+      kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
+
+    persistentvolumeclaim/ibm-cloud-file-nfs-storage-pvc created
+    clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
+    deployment.apps/ibm-cloud-file-nfs-storage-pod created
+    Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)
+
+    ...
+    **Long output - truncated in this example**
+    ...
+
+
+    ??? example "Example output"
+
+
+37. Set environment variables for final install step.
+
+```
+export DB2_IP=$(oc get svc db2-ci -n ${DB2_NAME} -o jsonpath='{.spec.clusterIP}')
+export MQ_IP=$(oc get svc mq-data -n ${MQ_NAME} -o jsonpath='{.spec.clusterIP}')
+export INGRESS_SUBDOMAIN=$(oc get IngressController default -n openshift-ingress-operator -o jsonpath='{.status.domain}')
+```
+
+38. Finalize B2Bi install YAML file.
+
+```
+envsubst < $PROJECT_DIR/ibm-b2bi-prod/values.yaml > b2biInstall.yaml
+```
+
+39. Run the helm chart to install the B2Bi containers in OpenShift.
+
+```
+helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace ${PROJECT_NAME} --values b2biInstall.yaml --debug
+```
+
+!!! warning "This will take approximately 60 minutes"
+    This command will take approximately 60 minutes to complete.
+
+??? example "Example output"
+    ...
+    **Long output - truncated in this example**
+    ...
+
+    NAME: sterling-fg
+
+    LAST DEPLOYED: Wed Oct 19 17:11:30 2022
+
+    NAMESPACE: b2bi
+
+    STATUS: deployed
+
+    REVISION: 1
+
+    NOTES:
+
+    Please wait while the application is getting deployed.
+
+    1. Run the below command to check the status of application server replica sets. At least 1 replica must be in 'READY' state.
+
+         kubectl get replicasets -l release=sterling-fg -n b2bi
+
+    2. Run the below command to check the status of the application server pods for the release.
+
+        kubectl get pods -l release=sterling-fg -n b2bi -o wide
+
+    To view the logs for a pod, run the below command.
+
+        kubectl logs <pod name> -n b2bi
+
+    3. Access the application by running the following url
+
+That concludes the setup of the environment. Proceed to the next part of the demonstration guide to access the {{offering.name}}.
