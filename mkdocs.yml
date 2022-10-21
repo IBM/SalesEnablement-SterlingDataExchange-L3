@@ -78,4 +78,5 @@ extra:
     sshKeyFile: "pem_ibmcloudvsi_download.pem"
   b2bi:
     installScript: "rapid-lab-b2bi-newdb-61051.zip"
+    installScriptCloudShell: "rapid-lab-b2bi-newdb-61051-CloudShell.zip"
     installPath: "blob/main/tools"

@@ -55,7 +55,7 @@ In this part of the demonstration, you will use the IBM Cloud Shell. If you are 
 !!! tip
     Use the **copy** capability of the demonstration guide to copy and paste commands to the IBM Cloud Command Shell to avoid typing errors.
 
-8. In the IBM Cloud Portal, with the demonstration account selected (**{{ account }}**), click the IBM Cloud Shell icon.
+8. In the IBM Cloud Portal, with the demonstration account selected (**{{tz_environment.cloudAccount}}**), click the IBM Cloud Shell icon.
 
 ![](_attachments/CloudShellMenu2.png)
 
@@ -84,7 +84,7 @@ cd $PROJECT_DIR
 12. Download the B2Bi installation script.
 
 ```
-wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScript}}?raw=true
+wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScriptCloudShell}}?raw=true
 ```
 <!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
 
@@ -170,8 +170,8 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 
 ![](_attachments/OSLoginAPIToken.png)
 
-18. Switch to the **SSH** terminal window from earlier.
-19. Paste the **oc login** command line copied in step 29 into the terminal window and press enter.
+18. Switch back to the IBM Cloud Shell browser window or tab from earlier.
+19. Paste the **oc login** command line copied in step 29 into the IBM Cloud Shell window and press enter.
 
 !!! example "Example output"
     itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501
