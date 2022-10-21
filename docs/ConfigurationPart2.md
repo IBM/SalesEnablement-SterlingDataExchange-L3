@@ -1,4 +1,6 @@
-Create Partner community
+In this chapter, learn how create a B2Bi partner community, add partners to the community, create a routing template, and routing channels.
+
+## Create a partner community
 
 1. Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): **sterling-fg-b2bi-asi-internal-route-filegateway** application.
 
@@ -43,6 +45,8 @@ Create Partner community
 11. Click **Return** on the community confirmation screen.
 
 ![](_attachments/FG_CommunitiesComplete.png)
+
+## Add partners to the partner community
 
 Next, add 2 partners to the newly created **sftp_community**.
 
@@ -102,7 +106,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 ![](_attachments/FG_PartnersTable.png)
 
-## Create routing template
+## Create a routing template and channels
 
 26. Click **Templates** under the **Routes** menu.
 

@@ -473,20 +473,18 @@ Notice the command line prompt has changed back to the prompt for the VSI connec
 vi  env.sh
 ```
 
-30. Open the IBM Cloud **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
+30. Open the IBM **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
 <!-- https://www.ibm.com/partnerworld/program/benefits/partner-package -->
 
 Note, re-authentication to ibm.com may be required.
 
-31. Create a new key if one does not already exist by clicking the **Get new key** button.
-32. Click the **Copy key** button.
+31. If an entitlement key does not already exist, click **Add new key**.
+32. Click the **Copy** button.
 
-![](_attachments/EntitlementKey.png)
+![](_attachments/EntitlementKey2.png)
 
-XXXXXXXXXXXXXXXXXX NEED TO ADD INSTRUCTIONS IF THEY DON'T SHOW AN ENTITLEMENT  XXXXXXXXXXXXXXXXXX
-
-33. Return to the **terminal** and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
+33. Return to the IBM Cloud Shell window and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
 34. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
 35. Verify the env.sh file looks like the example output below.
 
@@ -608,4 +606,4 @@ helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace
 
     3. Access the application by running the following url
 
-That concludes the setup of the environment. Proceed to the next part of the demonstration guide to access the {{offering.name}}.
+That concludes the setup of the environment. Proceed to the next part of the demonstration guide to configure B2Bi.

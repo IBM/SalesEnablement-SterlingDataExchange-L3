@@ -1,11 +1,4 @@
-
-
-- On board test partners
-- 3 methods for file transfer between 2 test partners
-- route and service partners
-
-
-Secure File Transfer Protocol (SFTP)
+In this chapter, learn how to configure the Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.
 
 1. In the OpenShift web console, click **Routes** under the **Network** section in left-hand panel.
 
@@ -161,5 +154,4 @@ The default **SFTP Server Listen Port** must be changed to the B2Bi service port
 
 ![](_attachments/B2BiLogout.png)
 
-XXXXXXXXXXXXXXXXXX
-Need a transition
+Now that the SFTP adapter is running, it time to move to the next step in the configuration of B2Bi.

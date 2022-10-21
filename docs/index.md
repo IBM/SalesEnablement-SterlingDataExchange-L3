@@ -1,6 +1,19 @@
 Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide technical sellers from IBM and Business Partners with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
 
-To obtain the associated {{learningplan.name}} badge, in addition to completing all the steps in this demonstration guide, in addition:
+!!! danger "READ THIS BEFORE PROCEEDING"
+    To complete this activity, users MUST have an **entitlement key** in the IBM Entitled Registry to access IBM container software (e.g. IBM Sterling B2B Integrator). Before proceeding, verify an entitlement exists.
+
+    To verify entitlement to IBM container software, open the IBM **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.  Note, authentication to ibm.com will be required. If a screen like the image below is displayed, you will NOT be able to complete this activity.
+
+    ![](_attachments/EntitlementNoKey.png)
+
+    If a valid entitlement exists, a screen similar to the one below should be displayed.
+
+    ![](_attachments/EntitlementKey3.png)
+
+    All IBM employees and registered Business Partners **should** have an entitlement key. Business Partners can learn more about their entitlements <a href="https://www.ibm.com/partnerworld/program/benefits/partner-package" target="_blank">here</a> or by speaking with their IBM representative.
+
+In addition to completing all the steps in this demonstration guide, to obtain the associated {{learningplan.name}} badge:
 
 **IBM Technical Sellers** must develop and record a Stand & Deliver presentation. This video is intended to simulate delivery of a “live” demo in front of a client — on camera. IBMers will have flexibility in defining a hypothetical client, the pain points the client has, and the goals they aspire to achieve. The recording will then cover the seller’s hands-on demonstration and pitch to the client of the value of the IBM solution using the environment and techniques of this lab. Specific criteria that must be demonstrated as part of the Stand & Deliver recordings is provided within the documentation that accompanies the Level 3 course in Your Learning.
 
