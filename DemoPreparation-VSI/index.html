@@ -17,7 +17,7 @@
     
     
       
-        <title>Environment Preparation and B2Bi Installation - IBM Sterling Data Exchange Level 3 Demonstration Guide</title>
+        <title>Environment Preparation and B2Bi Installation using Cloud Shell - IBM Sterling Data Exchange Level 3 Demonstration Guide</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Environment Preparation and B2Bi Installation
+              Environment Preparation and B2Bi Installation using Cloud Shell
             
           </span>
         </div>
@@ -237,6 +237,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../DemoPreparation-CloudShell/" class="md-nav__link">
+        Environment Preparation and B2Bi Installation using VSI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -247,12 +262,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Environment Preparation and B2Bi Installation
+          Environment Preparation and B2Bi Installation using Cloud Shell
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Environment Preparation and B2Bi Installation
+        Environment Preparation and B2Bi Installation using Cloud Shell
       </a>
       
         
@@ -276,29 +291,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#download-the-ssh-key-from-the-ibm-cloud-vsi-classic-reservations" class="md-nav__link">
-    Download the SSH key from the IBM Cloud VSI (Classic) reservations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-the-virtual-server-instance-vsi" class="md-nav__link">
-    Connect to the Virtual Server Instance (VSI)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-all-required-ibm-cloud-and-other-tools" class="md-nav__link">
     Install all required IBM Cloud and other tools
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-the-b2bi-installation-scripts" class="md-nav__link">
-    Download the B2Bi installation scripts
   </a>
   
 </li>
@@ -410,29 +404,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#download-the-ssh-key-from-the-ibm-cloud-vsi-classic-reservations" class="md-nav__link">
-    Download the SSH key from the IBM Cloud VSI (Classic) reservations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-the-virtual-server-instance-vsi" class="md-nav__link">
-    Connect to the Virtual Server Instance (VSI)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-all-required-ibm-cloud-and-other-tools" class="md-nav__link">
     Install all required IBM Cloud and other tools
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-the-b2bi-installation-scripts" class="md-nav__link">
-    Download the B2Bi installation scripts
   </a>
   
 </li>
@@ -458,13 +431,10 @@
                 
 
 
-  <h1>Environment Preparation and B2Bi Installation</h1>
+  <h1>Environment Preparation and B2Bi Installation using Cloud Shell</h1>
 
-<p>This demonstration requires two IBM Technology Zone (ITZ) environments:
-- Custom ROKS requests: https://techzone.ibm.com/collection/custom-roks-vmware-requests
-- IBM Cloud VSI (Classic): https://techzone.ibm.com/collection/base-images</p>
-<p>At this point, all users should have completed the steps in the IBM Sterling Data Exchange Level 3 learning plan to reserve the two environments as described in the IBM Sterling Data Exchange Level 3 <a href="" target="_blank">Introduction video</a>. Before proceeding, validate that both the reservations have been fully provisioned and are in the <strong>Ready</strong> state in ITZ. If not, please complete those steps before proceeding.</p>
-<p><img alt="" src="../_attachments/TZReservationsReady.png" /></p>
+<p>This demonstration requires the Custom ROKS requests: https://techzone.ibm.com/collection/custom-roks-vmware-requests IBM Technology Zone (ITZ) environments. At this point, all users should have completed the steps in the IBM Sterling Data Exchange Level 3 learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the IBM Sterling Data Exchange Level 3 <a href="" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the <strong>Ready</strong> state in ITZ. If not, please complete those steps before proceeding.</p>
+<p><img alt="" src="_attachments/TZReady.png" /></p>
 <p>The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately 1 hour for all steps to complete.</p>
 <h2 id="accept-invitation-to-join-the-itz-ibm-cloud-account-for-the-custom-roks-reservation">Accept invitation to join the ITZ IBM Cloud account for the Custom ROKS reservation</h2>
 <ol>
@@ -504,186 +474,38 @@
 <p><img alt="" src="../_attachments/OpenShiftClusterOverview.png" /></p>
 <p>At this time, a page like the one below should be in a new browser window or tab.</p>
 <p><img alt="" src="../_attachments/OSWebConsoleOverview.png" /></p>
-<p>Leave this window open. It will be used again later.</p>
-<h2 id="download-the-ssh-key-from-the-ibm-cloud-vsi-classic-reservations">Download the SSH key from the IBM Cloud VSI (Classic) reservations</h2>
-<ol start="9">
-<li>
-<p>Open a <strong>new</strong> browser window or tab to the ITZ <href "https://techzone.ibm.com/my/reservations" target="_blank"><strong>My reservations</strong></a> page.</p>
-</li>
-<li>
-<p>Click on the <strong>IBM Cloud VSI (Classic)</strong> reservation tile.</p>
-</li>
-</ol>
-<p><img alt="" src="../_attachments/TZReservationsReadyVSI.png" /></p>
-<ol start="11">
-<li>Click the <strong>Download SSH Key</strong> button.</li>
-</ol>
-<p><img alt="" src="../_attachments/ITZ-VSI-Reservation.png" /></p>
-<div class="admonition important">
-<p class="admonition-title">Take note</p>
-<p>Take note of the <strong>Public IP</strong>, <strong>SSH Port</strong>, and <strong>Username</strong> fields in the reservation. These values will be needed later.</p>
-</div>
-<p>By default, most browsers will utilize the default <strong>Downloads</strong> directory in the users home directory.</p>
-<h2 id="connect-to-the-virtual-server-instance-vsi">Connect to the Virtual Server Instance (VSI)</h2>
-<p>The next step must be performed on the users local computer. The directions below are specific to users with a Mac computer (MacOS). All instructions listed here should be the same for users running on Linux machines.</p>
-<div class="admonition note">
-<p class="admonition-title">For Windows machines users.</p>
-<p>Windows users will need to utilize a ssh client such as putty. XXXXXXX</p>
-</div>
-<ol start="12">
-<li>Open a <strong>terminal</strong> on local desktop computer using Mac Spotlight (press the command key and the space bar).</li>
-</ol>
-<p><img alt="" src="../_attachments/MacSpotlight.png" /></p>
-<ol start="13">
-<li>Enter the following command to change to the Downloads directory where the ITZ private key was downloaded.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd Downloads
-</code></pre></div>
-<ol start="14">
-<li>Verify the <strong>SSH key</strong> file is found in the <strong>Downloads</strong> directory.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls -l pem_ibmcloudvsi_download.pem
-</code></pre></div>
-<details class="example">
-<summary>Example output</summary>
-<p>-rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem</p>
-</details>
-<details class="failure">
-<summary>No such file or directory?</summary>
-<p>If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as pem_ibmcloudvsi_download.pem.  Check the Downloads directory for the most recent file names.</p>
-</details>
-<ol start="15">
-<li>Change the permissions of the <strong>SSH key</strong> file.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chmod 0600 pem_ibmcloudvsi_download.pem
-</code></pre></div>
-<ol start="16">
-<li>Verify the <strong>SSH key</strong> file has the proper permissions.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls -l pem_ibmcloudvsi_download.pem
-</code></pre></div>
-<details class="example">
-<summary>Example output</summary>
-<p>-rw-------@ 1 andrewjones  staff  3243 Oct 18 13:12 pem_ibmcloudvsi_download.pem</p>
-</details>
-<ol start="17">
-<li>Use <strong>ssh</strong> to connect to the remote VSI and enter <strong>yes</strong> when prompted to continue.</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Substitute the strings PORT, USER, and PUBLICIP with the values in the VSI reservation as illustrated in the image in step 11 above.</p>
-</div>
-<p><code>ssh  -i pem_ibmcloudvsi_download.pem -p SSHPORT USERNAME@PUBLICIP</code></p>
-<details class="example">
-<summary>Example output</summary>
-<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem_ibmcloudvsi_download.pem -p 2223 itzuser@169.59.6.211</p>
-<p>The authenticity of host '[169.59.6.211]:2223 ([169.59.6.211]:2223)' can't be established.</p>
-<p>ED25519 key fingerprint is SHA256:YAN8U3PtpCzdhqc67F8ZQWlJjQgBV0DOi7LvZgDEtws.</p>
-<p>This key is not known by any other names</p>
-<p>Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</p>
-<p>Warning: Permanently added '[169.59.6.211]:2223' (ED25519) to the list of known hosts.</p>
-<p>Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)</p>
-<div class="highlight"><pre><span></span><code>...
-**Long output - truncated in this example**
-...
-</code></pre></div>
-<p>To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.</p>
-</details>
+<p>Leave this browser window open. It will be used again later.</p>
 <h2 id="install-all-required-ibm-cloud-and-other-tools">Install all required IBM Cloud and other tools</h2>
-<ol start="18">
-<li>Use the following command to install all required tools.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>bash &lt;(curl -sL https://ibm.biz/ocp-cli)
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">Example output</p>
-<p>Updating the operating system. Wait!</p>
-<p>Installing Docker. Wait!</p>
-<p>Adding user to docker group. Wait!</p>
-<p>Setting up docker to start at reboot. Wait!</p>
-<p>Installing common utilities. Wait!</p>
-<p>Installing ibmcloud utility. Wait!</p>
-<p>Installing Helm. Wait!</p>
-<p>Installing OpenShift oc utility. Wait!</p>
-<p>Installing Kubernetes kubectl. Wait!</p>
-<p>cleaning up. Wait!</p>
-<p>All done.</p>
-<p>Client Version: 4.10.0</p>
-<p>version.BuildInfo{Version:"v3.10.1", GitCommit:"9f88ccb6aee40b9a0535fcc7efea6055e1ef72c9",
-GitTreeState:"clean", GoVersion:"go1.18.7"}</p>
-<p>Flag --short has been deprecated, and will be removed in the future. The --short output will</p>
-<p>become the default.</p>
-<p>Client Version: v1.25.3</p>
-<p>Kustomize Version: v4.5.7</p>
-<p>ibmcloud version 2.11.1+c18277d-2022-09-23T21:49:24+00:00</p>
-<p>Reboot your instance now: sudo shutdown -r now</p>
+<p>In this part of the demonstration, you will use the IBM Cloud Shell. If you are not familiar with IBM Cloud Shell, you can learn about it <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-getting-started" target="_blank">here</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the <strong>copy</strong> capability of the demonstration guide to copy and paste commands to the IBM Cloud Command Shell to avoid typing errors.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">If the reboot message is not seen</p>
-<p>If the reboot message is not seen in the output of the previous command a problem occurred. Re-run the last command.  When doing so, ignore error messages about items already installed.</p>
-</div>
-<ol start="19">
-<li>Restart the VSI.</li>
+<ol start="8">
+<li>In the IBM Cloud Portal, with the demonstration account selected (<strong>{{ account }}</strong>), click the IBM Cloud Shell icon.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo shutdown -r now
+<p><img alt="" src="../_attachments/CloudShellMenu2.png" /></p>
+<p>The IBM Cloud Shell will open in a new browser tab or window. It may take a few seconds for the shell to initialize.</p>
+<p><img alt="" src="../_attachments/CloudShell.png" /></p>
+<ol start="9">
+<li>Create a new directory for the B2Bi installation scripts.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir b2bi
 </code></pre></div>
-<details class="example">
-<summary>Example output</summary>
-<p>Connection to <em>PUBLICIP</em> closed by remote host.
-Connection to <em>PUBLICIP</em> closed.</p>
-</details>
-<p>Note, it will take a few minutes for the VSI to reboot. Wait 2 or 3 minutes and then continue the steps below.</p>
-<h2 id="download-the-b2bi-installation-scripts">Download the B2Bi installation scripts</h2>
-<ol start="20">
-<li>Use <strong>ssh</strong> to re-connect to the remote VSI.</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Substitute the strings PORT, USER, and PUBLICIP with the values in the VSI reservation as illustrated in the image in step 11 above.</p>
-</div>
-<p><code>ssh  -i pem-ibmcloudvsi-download.pem -p SSHPORT USERNAME@PUBLICIP</code></p>
-<details class="example">
-<summary>Example output</summary>
-<p>MacBook-Pro-2:Downloads andrewjones$ ssh -i pem_ibmcloudvsi_download.pem -p 2223 itzuser@169.59.6.211
-Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-124-generic x86_64)</p>
-<ul>
-<li>Documentation:  https://help.ubuntu.com</li>
-<li>Management:     https://landscape.canonical.com</li>
-<li>Support:        https://ubuntu.com/advantage</li>
-</ul>
-<p>System information as of Tue Oct 18 19:58:23 UTC 2022</p>
-<p>System load:  0.65              Users logged in:          0
-Usage of /:   3.0% of 97.26GB   IPv4 address for docker0: 172.17.0.1
-Memory usage: 7%                IPv4 address for eth0:    10.36.166.233
-Swap usage:   0%                IPv4 address for eth1:    169.59.6.211
-Processes:    123</p>
-<p>8 updates can be applied immediately.
-8 of these updates are standard security updates.
-To see these additional updates run: apt list --upgradable</p>
-<p>New release '22.04.1 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.</p>
-<p>Last login: Tue Oct 18 19:47:57 2022 from 70.114.143.247</p>
-</details>
-<ol start="21">
-<li>Create a new directory B2Bi installation scripts.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir b2bi
-</code></pre></div>
-<ol start="22">
+<ol start="10">
 <li>Set the <strong>PROJECT_DIR</strong> environment variable.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export PROJECT_DIR=$HOME/b2bi
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>export PROJECT_DIR=$HOME/b2bi
 </code></pre></div>
-<ol start="23">
+<ol start="11">
 <li>Change directories to <strong>PROJECT_DIR</strong>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cd $PROJECT_DIR
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd $PROJECT_DIR
 </code></pre></div>
-<ol start="24">
+<ol start="12">
 <li>Download the B2Bi installation script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>wget -O rapid-lab-b2bi-newdb-61051.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget -O rapid-lab-b2bi-newdb-61051.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true
 </code></pre></div>
 <!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
 
@@ -707,10 +529,10 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <p>rapid-lab-b2bi-newlab-61051.zip                             100%[=========================================================================================================================================&gt;]   3.87M  --.-KB/s    in 0.03s</p>
 <p>2022-10-18 20:12:57 (147 MB/s) - ‘rapid-lab-b2bi-newlab-61051.zip’ saved [4061226/4061226]</p>
 </details>
-<ol start="25">
+<ol start="13">
 <li>Unzip the installation script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unzip rapid-lab-b2bi-newdb-61051.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>unzip rapid-lab-b2bi-newdb-61051.zip
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -727,23 +549,23 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 </details>
 <h2 id="authenticate-to-the-openshift-cluster">Authenticate to the OpenShift cluster</h2>
 <p>For the next steps, the <strong>OpenShift</strong> login command to authenticate to the cluster in the ITZ reservation must be retrieved an executed.</p>
-<ol start="26">
+<ol start="14">
 <li>Switch to the <strong>OpenShift web console</strong> browser window or tab.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSWebConsoleOverview.png" /></p>
-<ol start="27">
+<ol start="15">
 <li>Click the <strong>IAM</strong> identity drop-down menu at top left of the <strong>OpenShift web console</strong> and click the <strong>Copy Login Command</strong> option.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSCopyLoginMenu.png" /></p>
-<ol start="28">
+<ol start="16">
 <li>Click the <strong>Display token</strong> link.</li>
 </ol>
 <p><img alt="" src="../_attachments/DisplayTokenLink.png" /></p>
-<ol start="29">
+<ol start="17">
 <li>Copy and paste the string in the <strong>Log in with this token</strong> field.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSLoginAPIToken.png" /></p>
-<ol start="30">
+<ol start="18">
 <li>Switch to the <strong>SSH</strong> terminal window from earlier.</li>
 <li>Paste the <strong>oc login</strong> command line copied in step 29 into the terminal window and press enter.</li>
 </ol>
@@ -756,10 +578,10 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <p>Welcome! See 'oc help' to get started.</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
-<ol start="32">
+<ol start="20">
 <li>Run the environment setup and DB2 deploy scripts.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>. env.sh ; ./deploy_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>. env.sh ; ./deploy_db2.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -785,10 +607,10 @@ statefulset.apps/db2 created</p>
 <img alt="" src="../_attachments/OSEventsDB2.png" />
 <img alt="" src="../_attachments/OSPodsDB2.png" /></p>
 </details>
-<ol start="33">
+<ol start="21">
 <li>Verify DB2 is up and running in the OpenShift cluster.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc logs -f ${DB2_NAME}-0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc logs -f ${DB2_NAME}-0
 </code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Failure</p>
@@ -835,7 +657,7 @@ PID     : 15858                TID : 139996146354048 PROC : db2start</p>
 <p>Do not proceed to the next step until the following line appears in the output:</p>
 <p><strong>/database/config/db2inst1/sqllib/ctrl/db2strst.lck</strong></p>
 </div>
-<ol start="34">
+<ol start="22">
 <li>Stop the <strong>oc logs</strong> command by entering <span class="keys"><kbd class="key-control">Ctrl</kbd></span><strong>+c</strong> on the keyboard.</li>
 </ol>
 <div class="admonition example">
@@ -848,16 +670,16 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>^C</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
-<ol start="35">
+<ol start="23">
 <li>Prepare the DB2 instance running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./prepare_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./prepare_db2.sh
 </code></pre></div>
 <p>Note, this script does not generate output.</p>
 <ol start="36">
 <li>Remotely connect to the DB2 container running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -865,10 +687,10 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>[db2inst1@db2-0 ~]$</p>
 </div>
 <p>Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: <strong>[db2inst1@db2-0 ~]$</strong></p>
-<ol start="37">
+<ol start="24">
 <li>Run the <strong>db2reg.sh</strong>  script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>./db2reg.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>./db2reg.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -889,10 +711,10 @@ successfully.</p>
 <p>DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
 successfully.</p>
 </details>
-<ol start="38">
+<ol start="25">
 <li>Create the B2Bi tables in DB2.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>db2 -stvf create_scc_db_b2bidb.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>db2 -stvf create_scc_db_b2bidb.sql
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">This will take ~5 minutes</p>
@@ -917,10 +739,10 @@ successfully.</p>
 <p>CONNECT RESET</p>
 <p>DB20000I  The SQL command completed successfully.</p>
 </details>
-<ol start="39">
+<ol start="26">
 <li>Run the final DB2 update script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./db2-update.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./db2-update.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -938,10 +760,10 @@ DB21024I  This command is asynchronous and may not be effective immediately.</p>
 <p>10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.</p>
 <p>SQL1063N  DB2START processing was successful.</p>
 </details>
-<ol start="40">
+<ol start="27">
 <li>Exit the connection to the DB2 container in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>exit
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>exit
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -949,10 +771,10 @@ DB21024I  This command is asynchronous and may not be effective immediately.</p>
 itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </details>
 <p>Notice the command line prompt has changed back to the prompt for the VSI connection.</p>
-<ol start="41">
+<ol start="28">
 <li>Deploy MQ to OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>./deploy_mq.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./deploy_mq.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -975,27 +797,29 @@ service/mq-web created</p>
 <p>Note, the next steps require editing of a file using the <strong>vi</strong> editor on the VSI. If you are not familiar with the <strong>vi</strong> editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.</p>
 <p><div class="video-container"><iframe src="../_videos/EditENV-sh-final.mp4" style="position: relative; width: 100%; height: 22.172vw" frameborder="0" allowfullscreen></iframe></div></p>
 </div>
-<ol start="42">
+<ol start="29">
 <li>Open the <strong>vi</strong> editor.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>vi  env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>vi  env.sh
 </code></pre></div>
-<ol start="43">
-<li>Open the IBM Cloud **Entitlement key" page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</li>
+<ol start="30">
+<li>Open the IBM Cloud <strong>Entitlement key</strong> page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</li>
 </ol>
+<!-- https://www.ibm.com/partnerworld/program/benefits/partner-package -->
+
 <p>Note, re-authentication to ibm.com may be required.</p>
-<ol start="44">
+<ol start="31">
 <li>Create a new key if one does not already exist by clicking the <strong>Get new key</strong> button.</li>
 <li>Click the <strong>Copy key</strong> button.</li>
 </ol>
 <p><img alt="" src="../_attachments/EntitlementKey.png" /></p>
 <p>XXXXXXXXXXXXXXXXXX NEED TO ADD INSTRUCTIONS IF THEY DON'T SHOW AN ENTITLEMENT  XXXXXXXXXXXXXXXXXX</p>
-<ol start="46">
+<ol start="33">
 <li>Return to the <strong>terminal</strong> and paste the copied <strong>entitlement key</strong> between the quotes on the <strong>export APIKEY=""</strong> line.</li>
 <li>Enter your e-mail address between the quotes on the <strong>export EMAIL=""</strong> line.</li>
 <li>Verify the env.sh file looks like the example output below.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cat env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cat env.sh
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -1012,14 +836,14 @@ export APIKEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export EMAIL="andrew@jones-tx.com"
 itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
-<ol start="49">
+<ol start="36">
 <li>Deploy the B2Bi containers on OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>./deploy_b2bi.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./deploy_b2bi.sh
 </code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">This will take approximately 60 minutes</p>
-<p>This command will take approximately 60 minutes to complete.</p>
+<p class="admonition-title">This will take approximately 10 minutes</p>
+<p>This command will take approximately 10 minutes to complete.</p>
 </div>
 <details class="tip">
 <summary>Monitor events in OpenShift web console</summary>
@@ -1038,6 +862,36 @@ itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
 deployment.apps/ibm-cloud-file-nfs-storage-pod created
 Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)</p>
+<p>...
+<strong>Long output - truncated in this example</strong>
+...</p>
+<details class="example">
+<summary>Example output</summary>
+</details>
+</details>
+<ol start="37">
+<li>Set environment variables for final install step.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>export DB2_IP=$(oc get svc db2-ci -n ${DB2_NAME} -o jsonpath=&#39;{.spec.clusterIP}&#39;)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>export MQ_IP=$(oc get svc mq-data -n ${MQ_NAME} -o jsonpath=&#39;{.spec.clusterIP}&#39;)
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>export INGRESS_SUBDOMAIN=$(oc get IngressController default -n openshift-ingress-operator -o jsonpath=&#39;{.status.domain}&#39;)
+</code></pre></div>
+<ol start="38">
+<li>Finalize B2Bi install YAML file.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>envsubst &lt; $PROJECT_DIR/ibm-b2bi-prod/values.yaml &gt; b2biInstall.yaml
+</code></pre></div>
+<ol start="39">
+<li>Run the helm chart to install the B2Bi containers in OpenShift.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace ${PROJECT_NAME} --values b2biInstall.yaml --debug
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">This will take approximately 60 minutes</p>
+<p>This command will take approximately 60 minutes to complete.</p>
+</div>
+<details class="example">
+<summary>Example output</summary>
 <p>...
 <strong>Long output - truncated in this example</strong>
 ...</p>
@@ -1084,7 +938,7 @@ Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Demonstration Overview" rel="prev">
+        <a href="../DemoPreparation-CloudShell/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Environment Preparation and B2Bi Installation using VSI" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1093,7 +947,7 @@ Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-
               <span class="md-footer__direction">
                 Previous
               </span>
-              Demonstration Overview
+              Environment Preparation and B2Bi Installation using VSI
             </div>
           </div>
         </a>
