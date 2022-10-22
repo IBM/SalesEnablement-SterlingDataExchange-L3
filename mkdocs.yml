@@ -64,7 +64,7 @@ extra:
     name: "IBM Sterling Data Exchange Level 3"
     url: "https://yourlearning.ibm.com/activity/PLAN-TBD"
   offering:
-    name: "IBM Sterling Data Exchange"
+    name: "IBM Sterling B2B Integrator"
   guide:
     name: "IBM Sterling Data Exchange - Level 3 Demonstration Guide"
     url: "https://ibm.github.io/SalesEnablement-SterlingDataExchange-L3/"

@@ -1,4 +1,4 @@
-Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide technical sellers from IBM and Business Partners with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
+Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide IBM and Business Partners technical sellers with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
 
 !!! danger "READ THIS BEFORE PROCEEDING"
     To complete this activity, users MUST have an **entitlement key** in the IBM Entitled Registry to access IBM container software (e.g. IBM Sterling B2B Integrator). Before proceeding, verify an entitlement exists.
@@ -23,12 +23,7 @@ Before jumping to Demonstration Overview, please read the guidance below. **Read
 
 ## Helpful tips for using this demonstration guide and environment
 
-The {{guide.name}} is organized in parts and sub-parts or chapters. Most chapters contain numbered steps, which are actions to be performed.
-
 Throughout the guide, images are used to help guide students through the demonstration.
-
-!!! warning
-    The {{offering.name}} user interface and data changes on a regular basis. Images captured in this guide may differ from the live demonstration environment in TechZone.
 
 The following styles of highlighting are utilized in images:
 
@@ -41,18 +36,18 @@ The following styles of highlighting are utilized in images:
     - the path to follow to get to a specific location in the user interface
     - areas to explore
 
-To assist in navigating the browser-based user interface (UI), a **birds-eye view** of the UI is often provided. Expand these views by clicking on the **>** icon of the expandable section of documentation.
-
-??? tip "Birds-eye view"
-    ![](_attachments/BirdsEyeView.png)
-
 ![](_attachments/PathExploreHighlight.png)
 
-- Copy to clipboard box: The text is copied to the clipboard. Click the copy icon (highlighted below) and then paste using the operating systems paste function, for example, entering ++ctrl++**+v**, ++cmd++**+v**, or right-click and select paste.
+<!-- To assist in navigating the browser-based user interface (UI), a **birds-eye view** of the UI is often provided. Expand these views by clicking on the **>** icon of the expandable section of documentation.
+
+??? tip "Birds-eye view"
+    ![](_attachments/BirdsEyeView.png) -->
+
+- Copy to clipboard box: The text is copied to the clipboard. Click the copy icon (highlighted below) and then paste using the operating system's paste function. For example, entering ++ctrl++**+v**, ++cmd++**+v**, or right-click and select paste.
 
 ![](_attachments/Usage-Clipboard.png)
 
-Additionally, throughout the demonstration guide there are sample narration scripts. The short narratives can be utilized when performing client facing demonstrations.
+<!-- Additionally, throughout the demonstration guide there are sample narration scripts. The short narratives can be utilized when performing client facing demonstrations. -->
 
 <!-- !!! quote "Sample narration"
     In this demonstration we’ll see how an infusion pump was engineered using the IBM ELM solution, in alignment with industry standards like ISO13485 and IEC 62304 for development and ISO 14971 for risk management. We’ll break the demo up into four acts... -->
