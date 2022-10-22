@@ -15,7 +15,7 @@ docs_dir: docs
 nav:
   - 'Introduction': 'index.md'
   - 'Demonstration Overview': 'Overview.md'
-  - 'Environment Preparation and B2Bi Installation using a VSI': 'DemoPreparation-VSI.md'
+  # - 'Environment Preparation and B2Bi Installation using a VSI': 'DemoPreparation-VSI.md'
   - 'Environment Preparation and B2Bi Installation using IBM Cloud Shell': 'DemoPreparation-CloudShell.md'
   - 'B2Bi Configuration Part 1': 'ConfigurationPart1.md'
   - 'B2Bi Configuration Part 2': 'ConfigurationPart2.md'
@@ -62,6 +62,7 @@ extra:
   gitRepo: "https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3"
   learningplan:
     name: "IBM Sterling Data Exchange Level 3"
+    l2: "IBM Sterling Data Exchange Level 2"
     url: "https://yourlearning.ibm.com/activity/PLAN-TBD"
   offering:
     name: "IBM Sterling B2B Integrator"

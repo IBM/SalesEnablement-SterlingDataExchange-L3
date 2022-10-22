@@ -1,4 +1,6 @@
-In this chapter, learn how to configure the Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.
+In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.
+
+## Open the B2Bi dashboard
 
 1. In the OpenShift web console, click **Routes** under the **Network** section in left-hand panel.
 
@@ -12,7 +14,7 @@ In this chapter, learn how to configure the Secure File Transfer Protocol (SFTP)
 
 ![](_attachments/OSB2BiAllRoutes.png)
 
-4. To start the setup of the test partner accounts, launch the IBM Sterling B2Bi dashboard by clicking on the route for the sterling-fg-b2bi-asi-internal-route-dashboard route in the **Location** column. Do not click the Route name... click the Route link in the **Location** column of the table.
+4. To start the setup of the SFTP adapter, launch the IBM Sterling B2Bi dashboard by clicking on the route for the **sterling-fg-b2bi-asi-internal-route-dashboard** route in the **Location** column. Do not click the Route name, rather click the Route link in the **Location** column of the table.
 
 ![](_attachments/OSB2BiDashboardRoute.png)
 
@@ -29,6 +31,8 @@ Note: the images above are from Firefox running on MacOS. They will look differe
 6. Enter **admin** in the **User ID** field and **password** in the **Password** field, and then click **Sign In**.
 
 ![](_attachments/B2BiAdminLogin.png)
+
+## Create a SSH Host Identity key
 
 First, a **SSH Host Identity** needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.
 
@@ -60,6 +64,8 @@ First, a **SSH Host Identity** needs to be created. The Host Identity Key is a P
 
 ![](_attachments/B2BiHIKCreatedCompleted.png)
 
+## Create an SFTP adapter
+
 Next, an SFTP adapter must be created which will utilize the OpenShift service port for B2Bi.
 
 14. Click the **Services** menu item under **Deployment** in the left-hand menu bar.
@@ -88,7 +94,7 @@ Next, an SFTP adapter must be created which will utilize the OpenShift service p
 
 The default **SFTP Server Listen Port** must be changed to the B2Bi service port configured in OpenShift.
 
-20. Switch back to the OpenShift web console browser window or tab and click the **Services** under the **Networking** in the left-hand menu bar.
+20. Switch back to the OpenShift web console browser window or tab and click **Services** under the **Networking** in the left-hand menu bar.
 
 ![](_attachments/OpenShiftRoutesPageToServices.png)
 
@@ -100,7 +106,7 @@ The default **SFTP Server Listen Port** must be changed to the B2Bi service port
 
 ![](_attachments/OSServicesASIOverview.png)
 
-23. Record this **Service Port** number, it will be used several times during this demonstration.
+23. Record the **Service Port** number, it will be used several times during this demonstration.
 
 24. Switch back to the **B2Bi Dashboard** browser window or tab.
 
@@ -110,7 +116,7 @@ The default **SFTP Server Listen Port** must be changed to the B2Bi service port
 
 ![](_attachments/B2BiSFTPDefaultSettings2.png)
 
-26. Click **Next** on the **SFTP Server Adapter: Configuration: Document Storage** page.
+26. Review the default settings on the **SFTP Server Adapter: Configuration: Document Storage** page and click **Next**.
 
 ![](_attachments/B2BiSFTPStroage.png)
 
@@ -138,7 +144,7 @@ The default **SFTP Server Listen Port** must be changed to the B2Bi service port
 
 ![](_attachments/B2BiSFTPStartAdapter.png)
 
-33. Click the ![](_attachments/BangIcon.png) next to the **SFTP Server Adapter**.
+33. Click the ![](_attachments/BangIcon.png) icon next to the **SFTP Server Adapter**.
 
 ![](_attachments/B2BiSFTPAdapterEnabled.png)
 

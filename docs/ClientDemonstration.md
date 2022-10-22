@@ -1,6 +1,6 @@
-It is now time to transfer files, but first one last setup step to make the demonstration more visually exciting.
+It is now time for the partners to transfer files between each other using the newly created B2Bi SFTP adapter, but first one last setup step to make the demonstration more visually exciting.
 
-In this demonstration, the FileZilla application will be used.  FileZilla is a free and open-source, cross-platform FTP application, consisting of FileZilla Client and FileZilla Server. Clients are available for Windows, Linux, and macOS. Both server and client support FTP and FTPS, while the client can in addition connect to SFTP servers. You can learn more about FileZilla <a href="https://filezilla-project.org/" target="_blank">here</a>.
+In this demonstration, the FileZilla application will be used. FileZilla is a free and open-source, cross-platform FTP application, consisting of FileZilla Client and FileZilla Server. Clients are available for Windows, Linux, and macOS. Learn more about FileZilla <a href="https://filezilla-project.org/" target="_blank">here</a>.
 
 If users do not already have FileZilla installed, do so now. IBM employees can download FileZilla from the Mac@IBM store.  For Business Partners and IBMers on Microsoft Windows, the download links are available at the link above.
 
@@ -12,7 +12,7 @@ For this scenario, **partner1** will use the IBM Sterling File Gateway clients, 
 
 ## Configure FileZilla for partner2
 
-To configure FileZilla for **partner2** both the File Gateway route address and port numbers will be needed.
+To configure FileZilla for **partner2** both the File Gateway route address and port number will be needed.
 
 1. Return to the OpenShift web console and click on the **sterling-fg-b2bi-asi-internal-route** route on the **Routes** page.
 
@@ -44,7 +44,7 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 
 ![](_attachments/FZ_NewSiteProtocol.png)
 
-8. Paste the **route** copied in step XXXXXX into the **Host** field.
+8. Paste the **route** copied in step 2 into the **Host** field.
 
 ![](_attachments/FZ_NewSitePasteHost.png)
 
@@ -61,7 +61,7 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 
 ![](_attachments/FZ_NewSiteUserPassword.png)
 
-11. Check the **Always trust this host, add this key to cache** checkbox, and click **OK** on the **Unknown host key** pop-up window.
+11. Check the **Always trust this host, add this key to cache** checkbox and click **OK** on the **Unknown host key** pop-up window.
 
 ![](_attachments/FZ_UKnknownHostKey.png)
 
@@ -73,7 +73,7 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 
 ![](_attachments/OS_FZ_splitScreen.png)
 
-14. Next, create or download 2 sample files that will be transferred between partner1 and partner2. Since the templates created earlier allow for any file names to be transferred it does not matter what files are used.  It is suggested to use small files so the transfers happen quickly.  Feel free to download these two sample invoice files to use. Just right click the links below nd save to the local Downloads directory.
+14. Create or download the 2 sample files that will be transferred between partner1 and partner2. Since the templates created earlier allow for any file names to be transferred it does not matter what files are used.  It is suggested to use small files so the transfers happen quickly.  Feel free to download these two sample invoice files. In most browsers, select the link names below, right click on the links, and click **Save link as** to the local Downloads directory.
 
   - <a href="https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/SampleInvoice1.xml" target="_blank">SampleInvoice1.xml</a>
 
@@ -135,7 +135,7 @@ It is important to realize the file has been transferred to the **B2Bi Gateway**
 
 ![](_attachments/MyFG_FileActivityDetails.png)
 
-Notice in events **FG_0503** and **FG_0504** show the **Passthrough** channel template was used to properly route the transferred file to **partner2**.
+Notice events **FG_0503** and **FG_0504** show the **Passthrough** channel template was used to properly route the transferred file to **partner2**.
 
 For additional demonstrations, consider the following:
 

@@ -1,8 +1,8 @@
-In this chapter, learn how create a B2Bi partner community, add partners to the community, create a routing template, and routing channels.
+In this chapter, learn how to create a B2Bi partner community, add partners to the community, create a routing template, and create routing channels.
 
 ## Create a partner community
 
-1. Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): **sterling-fg-b2bi-asi-internal-route-filegateway** application.
+1. Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): **sterling-fg-b2bi-asi-internal-route-filegateway**.
 
 ![](_attachments/OSRoutesFileGateway.png)
 
@@ -50,7 +50,7 @@ In this chapter, learn how create a B2Bi partner community, add partners to the 
 
 Next, add 2 partners to the newly created **sftp_community**.
 
-12. Click the **edit** link for the **sftp_community** on the **Communities** listing pop-up window.
+12. Click the **edit** link for the **sftp_community** on the **Communities** pop-up window.
 
 ![](_attachments/FG_CommunitiesEdit.png)
 
@@ -58,11 +58,11 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 ![](_attachments/FG_CommunitiesDetails.png)
 
-14. Enter **partner1** in the **Partner Name** field, 10 digits in the **Phone** field and **partner1@localhost.com** in the **Email Address** field, and then click **Next**.
+14. Enter **partner1** in the **Partner Name** field, 10 digits in the **Phone** field, **partner1@localhost.com** in the **Email Address** field, and then click **Next**.
 
 ![](_attachments/FG_CommunitiesPartner1.png)
 
-15. Enter **partner1** in the **User Name** field, **password** in the **Password** field, **password** in the **Confirm Passwod** field, **Partner** in the **Given Name** field, and **Surname** field, and then click **Next**.
+15. Enter **partner1** in the **User Name** field, **password** in the **Password** field, **password** in the **Confirm Password** field, **Partner** in the **Given Name** field, **One** in  **Surname** field, and then click **Next**.
 
 ![](_attachments/FG_CommunitiesPartner1Password.png)
 
@@ -106,7 +106,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 ![](_attachments/FG_PartnersTable.png)
 
-## Create a routing template and channels
+## Create a routing template
 
 26. Click **Templates** under the **Routes** menu.
 
@@ -152,7 +152,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 ![](_attachments/FG_TemplateCreateProducerUnknownPattern.png)
 
-Setting the file pattern to the regular express **.+** allows for file names of one or more characters.
+Setting the file pattern to the regular expression **.+** allows for file names of one or more characters.
 
 37. Click **Next>>** on the **Producer**  page.
 
@@ -176,7 +176,7 @@ Setting the file pattern to the regular express **.+** allows for file names of 
 ${ProducerFileName}
 ```
 
-42. Review the help information regarding file name formats by overing over the **File name format** entry field and then click **Save**.
+42. Review the help information regarding file name formats by hovering over the **File name format** entry field and then click **Save**.
 
 ![](_attachments/FG_TemplateCreateConsumerNewDeliveryChannelFileTypeFormat.png)
 
@@ -195,6 +195,8 @@ ${ProducerFileName}
 46. Review the settings for the new **Passthrough** routing channel template.
 
 ![](_attachments/FS_TemplateSummary.png)
+
+## Create routing channels
 
 47. Click the **Channels** option under the **Routes** menu.
 

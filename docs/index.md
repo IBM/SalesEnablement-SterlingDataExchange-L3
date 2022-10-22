@@ -1,4 +1,4 @@
-Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide IBM and Business Partners technical sellers with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
+Welcome to the {{learningplan.name}} demonstration guide! The goal of this demonstration guide is to provide IBM and Business Partner technical sellers with the knowledge and tools to perform hands-on demonstrations of {{offering.name}}.
 
 !!! danger "READ THIS BEFORE PROCEEDING"
     To complete this activity, users MUST have an **entitlement key** in the IBM Entitled Registry to access IBM container software (e.g. IBM Sterling B2B Integrator). Before proceeding, verify an entitlement exists.
@@ -15,11 +15,11 @@ Welcome to the {{learningplan.name}} demonstration guide! The goal of this demon
 
 In addition to completing all the steps in this demonstration guide, to obtain the associated {{learningplan.name}} badge:
 
-**IBM Technical Sellers** must develop and record a Stand & Deliver presentation. This video is intended to simulate delivery of a “live” demo in front of a client — on camera. IBMers will have flexibility in defining a hypothetical client, the pain points the client has, and the goals they aspire to achieve. The recording will then cover the seller’s hands-on demonstration and pitch to the client of the value of the IBM solution using the environment and techniques of this lab. Specific criteria that must be demonstrated as part of the Stand & Deliver recordings is provided within the documentation that accompanies the Level 3 course in Your Learning.
+**IBM Technical Sellers** must develop and record a Stand & Deliver presentation. This video is intended to simulate delivery of a “live” demo in front of a client — on camera. IBMers will have flexibility in defining a hypothetical client, the pain points the client has, and the goals they aspire to achieve. The recording will then cover the seller’s hands-on demonstration and pitch to the client the value of the IBM solution using the environment and techniques of this lab. Specific criteria that must be demonstrated as part of the Stand & Deliver recordings is provided within the documentation that accompanies the Level 3 course in Your Learning.
 
-**Business Partners** must pass an accreditation quiz after completing the hands-on portion of the course. The quiz consists of multiple choice questions, with four possible responses (and only one correct answer) for each question. **Hint: keep the demonstration guide and the associated IBM Technology Zone (TechZone) environment active while completing the quiz.**
+**Business Partners** must pass an accreditation quiz after completing this demonstration guide. The quiz consists of multiple choice questions, with four possible responses (and only one correct answer) for each question. **Hint: keep the demonstration guide and the associated IBM Technology Zone (TechZone) environment active while completing the quiz.** The quiz verifies use of the demonstration environment and not general knowledge of the offering.
 
-Before jumping to Demonstration Overview, please read the guidance below. **Reading and understanding the information will save time while completing the steps in this guide.**
+Before jumping to the Demonstration Overview, please read the guidance below. **Reading and understanding the information will save time while completing the steps in this guide.**
 
 ## Helpful tips for using this demonstration guide and environment
 
@@ -72,10 +72,11 @@ The following acronyms are used throughout this demonstration guide:
     - Applicability Statement 2 (AS2))
     - Application programming interfaces (APIs)
     - Artificial Intelligence (AI)
-    - IBM Sterling Business to Business Integrator (B2Bi)
     - Electronic Data Interchange (EDI)
+    - IBM Sterling Business to Business Integrator (B2Bi)
     - IBM Sterling Partner Engagement Manager (PEM)
     - IBM Technology Zone (ITZ)
+    - Red Hat OpenShift on IBM Cloud (ROKS)
     - User Interface (UI)
     - Virtual Machine (VM)
     - Yet Another Markup Language (YAML)

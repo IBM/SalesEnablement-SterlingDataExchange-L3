@@ -1,8 +1,10 @@
-This demonstration requires the Custom ROKS requests: https://techzone.ibm.com/collection/custom-roks-vmware-requests IBM Technology Zone (ITZ) environments. At this point, all users should have completed the steps in the {{learningplan.name}} learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the {{learningplan.name}} <a href="" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the **Ready** state in ITZ. If not, please complete those steps before proceeding.
+This demonstration guide assumes a **Custom ROKS** envirnment provisioned from IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/collection/custom-roks-vmware-requests" target="_blank">here</a>.
+
+At this point, all users should have completed the steps in the {{learningplan.name}} learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the {{learningplan.name}} <a href="" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the **Ready** state in ITZ. If not, please complete those steps before proceeding.
 
 ![](_attachments/TZReady.png)
 
-The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately 1 hour for all steps to complete.
+The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately 90 minutes for all steps to complete.
 
 ## Accept invitation to join the ITZ IBM Cloud account for the Custom ROKS reservation
 
@@ -24,6 +26,8 @@ Follow the steps to login to IBM Cloud.
     It is possible ITZ provisioned the OpenShift cluster in a different IBM Cloud account. Select the account specified in the ITZ reservation.
     ![](_attachments/OSITZReservation.png)
 
+## Access the OpenShift web console
+
 4. Click the **OpenShift** ![](_attachments/OpenShiftIcon.png) icon in the left-hand menu bar.
 
 ![](_attachments/CloudDashboardOpenShiftMenu.png)
@@ -42,13 +46,13 @@ Note: the cluster name will be different than seen in the above image.
 
 ![](_attachments/OpenShiftClusterOverview.png)
 
-At this time, a page like the one below should be in a new browser window or tab.
+At this time, a page like the one below should open in a new browser window or tab.
 
 ![](_attachments/OSWebConsoleOverview.png)
 
 Leave this browser window open. It will be used again later.
 
-## Install all required IBM Cloud and other tools
+## Retrieve the B2Bi installation scripts
 
 In this part of the demonstration, you will use the IBM Cloud Shell. If you are not familiar with IBM Cloud Shell, you can learn about it <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-getting-started" target="_blank">here</a>.
 
@@ -152,17 +156,17 @@ unzip {{b2bi.installScriptCloudShell}}
 
 ## Authenticate to the OpenShift cluster
 
-For the next steps, the **OpenShift** login command to authenticate to the cluster in the ITZ reservation must be retrieved an executed.
+For the next steps, the **OpenShift** login command to authenticate to the OpenShift cluster must be retrieved an executed.
 
 14. Switch to the **OpenShift web console** browser window or tab.
 
 ![](_attachments/OSWebConsoleOverview.png)
 
-15. Click the **IAM** identity drop-down menu at top left of the **OpenShift web console** and click the **Copy Login Command** option.
+15. Click the **IAM** identity drop-down menu at top left of the **OpenShift web console** and click the **Copy login command** option.
 
 ![](_attachments/OSCopyLoginMenu.png)
 
-16. Click the **Display token** link.
+16. Click the **Display Token** link.
 
 ![](_attachments/DisplayTokenLink.png)
 
@@ -185,6 +189,8 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
     Welcome! See 'oc help' to get started.
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
+
+## Install DB2 in the OpenShift cluster
 
 20. Run the environment setup and DB2 deploy scripts.
 
@@ -213,12 +219,10 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 !!! warning "Wait 5 minutes..."
     Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
 
-??? tip "Monitor events in OpenShift web console"
+??? tip "Optional: monitor events in OpenShift web console"
     Use the OpenShift web console to monitor the **DB2** project events and pod creation.
     ![](_attachments/OSEventsDB2.png)
     ![](_attachments/OSPodsDB2.png)
-
-
 
 21. Verify DB2 is up and running in the OpenShift cluster.
 
@@ -227,7 +231,11 @@ oc logs -f ${DB2_NAME}-0
 ```
 
 !!! failure
-    If no output is seen from the above command, or if it returns the message: _Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating_  wait and rerun oc logs -f ${DB2_NAME}-0 until the output starts steaming as shown in the example output below.
+    If no output is seen from the above command, or if it returns the following message:
+
+    _Error from server (BadRequest): container "db2" in pod "db2-0" is waiting to start: ContainerCreating_
+
+    wait and rerun oc logs -f ${DB2_NAME}-0 until the output starts steaming as shown in the example output below.
 
 !!! example "Example output"
     (\*) Previous setup has not been detected. Creating the users...
@@ -302,13 +310,15 @@ oc logs -f ${DB2_NAME}-0
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
+## Configure DB2 and created the required B2Bi tables
+
 23. Prepare the DB2 instance running in OpenShift.
 
 ```
 ./prepare_db2.sh
 ```
 
-Note, this script does not generate output.
+This script does not generate output.
 
 36. Remotely connect to the DB2 container running in OpenShift.
 
@@ -321,7 +331,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
     [db2inst1@db2-0 ~]$
 
-Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
+A remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
 24. Run the **db2reg.sh**  script.
 
@@ -432,6 +442,8 @@ exit
 
 Notice the command line prompt has changed back to the prompt for the VSI connection.
 
+## Install MQ in the OpenShift cluster
+
 28. Deploy MQ to OpenShift.
 
 ```
@@ -462,10 +474,13 @@ Notice the command line prompt has changed back to the prompt for the VSI connec
 
     statefulset.apps/mq created
 
-!!! important
-    Note, the next steps require editing of a file using the **vi** editor on the VSI. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.
 
-    ![type:video](./_videos/EditENV-sh-final.mp4)
+
+## Update the environment variables with IBM container entitlement key and e-mail address
+
+The next steps require editing of a file using the **vi** editor. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.
+
+![type:video](./_videos/EditENV-sh-final.mp4)
 
 29. Open the **vi** editor.
 
@@ -484,9 +499,13 @@ Note, re-authentication to ibm.com may be required.
 
 ![](_attachments/EntitlementKey2.png)
 
-33. Return to the IBM Cloud Shell window and paste the copied **entitlement key** between the quotes on the **export APIKEY=""** line.
-34. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
-35. Verify the env.sh file looks like the example output below.
+33. Return to the IBM Cloud Shell window, use the arrow keys to move the cursor between the quotes in the **export APIKEY** line, press **i** to enter input mode, and paste the copied **entitlement key** between the quotes.
+34. Press the **esc** key to exit input mode.
+35. Arrow key down and over to between the quotes in the **export EMAIL=""** line and enter a your e-mail address.
+36. Press the **esc** key to exit input mode.
+37. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
+38. Press the **:** key and then the **x** key and enter to save and exit the **vi** editor.
+39. Verify the env.sh file looks like the example output below.
 
 ```
 cat env.sh
@@ -506,7 +525,9 @@ cat env.sh
     export EMAIL="andrew@jones-tx.com"
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-36. Deploy the B2Bi related containers on OpenShift.
+## Install B2Bi in the OpenShift cluster
+
+40. Deploy the B2Bi related containers on OpenShift.
 
 ```
 ./deploy_b2bi.sh
@@ -515,7 +536,7 @@ cat env.sh
 !!! warning "This will take approximately 10 minutes"
     This command will take approximately 10 minutes to complete.
 
-??? tip "Monitor events in OpenShift web console"
+??? tip "Optional: monitor events in the OpenShift web console"
     Use the OpenShift web console to monitor the **b2bi** project events and pod creation.
     ![](_attachments/OSEventsB2Bi.png)
 
@@ -541,11 +562,7 @@ cat env.sh
     **Long output - truncated in this example**
     ...
 
-
-    ??? example "Example output"
-
-
-37. Set environment variables for final install step.
+41. Set environment variables for final install step.
 
 ```
 export DB2_IP=$(oc get svc db2-ci -n ${DB2_NAME} -o jsonpath='{.spec.clusterIP}')
@@ -553,13 +570,13 @@ export MQ_IP=$(oc get svc mq-data -n ${MQ_NAME} -o jsonpath='{.spec.clusterIP}')
 export INGRESS_SUBDOMAIN=$(oc get IngressController default -n openshift-ingress-operator -o jsonpath='{.status.domain}')
 ```
 
-38. Finalize B2Bi install Yet Another Markup Language (YAML) file.
+42. Finalize the B2Bi install Yet Another Markup Language (YAML) file.
 
 ```
 envsubst < $PROJECT_DIR/ibm-b2bi-prod/values.yaml > b2biInstall.yaml
 ```
 
-39. Run the helm chart to install the B2Bi containers in OpenShift.
+43. Run the helm chart to install the B2Bi containers in OpenShift.
 
 ```
 helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace ${PROJECT_NAME} --values b2biInstall.yaml --debug
