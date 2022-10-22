@@ -239,21 +239,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../DemoPreparation-VSI/" class="md-nav__link">
-        Environment Preparation and B2Bi Installation using a VSI
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../DemoPreparation-CloudShell/" class="md-nav__link">
         Environment Preparation and B2Bi Installation using IBM Cloud Shell
       </a>
@@ -328,8 +313,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-routing-template-and-channels" class="md-nav__link">
-    Create a routing template and channels
+  <a href="#create-a-routing-template" class="md-nav__link">
+    Create a routing template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-routing-channels" class="md-nav__link">
+    Create routing channels
   </a>
   
 </li>
@@ -411,8 +403,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-routing-template-and-channels" class="md-nav__link">
-    Create a routing template and channels
+  <a href="#create-a-routing-template" class="md-nav__link">
+    Create a routing template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-routing-channels" class="md-nav__link">
+    Create routing channels
   </a>
   
 </li>
@@ -433,10 +432,10 @@
 
   <h1>B2Bi Configuration Part 2</h1>
 
-<p>In this chapter, learn how create a B2Bi partner community, add partners to the community, create a routing template, and routing channels.</p>
+<p>In this chapter, learn how to create a B2Bi partner community, add partners to the community, create a routing template, and create routing channels.</p>
 <h2 id="create-a-partner-community">Create a partner community</h2>
 <ol>
-<li>Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): <strong>sterling-fg-b2bi-asi-internal-route-filegateway</strong> application.</li>
+<li>Return to the OpenShift web console and click on the route link to the IBM Sterling File Gateway user interface (UI): <strong>sterling-fg-b2bi-asi-internal-route-filegateway</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSRoutesFileGateway.png" /></p>
 <ol start="2">
@@ -482,7 +481,7 @@
 <h2 id="add-partners-to-the-partner-community">Add partners to the partner community</h2>
 <p>Next, add 2 partners to the newly created <strong>sftp_community</strong>.</p>
 <ol start="12">
-<li>Click the <strong>edit</strong> link for the <strong>sftp_community</strong> on the <strong>Communities</strong> listing pop-up window.</li>
+<li>Click the <strong>edit</strong> link for the <strong>sftp_community</strong> on the <strong>Communities</strong> pop-up window.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_CommunitiesEdit.png" /></p>
 <ol start="13">
@@ -490,11 +489,11 @@
 </ol>
 <p><img alt="" src="../_attachments/FG_CommunitiesDetails.png" /></p>
 <ol start="14">
-<li>Enter <strong>partner1</strong> in the <strong>Partner Name</strong> field, 10 digits in the <strong>Phone</strong> field and <strong>partner1@localhost.com</strong> in the <strong>Email Address</strong> field, and then click <strong>Next</strong>.</li>
+<li>Enter <strong>partner1</strong> in the <strong>Partner Name</strong> field, 10 digits in the <strong>Phone</strong> field, <strong>partner1@localhost.com</strong> in the <strong>Email Address</strong> field, and then click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_CommunitiesPartner1.png" /></p>
 <ol start="15">
-<li>Enter <strong>partner1</strong> in the <strong>User Name</strong> field, <strong>password</strong> in the <strong>Password</strong> field, <strong>password</strong> in the <strong>Confirm Passwod</strong> field, <strong>Partner</strong> in the <strong>Given Name</strong> field, and <strong>Surname</strong> field, and then click <strong>Next</strong>.</li>
+<li>Enter <strong>partner1</strong> in the <strong>User Name</strong> field, <strong>password</strong> in the <strong>Password</strong> field, <strong>password</strong> in the <strong>Confirm Password</strong> field, <strong>Partner</strong> in the <strong>Given Name</strong> field, <strong>One</strong> in  <strong>Surname</strong> field, and then click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_CommunitiesPartner1Password.png" /></p>
 <ol start="16">
@@ -537,7 +536,7 @@
 <li>Click the <strong>Refresh</strong> button if <strong>partner1</strong> and <strong>partner2</strong> do not appear in the <strong>Partners</strong> table.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_PartnersTable.png" /></p>
-<h2 id="create-a-routing-template-and-channels">Create a routing template and channels</h2>
+<h2 id="create-a-routing-template">Create a routing template</h2>
 <ol start="26">
 <li>Click <strong>Templates</strong> under the <strong>Routes</strong> menu.</li>
 </ol>
@@ -582,7 +581,7 @@
 <li>Enter <strong>.+</strong> in the <strong>File name pattern as regular expression</strong> field and then click <strong>Save</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_TemplateCreateProducerUnknownPattern.png" /></p>
-<p>Setting the file pattern to the regular express <strong>.+</strong> allows for file names of one or more characters.</p>
+<p>Setting the file pattern to the regular expression <strong>.+</strong> allows for file names of one or more characters.</p>
 <ol start="37">
 <li>Click <strong>Next&gt;&gt;</strong> on the <strong>Producer</strong>  page.</li>
 </ol>
@@ -605,7 +604,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>${ProducerFileName}
 </code></pre></div>
 <ol start="42">
-<li>Review the help information regarding file name formats by overing over the <strong>File name format</strong> entry field and then click <strong>Save</strong>.</li>
+<li>Review the help information regarding file name formats by hovering over the <strong>File name format</strong> entry field and then click <strong>Save</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/FG_TemplateCreateConsumerNewDeliveryChannelFileTypeFormat.png" /></p>
 <ol start="43">
@@ -624,6 +623,7 @@
 <li>Review the settings for the new <strong>Passthrough</strong> routing channel template.</li>
 </ol>
 <p><img alt="" src="../_attachments/FS_TemplateSummary.png" /></p>
+<h2 id="create-routing-channels">Create routing channels</h2>
 <ol start="47">
 <li>Click the <strong>Channels</strong> option under the <strong>Routes</strong> menu.</li>
 </ol>

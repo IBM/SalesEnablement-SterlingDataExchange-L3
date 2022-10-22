@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#open-the-b2bi-dashboard" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -234,21 +239,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../DemoPreparation-VSI/" class="md-nav__link">
-        Environment Preparation and B2Bi Installation using a VSI
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../DemoPreparation-CloudShell/" class="md-nav__link">
         Environment Preparation and B2Bi Installation using IBM Cloud Shell
       </a>
@@ -271,9 +261,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          B2Bi Configuration Part 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         B2Bi Configuration Part 1
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-b2bi-dashboard" class="md-nav__link">
+    Open the B2Bi dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-ssh-host-identity-key" class="md-nav__link">
+    Create a SSH Host Identity key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-sftp-adapter" class="md-nav__link">
+    Create an SFTP adapter
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -342,6 +375,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-b2bi-dashboard" class="md-nav__link">
+    Open the B2Bi dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-ssh-host-identity-key" class="md-nav__link">
+    Create a SSH Host Identity key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-sftp-adapter" class="md-nav__link">
+    Create an SFTP adapter
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -356,7 +418,8 @@
 
   <h1>B2Bi Configuration Part 1</h1>
 
-<p>In this chapter, learn how to configure the Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.</p>
+<p>In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.</p>
+<h2 id="open-the-b2bi-dashboard">Open the B2Bi dashboard</h2>
 <ol>
 <li>In the OpenShift web console, click <strong>Routes</strong> under the <strong>Network</strong> section in left-hand panel.</li>
 </ol>
@@ -370,7 +433,7 @@
 </ol>
 <p><img alt="" src="../_attachments/OSB2BiAllRoutes.png" /></p>
 <ol start="4">
-<li>To start the setup of the test partner accounts, launch the IBM Sterling B2Bi dashboard by clicking on the route for the sterling-fg-b2bi-asi-internal-route-dashboard route in the <strong>Location</strong> column. Do not click the Route name... click the Route link in the <strong>Location</strong> column of the table.</li>
+<li>To start the setup of the SFTP adapter, launch the IBM Sterling B2Bi dashboard by clicking on the route for the <strong>sterling-fg-b2bi-asi-internal-route-dashboard</strong> route in the <strong>Location</strong> column. Do not click the Route name, rather click the Route link in the <strong>Location</strong> column of the table.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSB2BiDashboardRoute.png" /></p>
 <ol start="5">
@@ -387,6 +450,7 @@
 <li>Enter <strong>admin</strong> in the <strong>User ID</strong> field and <strong>password</strong> in the <strong>Password</strong> field, and then click <strong>Sign In</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiAdminLogin.png" /></p>
+<h2 id="create-a-ssh-host-identity-key">Create a SSH Host Identity key</h2>
 <p>First, a <strong>SSH Host Identity</strong> needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.</p>
 <ol start="7">
 <li>Click the <strong>Deployment</strong> menu item in left-hand menu bar.</li>
@@ -416,6 +480,7 @@
 <li>Wait until the completed message is received and the click the <strong>Return</strong> button.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiHIKCreatedCompleted.png" /></p>
+<h2 id="create-an-sftp-adapter">Create an SFTP adapter</h2>
 <p>Next, an SFTP adapter must be created which will utilize the OpenShift service port for B2Bi.</p>
 <ol start="14">
 <li>Click the <strong>Services</strong> menu item under <strong>Deployment</strong> in the left-hand menu bar.</li>
@@ -443,7 +508,7 @@
 <p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1.png" /></p>
 <p>The default <strong>SFTP Server Listen Port</strong> must be changed to the B2Bi service port configured in OpenShift.</p>
 <ol start="20">
-<li>Switch back to the OpenShift web console browser window or tab and click the <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</li>
+<li>Switch back to the OpenShift web console browser window or tab and click <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</li>
 </ol>
 <p><img alt="" src="../_attachments/OpenShiftRoutesPageToServices.png" /></p>
 <ol start="21">
@@ -456,7 +521,7 @@
 <p><img alt="" src="../_attachments/OSServicesASIOverview.png" /></p>
 <ol start="23">
 <li>
-<p>Record this <strong>Service Port</strong> number, it will be used several times during this demonstration.</p>
+<p>Record the <strong>Service Port</strong> number, it will be used several times during this demonstration.</p>
 </li>
 <li>
 <p>Switch back to the <strong>B2Bi Dashboard</strong> browser window or tab.</p>
@@ -468,7 +533,7 @@
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2.png" /></p>
 <ol start="26">
-<li>Click <strong>Next</strong> on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page.</li>
+<li>Review the default settings on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPStroage.png" /></p>
 <ol start="27">
@@ -496,7 +561,7 @@
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPStartAdapter.png" /></p>
 <ol start="33">
-<li>Click the <img alt="" src="../_attachments/BangIcon.png" /> next to the <strong>SFTP Server Adapter</strong>.</li>
+<li>Click the <img alt="" src="../_attachments/BangIcon.png" /> icon next to the <strong>SFTP Server Adapter</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled.png" /></p>
 <ol start="34">

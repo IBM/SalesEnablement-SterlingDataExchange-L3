@@ -239,21 +239,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../DemoPreparation-VSI/" class="md-nav__link">
-        Environment Preparation and B2Bi Installation using a VSI
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../DemoPreparation-CloudShell/" class="md-nav__link">
         Environment Preparation and B2Bi Installation using IBM Cloud Shell
       </a>
@@ -433,14 +418,14 @@
 
   <h1>Client Demonstration</h1>
 
-<p>It is now time to transfer files, but first one last setup step to make the demonstration more visually exciting.</p>
-<p>In this demonstration, the FileZilla application will be used.  FileZilla is a free and open-source, cross-platform FTP application, consisting of FileZilla Client and FileZilla Server. Clients are available for Windows, Linux, and macOS. Both server and client support FTP and FTPS, while the client can in addition connect to SFTP servers. You can learn more about FileZilla <a href="https://filezilla-project.org/" target="_blank">here</a>.</p>
+<p>It is now time for the partners to transfer files between each other using the newly created B2Bi SFTP adapter, but first one last setup step to make the demonstration more visually exciting.</p>
+<p>In this demonstration, the FileZilla application will be used. FileZilla is a free and open-source, cross-platform FTP application, consisting of FileZilla Client and FileZilla Server. Clients are available for Windows, Linux, and macOS. Learn more about FileZilla <a href="https://filezilla-project.org/" target="_blank">here</a>.</p>
 <p>If users do not already have FileZilla installed, do so now. IBM employees can download FileZilla from the Mac@IBM store.  For Business Partners and IBMers on Microsoft Windows, the download links are available at the link above.</p>
 <p>If users are unable to use FileZilla, it is recommended to use the IBM Sterling File Gateway clients for both users in the scenario that follows.  To avoid having to log in and out between user actions, it is recommended to use two different browsers (e.g. Chrome and Firefox) for each user or private/incognito windows for each user when accessing the IBM Sterling File Gateways.</p>
 <p>When doing a client demonstration, it is recommended to split the FileZilla and browser windows on the same screen to avoid switching back and forth during the demonstration.</p>
 <p>For this scenario, <strong>partner1</strong> will use the IBM Sterling File Gateway clients, and <strong>partner2</strong> will use FileZilla.</p>
 <h2 id="configure-filezilla-for-partner2">Configure FileZilla for partner2</h2>
-<p>To configure FileZilla for <strong>partner2</strong> both the File Gateway route address and port numbers will be needed.</p>
+<p>To configure FileZilla for <strong>partner2</strong> both the File Gateway route address and port number will be needed.</p>
 <ol>
 <li>Return to the OpenShift web console and click on the <strong>sterling-fg-b2bi-asi-internal-route</strong> route on the <strong>Routes</strong> page.</li>
 </ol>
@@ -471,7 +456,7 @@
 </ol>
 <p><img alt="" src="../_attachments/FZ_NewSiteProtocol.png" /></p>
 <ol start="8">
-<li>Paste the <strong>route</strong> copied in step XXXXXX into the <strong>Host</strong> field.</li>
+<li>Paste the <strong>route</strong> copied in step 2 into the <strong>Host</strong> field.</li>
 </ol>
 <p><img alt="" src="../_attachments/FZ_NewSitePasteHost.png" /></p>
 <ol start="9">
@@ -488,7 +473,7 @@
 </ol>
 <p><img alt="" src="../_attachments/FZ_NewSiteUserPassword.png" /></p>
 <ol start="11">
-<li>Check the <strong>Always trust this host, add this key to cache</strong> checkbox, and click <strong>OK</strong> on the <strong>Unknown host key</strong> pop-up window.</li>
+<li>Check the <strong>Always trust this host, add this key to cache</strong> checkbox and click <strong>OK</strong> on the <strong>Unknown host key</strong> pop-up window.</li>
 </ol>
 <p><img alt="" src="../_attachments/FZ_UKnknownHostKey.png" /></p>
 <ol start="12">
@@ -500,7 +485,7 @@
 </ol>
 <p><img alt="" src="../_attachments/OS_FZ_splitScreen.png" /></p>
 <ol start="14">
-<li>Next, create or download 2 sample files that will be transferred between partner1 and partner2. Since the templates created earlier allow for any file names to be transferred it does not matter what files are used.  It is suggested to use small files so the transfers happen quickly.  Feel free to download these two sample invoice files to use. Just right click the links below nd save to the local Downloads directory.</li>
+<li>Create or download the 2 sample files that will be transferred between partner1 and partner2. Since the templates created earlier allow for any file names to be transferred it does not matter what files are used.  It is suggested to use small files so the transfers happen quickly.  Feel free to download these two sample invoice files. In most browsers, select the link names below, right click on the links, and click <strong>Save link as</strong> to the local Downloads directory.</li>
 </ol>
 <ul>
 <li>
@@ -565,7 +550,7 @@
 <li>Review the events that occurred during the file transfer.</li>
 </ol>
 <p><img alt="" src="../_attachments/MyFG_FileActivityDetails.png" /></p>
-<p>Notice in events <strong>FG_0503</strong> and <strong>FG_0504</strong> show the <strong>Passthrough</strong> channel template was used to properly route the transferred file to <strong>partner2</strong>.</p>
+<p>Notice events <strong>FG_0503</strong> and <strong>FG_0504</strong> show the <strong>Passthrough</strong> channel template was used to properly route the transferred file to <strong>partner2</strong>.</p>
 <p>For additional demonstrations, consider the following:</p>
 <ul>
 <li>Transfer a file from <strong>partner2</strong> to <strong>partner1</strong>.</li>
