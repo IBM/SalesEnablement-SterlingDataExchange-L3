@@ -67,11 +67,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#macro-rendering-error" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -230,8 +225,6 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Demonstration Overview
@@ -333,8 +326,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -348,20 +339,14 @@
                 
 
 
-<h1 id="macro-rendering-error"><em>Macro Rendering Error</em></h1>
-<p><strong>UndefinedError</strong>: 'learnigplan' is undefined</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Traceback (most recent call last):
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  File &quot;/usr/local/lib/python3.9/site-packages/mkdocs_macros/plugin.py&quot;, line 480, in render
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    return md_template.render(**page_variables)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  File &quot;/usr/local/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 1301, in render
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    self.environment.handle_exception()
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  File &quot;/usr/local/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 936, in handle_exception
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    raise rewrite_traceback_stack(source=source)
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  File &quot;&lt;template&gt;&quot;, line 1, in top-level template code
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  File &quot;/usr/local/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 485, in getattr
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    return getattr(obj, attribute)
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>jinja2.exceptions.UndefinedError: &#39;learnigplan&#39; is undefined
-</code></pre></div>
+  <h1>Demonstration Overview</h1>
+
+<p>This demonstration assumes users have at least a basic knowledge of IBM Sterling B2B Integrator. Before proceeding, it is highly encouraged that users complete the IBM Sterling Data Exchange Level 2 learning plan. The plan is accessible to IBM employees <a href="https://yourlearning.ibm.com/activity/PLAN-C22C127B3AEC" target="_blank">here</a> and Business Partners <a href="https://learn.ibm.com/course/view.php?id=11891" target="_blank">here</a>.</p>
+<p>In this demonstration script, a secure partner-to-partner data exchange solution is created using IBM Sterling Business to Business Integrator (B2Bi). More specifically, this demonstration solution uses the IBM Certified Containers for IBM Sterling B2B Integrator version of B2Bi.  This version provides enterprise-grade and security-rich product editions with integrated common software services for consistent-deployment lifecycle management, including easy install and configure options, management of upgrade and roll-back, scalability, and security.</p>
+<p>Learn more about B2Bi <a href="https://www.ibm.com/products/b2b-integrator" target="_blank">here</a> and access the B2Bi product documentation <a href="https://www.ibm.com/docs/en/b2b-integrator?topic=SS3JSW/sb2b_home/product_welcome_kc_b2bi.html" target="_blank">here</a> . This demonstration solution uses Secure File Transfer Protocol (SFTP) to allow two partners to exchange files in a secure manner.</p>
+<p>To create this demonstration solution, the containerized version of B2Bi will be deployed to a Red Hat OpenShift on IBM Cloud (a fully managed OpenShift deployment).  Learn more about Red Hat OpenShift on IBM Cloud <a href="https://www.ibm.com/cloud/openshift" target="_blank">here</a>.</p>
+<p>This demonstration script consists of 3 installation and configuration chapters and a chapter describing a client demonstration scenario.</p>
+<p>It is now time to install B2Bi on Red Hat OpenShift on IBM Cloud (ROKS).</p>
 
 
 
