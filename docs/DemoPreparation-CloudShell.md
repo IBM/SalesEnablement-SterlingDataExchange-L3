@@ -513,17 +513,29 @@ cat env.sh
 
 !!! example "Example output"
     itzuser@itz-2700039nft-srv4:~/b2bi$ cat env.sh
+
     \#!/usr/bin/bash
+
     \#\# Locate your APIKEY (Entitlement Key For Container Software)
+
     \#\# here: https://myibm.ibm.com/products-services/containerlibrary
+
     \#\# Requires IBM ID and permission.
+
     export PROJECT_NAME="b2bi"
+
     export PROJECT_DIR="$HOME/b2bi"
+
     export DB2_NAME="db2"
+
     export MQ_NAME="mq"
+
     export APIKEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    
     export EMAIL="andrew@jones-tx.com"
+
     itzuser@itz-2700039nft-srv4:~/b2bi$
+
 
 ## Install B2Bi in the OpenShift cluster
 
