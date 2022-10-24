@@ -7,7 +7,7 @@ Welcome to the {{learningplan.name}} demonstration guide! The goal of this demon
 
     ![](_attachments/EntitlementNoKey.png)
 
-    If a valid entitlement exists, a screen similar to the one below should be displayed.
+    If a **valid** entitlement exists, a screen similar to the one below should be displayed. The actual key will be created in a later step. **Please proceed with the demonstration script.**
 
     ![](_attachments/EntitlementKey3.png)
 
