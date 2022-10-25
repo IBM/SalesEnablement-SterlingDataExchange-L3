@@ -440,7 +440,7 @@ exit
     logout
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-Notice the command line prompt has changed back to the prompt for the VSI connection.
+Notice the command line prompt has changed back to the prompt for IBM Cloud Shell.
 
 ## Install MQ in the OpenShift cluster
 
