@@ -88,7 +88,7 @@ cd $PROJECT_DIR
 12. Download the B2Bi installation script.
 
 ```
-wget -O {{b2bi.installScript}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScriptCloudShell}}?raw=true
+wget -O {{b2bi.installScriptCloudShell}} {{gitRepo}}/{{b2bi.installPath}}/{{b2bi.installScriptCloudShell}}?raw=true
 ```
 <!-- wget -O rapid-lab-b2bi-newlab-61051.zip  https://github.com/IBM/PEMStandard-BDAwithB2Bi/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true -->
 
@@ -531,7 +531,7 @@ cat env.sh
     export MQ_NAME="mq"
 
     export APIKEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    
+
     export EMAIL="andrew@jones-tx.com"
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
