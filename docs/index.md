@@ -69,7 +69,7 @@ Click the play button ![](_attachments/ClickThruPlayButton.png) in the middle of
 
 The following acronyms are used throughout this demonstration guide:
 
-    - Applicability Statement 2 (AS2))
+    - Applicability Statement 2 (AS2)
     - Application programming interfaces (APIs)
     - Artificial Intelligence (AI)
     - Electronic Data Interchange (EDI)

@@ -1,4 +1,4 @@
-This demonstration guide assumes a **Custom ROKS** envirnment provisioned from IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/collection/custom-roks-vmware-requests" target="_blank">here</a>.
+This demonstration guide assumes a **Custom ROKS** environment provisioned from IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/collection/custom-roks-vmware-requests" target="_blank">here</a>.
 
 At this point, all users should have completed the steps in the {{learningplan.name}} learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the {{learningplan.name}} <a href="https://ibm.seismic.com/Link/Content/DC8JQcd2PWDTR8fB2FmjmV3cPC8P" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the **Ready** state in ITZ. If not, please complete those steps before proceeding.
 
