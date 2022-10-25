@@ -62,7 +62,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 ![](_attachments/FG_CommunitiesPartner1.png)
 
-15. Enter **partner1** in the **User Name** field, **password** in the **Password** field, **password** in the **Confirm Password** field, **Partner** in the **Given Name** field, **One** in  **Surname** field, and then click **Next**.
+15. Enter **partner1** in the **User Name** field, **password** in the **Password** field, **password** in the **Confirm Password** field, **Partner** in the **Given Name** field, **One** in **Surname** field, and then click **Next**.
 
 ![](_attachments/FG_CommunitiesPartner1Password.png)
 
@@ -154,7 +154,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 Setting the file pattern to the regular expression **.+** allows for file names of one or more characters.
 
-37. Click **Next>>** on the **Producer**  page.
+37. Click **Next>>** on the **Producer** page.
 
 ![](_attachments/FG_TemplateCreateProducerNext.png)
 
@@ -206,7 +206,7 @@ ${ProducerFileName}
 
 ![](_attachments/FG_ChannelCreate.png)
 
-49. Select **Passthrough** for the **Routing Channel Template**, **partner1** for the **Producer**, and **partner2**  for the **Consumer**, and then click **Save** to create the new channel.
+49. Select **Passthrough** for the **Routing Channel Template**, **partner1** for the **Producer**, and **partner2** for the **Consumer**, and then click **Save** to create the new channel.
 
 ![](_attachments/FG-ChannelCreateP1toP2.png)
 

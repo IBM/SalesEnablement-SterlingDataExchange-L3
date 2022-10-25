@@ -2,9 +2,9 @@ It is now time for the partners to transfer files between each other using the n
 
 In this demonstration, the FileZilla application will be used. FileZilla is a free and open-source, cross-platform FTP application, consisting of FileZilla Client and FileZilla Server. Clients are available for Windows, Linux, and macOS. Learn more about FileZilla <a href="https://filezilla-project.org/" target="_blank">here</a>.
 
-If users do not already have FileZilla installed, do so now. IBM employees can download FileZilla from the Mac@IBM store.  For Business Partners and IBMers on Microsoft Windows, the download links are available at the link above.
+If users do not already have FileZilla installed, do so now. IBM employees can download FileZilla from the Mac@IBM store. For Business Partners and IBMers on Microsoft Windows, the download links are available at the link above.
 
-If users are unable to use FileZilla, it is recommended to use the IBM Sterling File Gateway clients for both users in the scenario that follows.  To avoid having to log in and out between user actions, it is recommended to use two different browsers (e.g. Chrome and Firefox) for each user or private/incognito windows for each user when accessing the IBM Sterling File Gateways.
+If users are unable to use FileZilla, it is recommended to use the IBM Sterling File Gateway clients for both users in the scenario that follows. To avoid having to log in and out between user actions, it is recommended to use two different browsers (e.g. Chrome and Firefox) for each user or private/incognito windows for each user when accessing the IBM Sterling File Gateways.
 
 When doing a client demonstration, it is recommended to split the FileZilla and browser windows on the same screen to avoid switching back and forth during the demonstration.
 
@@ -104,7 +104,7 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 20. Click the **SampleInvoice1.xml** file in the **Downloads** directory and click **Open**.
 
 !!! note "Note"
-    Navigate to the directory where the sample invoice files were downloaded or pick another file to transfer.  Do not transfer any file with confidential or personal information. The image above was captured using Firefox on MacOS, other browsers and operating system combinations may look different.
+    Navigate to the directory where the sample invoice files were downloaded or pick another file to transfer. Do not transfer any file with confidential or personal information. The image above was captured using Firefox on MacOS, other browsers and operating system combinations may look different.
 
 ![](_attachments/MyFG_UploadFileDialog.png)
 

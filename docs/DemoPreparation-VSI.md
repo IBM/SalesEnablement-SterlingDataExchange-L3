@@ -96,7 +96,7 @@ ls -l {{tz_environment.sshKeyFile}}
     -rw-r--r--@ 1 andrewjones  staff  3243 Oct 18 13:12 {{tz_environment.sshKeyFile}}
 
 ??? failure "No such file or directory?"
-    If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as {{tz_environment.sshKeyFile}}.  Check the Downloads directory for the most recent file names.
+    If the file was not found, verify the default download directory of the browser used in step 11 above and try again adjusting for correct download directory. It is also possible the SSH key file name was not saved as {{tz_environment.sshKeyFile}}. Check the Downloads directory for the most recent file names.
 
 15. Change the permissions of the **SSH key** file.
 
@@ -503,7 +503,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
 Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
-37. Run the **db2reg.sh**  script.
+37. Run the **db2reg.sh** script.
 
 ```
 ./db2reg.sh

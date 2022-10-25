@@ -333,7 +333,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
 A remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
-24. Run the **db2reg.sh**  script.
+24. Run the **db2reg.sh** script.
 
 ```
 ./db2reg.sh

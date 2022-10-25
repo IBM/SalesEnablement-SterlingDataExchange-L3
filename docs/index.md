@@ -3,7 +3,7 @@ Welcome to the {{learningplan.name}} demonstration guide! The goal of this demon
 !!! danger "READ THIS BEFORE PROCEEDING"
     To complete this activity, users MUST have an **entitlement key** in the IBM Entitled Registry to access IBM container software (e.g. IBM Sterling B2B Integrator). Before proceeding, verify an entitlement exists.
 
-    To verify entitlement to IBM container software, open the IBM **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.  Note, authentication to ibm.com will be required. If a screen like the image below is displayed, you will NOT be able to complete this activity.
+    To verify entitlement to IBM container software, open the IBM **Entitlement key** page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>. Note, authentication to ibm.com will be required. If a screen like the image below is displayed, you will NOT be able to complete this activity.
 
     ![](_attachments/EntitlementNoKey.png)
 

@@ -26,7 +26,7 @@ In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) a
 Note: the images above are from Firefox running on MacOS. They will look different depending on browser and operating system.
 
 !!! hint
-    As this is a new install, in this demonstration the default user ids and passwords will be used. To keep things simple in this demonstration, all passwords will be set to **password**.  Not secure, but this will be a short lived demonstration environment.
+    As this is a new install, in this demonstration the default user ids and passwords will be used. To keep things simple in this demonstration, all passwords will be set to **password**. Not secure, but this will be a short lived demonstration environment.
 
 6. Enter **admin** in the **User ID** field and **password** in the **Password** field, and then click **Sign In**.
 
