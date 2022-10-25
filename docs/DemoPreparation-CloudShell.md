@@ -495,9 +495,12 @@ vi  env.sh
 Note, re-authentication to ibm.com may be required.
 
 31. If an entitlement key does not already exist, click **Add new key**.
+
+![](_attachments/EntitlementKey4.png)
+
 32. Click the **Copy** button.
 
-![](_attachments/EntitlementKey2.png)
+![](_attachments/EntitlementKey5.png)
 
 33. Return to the IBM Cloud Shell window, use the arrow keys to move the cursor between the quotes in the **export APIKEY** line, press **i** to enter input mode, and paste the copied **entitlement key** between the quotes.
 34. Press the **esc** key to exit input mode.
