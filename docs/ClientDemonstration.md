@@ -12,7 +12,7 @@ For this scenario, **partner1** will use the IBM Sterling File Gateway clients, 
 
 As an introduction, watch this brief video of the steps to be performed.
 
-![type:video](./_videos/SterlingDataExchange-ClientDemoWalkThrough-final.mp4)
+![type:video](_videos/SterlingDataExchange-ClientDemoWalkthrough-final.mp4)
 
 ## Configure FileZilla for partner2
 
