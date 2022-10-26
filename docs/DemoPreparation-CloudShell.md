@@ -229,8 +229,6 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 ```
 oc logs -f ${DB2_NAME}-0
 ```
-!!! warning "This will take approximately 5 minutes"
-    It may take 5 minutes or more before the **oc logs** command returns any output or the error message below.
 
 !!! failure
     If no output is seen from the above command, or if it returns the following message:
