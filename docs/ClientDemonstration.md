@@ -10,6 +10,10 @@ When doing a client demonstration, it is recommended to split the FileZilla and 
 
 For this scenario, **partner1** will use the IBM Sterling File Gateway clients, and **partner2** will use FileZilla.
 
+As an introduction, watch this brief video of the steps to be performed.
+
+![type:video](./_videos/SterlingDataExchange-ClientDemoWalkThrough-final.mp4)
+
 ## Configure FileZilla for partner2
 
 To configure FileZilla for **partner2** both the File Gateway route address and port number will be needed.
