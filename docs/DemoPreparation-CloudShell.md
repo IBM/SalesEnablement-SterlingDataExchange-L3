@@ -175,7 +175,7 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 ![](_attachments/OSLoginAPIToken.png)
 
 18. Switch back to the IBM Cloud Shell browser window or tab from earlier.
-19. Paste the **oc login** command line copied in step 29 into the IBM Cloud Shell window and press enter.
+19. Paste the **oc login** command line copied in step 17 into the IBM Cloud Shell window and press enter.
 
 !!! example "Example output"
     itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501
