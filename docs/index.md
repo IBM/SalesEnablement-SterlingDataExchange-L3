@@ -19,6 +19,10 @@ In addition to completing all the steps in this demonstration guide, to obtain t
 
 Before jumping to the Demonstration Overview, please read the guidance below. **Reading and understanding the information will save time while completing the steps in this guide.**
 
+## Recommended browsers
+
+It is recommended to use either Firefox or Safari web browsers. There has been at least one instance reported using the Chrome browser and some popup menus not being populated and some popup dialogs not appearing. No testing has been done using the Microsoft Edge browser.
+
 ## Helpful tips for using this demonstration guide and environment
 
 Throughout the guide, images are used to help guide students through the demonstration.

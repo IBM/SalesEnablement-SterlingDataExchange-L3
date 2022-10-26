@@ -162,7 +162,7 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 
 ![](_attachments/OSWebConsoleOverview.png)
 
-15. Click the **IAM** identity drop-down menu at top left of the **OpenShift web console** and click the **Copy login command** option.
+15. Click the **IAM** identity drop-down menu at top right of the **OpenShift web console** and click the **Copy login command** option.
 
 ![](_attachments/OSCopyLoginMenu.png)
 
