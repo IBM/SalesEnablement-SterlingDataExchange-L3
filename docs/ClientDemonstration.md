@@ -89,7 +89,7 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 
 ![](_attachments/MyFG_login.png)
 
-17. Click the hamburger menu icon ![](_attachments/MyFG_HamburgerIcon.png) at top right and click **Uploads**.
+17. Click the hamburger menu icon ![](_attachments/MyFG_HamburgerIcon.png) at top left and click **Uploads**.
 
 ![](_attachments/MyFG_UploadsMenu.png)
 
