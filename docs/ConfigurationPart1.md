@@ -10,6 +10,9 @@ In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) a
 
 ![](_attachments/OSRoutesMenu.png)
 
+??? question "BP quiz question"
+    Several BP quiz questions will come from the **OpenShift web console**. When taking the BP quiz make sure the ITZ environment is still active and keep this demonstration script open.
+
 3. Notice all the routes that are currently defined in the b2bi Project, there are 15 of them
 
 ![](_attachments/OSB2BiAllRoutes.png)
@@ -35,6 +38,9 @@ Note: the images above are from Firefox running on MacOS. They will look differe
 ## Create a SSH Host Identity key
 
 First, a **SSH Host Identity** needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.
+
+??? question "BP quiz question"
+    Several BP quiz questions will come from the **B2Bi dashboard**. When taking the BP quiz make sure the ITZ environment is still active and keep this demonstration script open.
 
 7. Click the **Deployment** menu item in left-hand menu bar.
 

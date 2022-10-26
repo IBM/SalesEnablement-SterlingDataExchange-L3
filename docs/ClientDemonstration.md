@@ -137,6 +137,9 @@ It is important to realize the file has been transferred to the **B2Bi Gateway**
 
 Notice events **FG_0503** and **FG_0504** show the **Passthrough** channel template was used to properly route the transferred file to **partner2**.
 
+??? question "BP quiz question"
+    There is a quiz question related to the events of a successful file transfer. A screen capture of all the events and event numbers will help answer the question.
+
 For additional demonstrations, consider the following:
 
 - Transfer a file from **partner2** to **partner1**.
