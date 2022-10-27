@@ -156,7 +156,7 @@ unzip {{b2bi.installScriptCloudShell}}
 
 ## Authenticate to the OpenShift cluster
 
-For the next steps, the **OpenShift** login command to authenticate to the OpenShift cluster must be retrieved an executed.
+For the next steps, the **OpenShift** login command to authenticate to the OpenShift cluster must be retrieved and executed.
 
 14. Switch to the **OpenShift web console** browser window or tab.
 
@@ -170,7 +170,7 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 
 ![](_attachments/DisplayTokenLink.png)
 
-17. Copy and paste the string in the **Log in with this token** field.
+17. Copy the string in the **Log in with this token** field.
 
 ![](_attachments/OSLoginAPIToken.png)
 
@@ -190,9 +190,9 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-## Install DB2 in the OpenShift cluster
+## Install Db2 in the OpenShift cluster
 
-20. Run the environment setup and DB2 deploy scripts.
+20. Run the environment setup and Db2 deploy scripts.
 
 ```
 . env.sh ; ./deploy_db2.sh
@@ -217,14 +217,14 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
     statefulset.apps/db2 created
 
 !!! warning "Wait 5 minutes..."
-    Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
+    Wait approximately 5 minutes for the Db2 containers to start loading in OpenShift before executing the next step.
 
 ??? tip "Optional: monitor events in OpenShift web console"
-    Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+    Use the OpenShift web console to monitor the **Db2** project events and pod creation.
     ![](_attachments/OSEventsDB2.png)
     ![](_attachments/OSPodsDB2.png)
 
-21. Verify DB2 is up and running in the OpenShift cluster.
+21. Verify Db2 is up and running in the OpenShift cluster.
 
 ```
 oc logs -f ${DB2_NAME}-0
@@ -310,9 +310,9 @@ oc logs -f ${DB2_NAME}-0
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-## Configure DB2 and created the required B2Bi tables
+## Configure Db2 and create the required B2Bi tables
 
-23. Prepare the DB2 instance running in OpenShift.
+23. Prepare the Db2 instance running in OpenShift.
 
 ```
 ./prepare_db2.sh
@@ -320,7 +320,7 @@ oc logs -f ${DB2_NAME}-0
 
 This script does not generate output.
 
-36. Remotely connect to the DB2 container running in OpenShift.
+36. Remotely connect to the Db2 container running in OpenShift.
 
 ```
 oc rsh pod/${DB2_NAME}-0 su - db2inst1
@@ -331,7 +331,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
     [db2inst1@db2-0 ~]$
 
-A remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
+A remote connection is now open to the Db2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
 24. Run the **db2reg.sh** script.
 
@@ -364,7 +364,7 @@ A remote connection is now open to the DB2 container running in OpenShift as sho
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
 
-25. Create the B2Bi tables in DB2.
+25. Create the B2Bi tables in Db2.
 
 ```
 db2 -stvf create_scc_db_b2bidb.sql
@@ -402,7 +402,7 @@ db2 -stvf create_scc_db_b2bidb.sql
 
     DB20000I  The SQL command completed successfully.
 
-26. Run the final DB2 update script.
+26. Run the final Db2 update script.
 
 ```
 ./db2-update.sh
@@ -430,7 +430,7 @@ db2 -stvf create_scc_db_b2bidb.sql
 
     SQL1063N  DB2START processing was successful.
 
-27. Exit the connection to the DB2 container in OpenShift.
+27. Exit the connection to the Db2 container in OpenShift.
 
 ```
 exit
@@ -474,8 +474,6 @@ Notice the command line prompt has changed back to the prompt for IBM Cloud Shel
 
     statefulset.apps/mq created
 
-
-
 ## Update the environment variables with IBM container entitlement key and e-mail address
 
 The next steps require editing of a file using the **vi** editor. If you are not familiar with the **vi** editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.
@@ -506,7 +504,7 @@ Note, re-authentication to ibm.com may be required.
 34. Press the **esc** key to exit input mode.
 35. Arrow key down and over to between the quotes in the **export EMAIL=""** line and enter a your e-mail address.
 36. Press the **esc** key to exit input mode.
-37. Enter your e-mail address between the quotes on the **export EMAIL=""** line.
+37. Move cursor between the quotes on the **export EMAIL=""** line, press **i** to enter input mode, and enter your e-mail address.
 38. Press the **:** key and then the **x** key and enter to save and exit the **vi** editor.
 39. Verify the env.sh file looks like the example output below.
 

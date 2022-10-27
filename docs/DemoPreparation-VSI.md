@@ -366,7 +366,7 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-32. Run the environment setup and DB2 deploy scripts.
+32. Run the environment setup and Db2 deploy scripts.
 
 ```
 . env.sh ; ./deploy_db2.sh
@@ -391,16 +391,16 @@ For the next steps, the **OpenShift** login command to authenticate to the clust
     statefulset.apps/db2 created
 
 !!! warning "Wait 5 minutes..."
-    Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.
+    Wait approximately 5 minutes for the Db2 containers to start loading in OpenShift before executing the next step.
 
 ??? tip "Monitor events in OpenShift web console"
-    Use the OpenShift web console to monitor the **DB2** project events and pod creation.
+    Use the OpenShift web console to monitor the **Db2** project events and pod creation.
     ![](_attachments/OSEventsDB2.png)
     ![](_attachments/OSPodsDB2.png)
 
 
 
-33. Verify DB2 is up and running in the OpenShift cluster.
+33. Verify Db2 is up and running in the OpenShift cluster.
 
 ```
 oc logs -f ${DB2_NAME}-0
@@ -482,7 +482,7 @@ oc logs -f ${DB2_NAME}-0
 
     itzuser@itz-2700039nft-srv4:~/b2bi$
 
-35. Prepare the DB2 instance running in OpenShift.
+35. Prepare the Db2 instance running in OpenShift.
 
 ```
 ./prepare_db2.sh
@@ -490,7 +490,7 @@ oc logs -f ${DB2_NAME}-0
 
 Note, this script does not generate output.
 
-36. Remotely connect to the DB2 container running in OpenShift.
+36. Remotely connect to the Db2 container running in OpenShift.
 
 ```
 oc rsh pod/${DB2_NAME}-0 su - db2inst1
@@ -501,7 +501,7 @@ oc rsh pod/${DB2_NAME}-0 su - db2inst1
 
     [db2inst1@db2-0 ~]$
 
-Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
+Note, a remote connection is now open to the Db2 container running in OpenShift as shown by the change in the command prompt to: **[db2inst1@db2-0 ~]$**
 
 37. Run the **db2reg.sh** script.
 
@@ -534,7 +534,7 @@ Note, a remote connection is now open to the DB2 container running in OpenShift 
     DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
     successfully.
 
-38. Create the B2Bi tables in DB2.
+38. Create the B2Bi tables in Db2.
 
 ```
 db2 -stvf create_scc_db_b2bidb.sql
@@ -572,7 +572,7 @@ db2 -stvf create_scc_db_b2bidb.sql
 
     DB20000I  The SQL command completed successfully.
 
-39. Run the final DB2 update script.
+39. Run the final Db2 update script.
 
 ```
 ./db2-update.sh
@@ -600,7 +600,7 @@ db2 -stvf create_scc_db_b2bidb.sql
 
     SQL1063N  DB2START processing was successful.
 
-40. Exit the connection to the DB2 container in OpenShift.
+40. Exit the connection to the Db2 container in OpenShift.
 
 ```
 exit
