@@ -685,7 +685,7 @@ Run 'do-release-upgrade' to upgrade to it.</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
 <ol start="32">
-<li>Run the environment setup and DB2 deploy scripts.</li>
+<li>Run the environment setup and Db2 deploy scripts.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>. env.sh ; ./deploy_db2.sh
 </code></pre></div>
@@ -705,16 +705,16 @@ statefulset.apps/db2 created</p>
 </details>
 <div class="admonition warning">
 <p class="admonition-title">Wait 5 minutes...</p>
-<p>Wait approximately 5 minutes for the DB2 containers to start loading in OpenShift before executing the next step.</p>
+<p>Wait approximately 5 minutes for the Db2 containers to start loading in OpenShift before executing the next step.</p>
 </div>
 <details class="tip">
 <summary>Monitor events in OpenShift web console</summary>
-<p>Use the OpenShift web console to monitor the <strong>DB2</strong> project events and pod creation.
+<p>Use the OpenShift web console to monitor the <strong>Db2</strong> project events and pod creation.
 <img alt="" src="../_attachments/OSEventsDB2.png" />
 <img alt="" src="../_attachments/OSPodsDB2.png" /></p>
 </details>
 <ol start="33">
-<li>Verify DB2 is up and running in the OpenShift cluster.</li>
+<li>Verify Db2 is up and running in the OpenShift cluster.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc logs -f ${DB2_NAME}-0
 </code></pre></div>
@@ -777,13 +777,13 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
 <ol start="35">
-<li>Prepare the DB2 instance running in OpenShift.</li>
+<li>Prepare the Db2 instance running in OpenShift.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./prepare_db2.sh
 </code></pre></div>
 <p>Note, this script does not generate output.</p>
 <ol start="36">
-<li>Remotely connect to the DB2 container running in OpenShift.</li>
+<li>Remotely connect to the Db2 container running in OpenShift.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
 </code></pre></div>
@@ -792,7 +792,7 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>Last login: Tue Oct 18 20:47:33 UTC 2022</p>
 <p>[db2inst1@db2-0 ~]$</p>
 </div>
-<p>Note, a remote connection is now open to the DB2 container running in OpenShift as shown by the change in the command prompt to: <strong>[db2inst1@db2-0 ~]$</strong></p>
+<p>Note, a remote connection is now open to the Db2 container running in OpenShift as shown by the change in the command prompt to: <strong>[db2inst1@db2-0 ~]$</strong></p>
 <ol start="37">
 <li>Run the <strong>db2reg.sh</strong> script.</li>
 </ol>
@@ -818,7 +818,7 @@ successfully.</p>
 successfully.</p>
 </details>
 <ol start="38">
-<li>Create the B2Bi tables in DB2.</li>
+<li>Create the B2Bi tables in Db2.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>db2 -stvf create_scc_db_b2bidb.sql
 </code></pre></div>
@@ -846,7 +846,7 @@ successfully.</p>
 <p>DB20000I  The SQL command completed successfully.</p>
 </details>
 <ol start="39">
-<li>Run the final DB2 update script.</li>
+<li>Run the final Db2 update script.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./db2-update.sh
 </code></pre></div>
@@ -867,7 +867,7 @@ DB21024I  This command is asynchronous and may not be effective immediately.</p>
 <p>SQL1063N  DB2START processing was successful.</p>
 </details>
 <ol start="40">
-<li>Exit the connection to the DB2 container in OpenShift.</li>
+<li>Exit the connection to the Db2 container in OpenShift.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>exit
 </code></pre></div>
