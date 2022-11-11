@@ -56,7 +56,7 @@ Leave this browser window open. It will be used again later.
 
 In this part of the demonstration, you will use the IBM Cloud Shell. If you are not familiar with IBM Cloud Shell, you can learn about it <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-getting-started" target="_blank">here</a>.
 
-!!! important
+!!! warning
     It is critical all steps in this section be completed in a single instance of IBM Cloud Shell. If the shell becomes inactive for more than 20 minutes, it will be closed. Additionally, local files will not persist after 2 hours of inactivity. In this section, files are downloaded, modified, and long running commands are executed. Please allot approximately 90 continuous minutes to complete this section of the demonstration script. Note, the last step is a long running (~60 minutes) automated script. Once started, keep the Cloud Shell browser window/tab open and allow the process to complete. No further user interaction will be required once it is started. **Not completing this section in a single instance of IBM Cloud Shell will leave the B2Bi deployment to OpenShift in an inconsistent state. A new ITZ environment will need to be provisioned and this section will need to be re-executed.**
 
 !!! tip
@@ -638,5 +638,7 @@ helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace
         kubectl logs <pod name> -n b2bi
 
     3. Access the application by running the following url
+
+Do not close the IBM Cloud Shell browser window/tab until the command completes. Once the command  successfully completes, the IBM Cloud Shell can be closed (type **exit** at the command prompt or simply close the browser window/tab).
 
 That concludes the setup of the environment. Proceed to the next part of the demonstration guide to configure B2Bi.
