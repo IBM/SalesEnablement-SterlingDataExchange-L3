@@ -108,11 +108,11 @@ The default **SFTP Server Listen Port** must be changed to the B2Bi service port
 
 ![](_attachments/OSServicesASI.png)
 
-22. Locate and copy the **Service Port** number for **adapters-1** in the **Service port mapping** table.
+22. Locate and copy the **Node Port** number for **adapters-1** in the **Service port mapping** table.
 
-![](_attachments/OSServicesASIOverview.png)
+![](_attachments/OSServicesASIOverview-NodePort.png)
 
-23. Record the **Service Port** number, it will be used several times during this demonstration.
+23. Record the **Node Port** number, it will be used several times during this demonstration.
 
 24. Switch back to the **B2Bi Dashboard** browser window or tab.
 

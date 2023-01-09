@@ -57,9 +57,9 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 ![](_attachments/FZ_NewSitePort.png)
 
 ??? tip "Don't remember the port number?"
-    The port number can be found in the details of the **sterling-fg-b2bi-asi-backend-svc** service in the OpenShift web console.
+    The port number can be found in the details of the **sterling-fg-b2bi-asi-backend-svc** service in the OpenShift web console - use **adapters-1's** **Node port**.
 
-    ![](_attachments/OSServicesASIOverview.png)
+    ![](_attachments/OSServicesASIOverview-NodePort.png)
 
 10. Enter **partner2** in the **User** field and **password** in the **Password** field and click the **Connect** button.
 
