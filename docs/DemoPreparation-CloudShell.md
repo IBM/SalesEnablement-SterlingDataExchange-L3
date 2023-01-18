@@ -12,7 +12,18 @@ The following steps must be performed before delivering the demonstration. These
 
 ![](_attachments/JoinCloud.png)
 
-2. In the browser window that opens, click the **Join Account** button.
+??? error "Did not get an e-mail from IBM Cloud?"
+
+    If you did not receive an e-mail from IBM Cloud inviting you to join the {{tz_environment.cloudAccount}}, but you did receive a notification from ITZ that your environment was ready, try the following:
+
+    - Log into cloud.ibm.com using your IBM Cloud ID.
+    - Click the ![](_attachments/BellIcon.png).
+    - Look for a new notification with the subject: **Action required: You are invited to join an account in IBM Cloud**.
+    - Click on the notification and then click the **Join now** link.
+
+    If you do not see a notification or an e-mail, try deleting the existing reservation in ITZ and try creating a new one. If that doesn't work, open a support ticket in the #itz-techzone-support Slack channel.  Include the reservation ID and summarize the problem in your message.
+
+1. In the browser window that opens, click the **Join Account** button.
 
 ![](_attachments/JoinAccount.png)
 
