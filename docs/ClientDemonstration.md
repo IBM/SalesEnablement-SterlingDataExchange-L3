@@ -120,6 +120,8 @@ Note, the example below was captured using Firefox on MacOS. Others browser menu
 
 ![](_attachments/FZ_UploadFileTransferSuccess.png)
 
+If the file doesn't appear, click the **View** menu in the FileZilla menubar and then click **Refresh**. Note, you may need to click **Refresh** multiple times.
+
 !!! note "Note"
     The file size shown in **IBM Sterling My File Gateway 2.0** is in kilobytes (KB) and in **FileZilla** the file size is displayed in bytes, but they are the same and the file transfer was successful.
 

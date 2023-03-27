@@ -15,7 +15,7 @@ docs_dir: docs
 nav:
   - 'Introduction': 'index.md'
   - 'Demonstration Overview': 'Overview.md'
-  - 'Environment Preparation and B2Bi Installation using IBM Cloud Shell': 'DemoPreparation-CloudShell.md'
+  - 'Environment Preparation and B2Bi Installation using IBM Cloud Shell': 'DemoPreparation-Bastion.md'
   - 'B2Bi Configuration Part 1': 'ConfigurationPart1.md'
   - 'B2Bi Configuration Part 2': 'ConfigurationPart2.md'
   - 'Client Demonstration': 'ClientDemonstration.md'
@@ -69,14 +69,17 @@ extra:
     name: "IBM Sterling Data Exchange - Level 3 Demonstration Guide"
     url: "https://ibm.github.io/SalesEnablement-SterlingDataExchange-L3/"
   tz_environment:
-    name: "Sterling File Gateway/B2B Integrator on OpenShift on IBM Cloud (ROKS)"
+    name: "Sterling File Gateway/B2B Integrator on OpenShift"
     environmentURL: "https://techzone.ibm.com/collection/rapid-lab-sfg-b2bi-on-rhocp"
     reservationURL: "https://techzone.ibm.com/my/reservations"
     centOSServerAdmin: "root"
     windowsServerAdminPW: "passw0rd"
     cloudAccount: "2112072 - ITZ - V2"
     sshKeyFile: "pem_ibmcloudvsi_download.pem"
+    numberOfWorkerNodes: "3"
   b2bi:
-    installScript: "rapid-lab-b2bi-newdb-61051.zip"
-    installScriptCloudShell: "rapid-lab-b2bi-newdb-61051-CloudShell.zip"
+    # installScript: "rapid-lab-b2bi-newdb-61051.zip"
+    installScript: "rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip"
+    # installScriptCloudShell: "rapid-lab-b2bi-newdb-61051-CloudShell.zip"
+    installScriptCloudShell: "rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip"
     installPath: "blob/main/tools"

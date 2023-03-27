@@ -79,7 +79,6 @@ The following acronyms are used throughout this demonstration guide:
     - IBM Sterling Business to Business Integrator (B2Bi)
     - IBM Sterling Partner Engagement Manager (PEM)
     - IBM Technology Zone (ITZ)
-    - Red Hat OpenShift on IBM Cloud (ROKS)
     - User Interface (UI)
     - Virtual Machine (VM)
     - Yet Another Markup Language (YAML)

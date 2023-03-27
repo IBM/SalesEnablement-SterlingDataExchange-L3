@@ -24,15 +24,15 @@ In this chapter, learn how to create a B2Bi partner community, add partners to t
 
 6. Enter **sftp_community** in the **Community Name** entry field and click **Next**.
 
-![](_attachments/FG_CommunitiesName.png)
+![](_attachments/FG_CommunitiesName-2.png)
 
-7. Select both the **Partner Initiates Protocol Connections to Mailbox** and the **Partner Listens for Protocol Connections** check boxes.
+7. Select both the **Partner Initiates Protocol Connections to Mailbox** and the **Partner Listens for Protocol Connections**.
 
-![](_attachments/FG_CommunitiesProtocol-1.png)
+![](_attachments/FG_CommunitiesProtocol-1-2.png)
 
 8. Select the **SSH/SFTP** checkbox and click **Next**.
 
-![](_attachments/FG_CommunitiesProtocol-2.png)
+![](_attachments/FG_CommunitiesProtocol-2-2.png)
 
 9. Click **Next** on the **Add Community: Notifications** form.
 
@@ -40,7 +40,7 @@ In this chapter, learn how to create a B2Bi partner community, add partners to t
 
 10. Click **Finish** to confirm the creation of the new community.
 
-![](_attachments/FG_CommunitiesFinish.png)
+![](_attachments/FG_CommunitiesFinish-2.png)
 
 11. Click **Return** on the community confirmation screen.
 
@@ -56,7 +56,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 13. Under **Partner**, click the **Add** link.
 
-![](_attachments/FG_CommunitiesDetails.png)
+![](_attachments/FG_CommunitiesDetails-2.png)
 
 14. Enter **partner1** in the **Partner Name** field, 10 digits in the **Phone** field, **partner1@localhost.com** in the **Email Address** field, and then click **Next**.
 
@@ -92,7 +92,7 @@ Next, add 2 partners to the newly created **sftp_community**.
 
 22. Click **Return** on the **Edit Community: sftp_community** screen after creating both partners.
 
-![](_attachments/FG_CommunitiesReturn.png)
+![](_attachments/FG_CommunitiesReturn-2.png)
 
 23. Close the **Communities** pop-up window.
 

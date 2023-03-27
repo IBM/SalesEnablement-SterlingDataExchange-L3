@@ -8,8 +8,8 @@ In this demonstration script, a secure partner-to-partner data exchange solution
 
 Learn more about B2Bi <a href="https://www.ibm.com/products/b2b-integrator" target="_blank">here</a> and access the B2Bi product documentation <a href="https://www.ibm.com/docs/en/b2b-integrator?topic=SS3JSW/sb2b_home/product_welcome_kc_b2bi.html" target="_blank">here</a>. This demonstration solution uses Secure File Transfer Protocol (SFTP) to allow two partners to exchange files in a secure manner.
 
-To create this demonstration solution, the containerized version of B2Bi will be deployed to Red Hat OpenShift on IBM Cloud (a fully managed OpenShift deployment). Learn more about Red Hat OpenShift on IBM Cloud <a href="https://www.ibm.com/cloud/openshift" target="_blank">here</a>.
+To create this demonstration solution, the containerized version of B2Bi will be deployed to a Red Hat OpenShift Cluster in IBM Technology Zone.
 
 This demonstration script consists of 3 installation and configuration chapters and a chapter describing a client demonstration scenario.
 
-It is now time to install B2Bi on Red Hat OpenShift on IBM Cloud (ROKS).
+It is now time to install B2Bi on a Red Hat OpenShift cluster.
