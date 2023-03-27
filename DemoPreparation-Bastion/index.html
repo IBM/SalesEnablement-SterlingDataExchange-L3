@@ -17,7 +17,7 @@
     
     
       
-        <title>DemoPreparation CloudShell - IBM Sterling Data Exchange Level 3 Demonstration Guide</title>
+        <title>Environment Preparation and B2Bi Installation using IBM Cloud Shell - IBM Sterling Data Exchange Level 3 Demonstration Guide</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#accept-invitation-to-join-the-itz-ibm-cloud-account-for-the-custom-roks-reservation" class="md-skip">
+        <a href="#access-the-openshift-web-console-and-verify-the-openshift-clusters-health" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DemoPreparation CloudShell
+              Environment Preparation and B2Bi Installation using IBM Cloud Shell
             
           </span>
         </div>
@@ -237,11 +237,118 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../DemoPreparation-Bastion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Environment Preparation and B2Bi Installation using IBM Cloud Shell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Environment Preparation and B2Bi Installation using IBM Cloud Shell
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-openshift-web-console-and-verify-the-openshift-clusters-health" class="md-nav__link">
+    Access the OpenShift web console and verify the OpenShift cluster's health
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-bastion-server-for-the-itz-environment" class="md-nav__link">
+    Access the Bastion server for the ITZ environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-install-directory-and-retrieve-the-b2bi-installation-scripts" class="md-nav__link">
+    Create install directory and retrieve the B2Bi installation scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibm-cloud-command-line-interfaces-clis-openshift-clis-and-helm" class="md-nav__link">
+    Install the IBM Cloud command line interfaces (CLIs), OpenShift CLIs, and Helm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authenticate-to-the-openshift-cluster" class="md-nav__link">
+    Authenticate to the OpenShift cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-db2-in-the-openshift-cluster" class="md-nav__link">
+    Install Db2 in the OpenShift cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-db2-and-create-the-required-b2bi-tables" class="md-nav__link">
+    Configure Db2 and create the required B2Bi tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mq-in-the-openshift-cluster" class="md-nav__link">
+    Install MQ in the OpenShift cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-the-environment-variables-with-ibm-container-entitlement-key-and-e-mail-address" class="md-nav__link">
+    Update the environment variables with IBM container entitlement key and e-mail address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-b2bi-in-the-openshift-cluster" class="md-nav__link">
+    Install B2Bi in the OpenShift cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-all-three-b2bi-pods-are-running-in-openshift" class="md-nav__link">
+    Verify all three B2Bi pods are running in OpenShift
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -331,22 +438,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accept-invitation-to-join-the-itz-ibm-cloud-account-for-the-custom-roks-reservation" class="md-nav__link">
-    Accept invitation to join the ITZ IBM Cloud account for the Custom ROKS reservation
+  <a href="#access-the-openshift-web-console-and-verify-the-openshift-clusters-health" class="md-nav__link">
+    Access the OpenShift web console and verify the OpenShift cluster's health
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-the-openshift-web-console" class="md-nav__link">
-    Access the OpenShift web console
+  <a href="#access-the-bastion-server-for-the-itz-environment" class="md-nav__link">
+    Access the Bastion server for the ITZ environment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#retrieve-the-b2bi-installation-scripts" class="md-nav__link">
-    Retrieve the B2Bi installation scripts
+  <a href="#create-install-directory-and-retrieve-the-b2bi-installation-scripts" class="md-nav__link">
+    Create install directory and retrieve the B2Bi installation scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibm-cloud-command-line-interfaces-clis-openshift-clis-and-helm" class="md-nav__link">
+    Install the IBM Cloud command line interfaces (CLIs), OpenShift CLIs, and Helm
   </a>
   
 </li>
@@ -393,6 +507,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verify-all-three-b2bi-pods-are-running-in-openshift" class="md-nav__link">
+    Verify all three B2Bi pods are running in OpenShift
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -407,173 +528,186 @@
                 
 
 
-  <h1>DemoPreparation CloudShell</h1>
+  <h1>Environment Preparation and B2Bi Installation using IBM Cloud Shell</h1>
 
-<p>This demonstration guide assumes a <strong>Custom ROKS</strong> environment provisioned from IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/my/reservations/create/63c0182dec7e9b0018b4f6bf" target="_blank">here</a>.</p>
-<p>At this point, all users should have completed the steps in the IBM Sterling Data Exchange Level 3 learning plan to reserve the Red Hat OpenShift on IBM Cloud environment as described in the IBM Sterling Data Exchange Level 3 <a href="https://ibm.seismic.com/Link/Content/DC8JQcd2PWDTR8fB2FmjmV3cPC8P" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the <strong>Ready</strong> state in ITZ. If not, please complete those steps before proceeding.</p>
-<p><img alt="" src="../_attachments/TZReady.png" /></p>
-<p>The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately 90 minutes for all steps to complete.</p>
-<h2 id="accept-invitation-to-join-the-itz-ibm-cloud-account-for-the-custom-roks-reservation">Accept invitation to join the ITZ IBM Cloud account for the Custom ROKS reservation</h2>
+<p>This demonstration guide assumes a Red Hat OpenShift cluster running on VMware on IBM Cloud environment provisioned in IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/my/reservations/create/63dba359cc19150018af084f" target="_blank">here</a>.</p>
+<p>At this point, all users should have completed the steps in the IBM Sterling Data Exchange Level 3 learning plan to reserve the Red Hat OpenShift environment as described in the IBM Sterling Data Exchange Level 3 <a href="https://ibm.seismic.com/Link/Content/DC8JQcd2PWDTR8fB2FmjmV3cPC8P" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the <strong>Ready</strong> state in ITZ. If not, please complete those steps before proceeding.</p>
+<p><img alt="" src="../_attachments/TZReady-2.png" /></p>
+<p>The following steps must be performed before delivering the demonstration. These steps should be performed well in advance of starting an actual client demonstration as it will take approximately <strong>90 minutes</strong> for all steps to complete.</p>
+<h2 id="access-the-openshift-web-console-and-verify-the-openshift-clusters-health">Access the OpenShift web console and verify the OpenShift cluster's health</h2>
 <ol>
-<li>Open the <strong>You are invited to join an account in IBM Cloud</strong> email received from IBM Cloud and click the <strong>Join now</strong> link.</li>
+<li>From the <a href="http:https://techzone.ibm.com/my/reservations" target="_blank">ITZ My Reservations page</a>, click the tile for your OpenShift cluster reservation (must be in the <strong>Ready</strong> state).</li>
 </ol>
-<p><img alt="" src="../_attachments/JoinCloud.png" /></p>
-<details class="error">
-<summary>Did not get an e-mail from IBM Cloud?</summary>
-<p>If you did not receive an e-mail from IBM Cloud inviting you to join the 2112072 - ITZ - V2, but you did receive a notification from ITZ that your environment was ready, try the following:</p>
-<ul>
-<li>Log into cloud.ibm.com using your IBM Cloud ID.</li>
-<li>Click the <img alt="" src="../_attachments/BellIcon.png" />.</li>
-<li>Look for a new notification with the subject: <strong>Action required: You are invited to join an account in IBM Cloud</strong>.</li>
-<li>Click on the notification and then click the <strong>Join now</strong> link.</li>
-</ul>
-<p>If you do not see a notification or an e-mail, try deleting the existing reservation in ITZ and try creating a new one. If that doesn't work, open a support ticket in the #itz-techzone-support Slack channel.  Include the reservation ID and summarize the problem in your message.</p>
-</details>
-<ol>
-<li>In the browser window that opens, click the <strong>Join Account</strong> button.</li>
+<p><img alt="" src="../_attachments/ITZReservationDetailsPage.png" /></p>
+<p>At this time, make note of the <strong>Username</strong> and <strong>Password</strong> fields under the <strong>Shared Reservation</strong> heading as highlighted above. You will need these values in the next steps.</p>
+<ol start="2">
+<li>Click the <strong>Open your IBM Cloud environment</strong> <img alt="" src="../_attachments/OpenOSWebConsole.png" /> button on the reservations detail page.</li>
 </ol>
-<p><img alt="" src="../_attachments/JoinAccount.png" /></p>
-<p>Follow the steps to login to IBM Cloud.</p>
+<p>A new window or tab will open in your browser.</p>
 <ol start="3">
-<li>On the <strong>IBM Cloud Dashboard</strong> set the current account to <strong>2112072 - ITZ - V2</strong>.</li>
+<li>Enter the <strong>Username</strong> and <strong>Password</strong> for your OpenShift cluster (as described in step 1 above) and click the <strong>Log in</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/RightCloudAccount.png" /></p>
-<details class="failure">
-<summary>Not seeing 2112072 - ITZ - V2?</summary>
-<p>It is possible ITZ provisioned the OpenShift cluster in a different IBM Cloud account. Select the account specified in the ITZ reservation.
-<img alt="" src="../_attachments/OSITZReservation.png" /></p>
-</details>
-<h2 id="access-the-openshift-web-console">Access the OpenShift web console</h2>
+<p><img alt="" src="../_attachments/OpenShiftLogin.png" /></p>
+<p>Before proceeding, verify that all 3 worker nodes were properly provisioned and available.</p>
 <ol start="4">
-<li>Click the <strong>OpenShift</strong> <img alt="" src="../_attachments/OpenShiftIcon.png" /> icon in the left-hand menu bar.</li>
+<li>Click the <strong>Compute</strong> menu option in left-hand menu bar and then click the <strong>Nodes</strong> menu option.</li>
 </ol>
-<p><img alt="" src="../_attachments/CloudDashboardOpenShiftMenu.png" /></p>
+<p><img alt="" src="_attachments/OpenShiftLeftHandMenu.png" /></p>
 <ol start="5">
-<li>Click <strong>Clusters</strong>.</li>
+<li>Observe the <strong>Nodes</strong> that have the role of <strong>worker</strong>.  There should be 3 of them with a status of <strong>Ready</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/OpenShiftOverview.png" /></p>
+<p><img alt="" src="../_attachments/OpenShiftThreeWorkerNodes.png" /></p>
+<div class="admonition error">
+<p class="admonition-title">Are less than 3 worker nodes available and  <strong>Ready</strong>**?</p>
+<p>If there are less than 3 worker nodes in the <strong>Ready</strong> state, it is
+very likely you will encounter issues during the installation of IBM Sterling B2B Integrator. It is highly recommended to delete the current ITZ reservation and create a new one following the earlier instructions. Alternatively, you can open a ticket with the ITZ support team using the <a href="" target="_blank">#itz-techzone-support</a> slack channel and see if the support team can fix the broken node(s).</p>
+</div>
+<h2 id="access-the-bastion-server-for-the-itz-environment">Access the <strong>Bastion</strong> server for the ITZ environment</h2>
+<p>In the next steps, you will access a virtual machine running in IBM Cloud referred to as a <strong>Bastion</strong> server. This server will be used to run various IBM Cloud, OpenShift, and other command line interfaces to install IBM Sterling B2B Integrator on the OpenShift cluster. </p>
+<p>To access the <strong>Bastion</strong> server, you must create a remote shell from your local workstation to the <strong>Bastion</strong> using a secure shell protocol client (ssh). Most operating systems (MacOS, Linux, Microsoft Windows) have an ssh client built in. There are also 3rd party and open source clients like <a href="https://www.putty.org" target="_blank">putty</a> that can be utilized.</p>
+<p>The screen images that follow utilize the native MacOS ssh client running from a terminal window. Specific instructions for other operating systems are not provided, but should be similar.</p>
 <ol start="6">
-<li>Click the OpenShift cluster name in the table.</li>
+<li>Copy the <strong>Bastion SSH connection</strong> string for your ITZ reservation details page.</li>
 </ol>
-<p><img alt="" src="../_attachments/OpenShiftClusters.png" /></p>
-<p>Note: the cluster name will be different than seen in the above image.</p>
+<p><img alt="" src="../_attachments/ITZReservationDetailsPage-Bastion.png" /></p>
+<p>At this time, make note of the <strong>Bastion Password</strong> field as highlighted above. You will need this password in the next step.</p>
 <ol start="7">
-<li>Click the <strong>OpenShift web console</strong> button.</li>
+<li>Open a terminal or command line window on your local workstation.</li>
+<li>In your local terminal or command line window, paste the <strong>Bastion SSH connection</strong> string and press enter.</li>
 </ol>
-<p><img alt="" src="../_attachments/OpenShiftClusterOverview.png" /></p>
-<p>At this time, a page like the one below should open in a new browser window or tab.</p>
-<p><img alt="" src="../_attachments/OSWebConsoleOverview.png" /></p>
-<p>Leave this browser window open. It will be used again later.</p>
-<h2 id="retrieve-the-b2bi-installation-scripts">Retrieve the B2Bi installation scripts</h2>
-<p>In this part of the demonstration, you will use the IBM Cloud Shell. If you are not familiar with IBM Cloud Shell, you can learn about it <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-getting-started" target="_blank">here</a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It is critical all steps in this section be completed in a single instance of IBM Cloud Shell. If the shell becomes inactive for more than 20 minutes, it will be closed. Additionally, local files will not persist after 2 hours of inactivity. In this section, files are downloaded, modified, and long running commands are executed. Please allot approximately 90 continuous minutes to complete this section of the demonstration script. Note, the last step is a long running (~60 minutes) automated script. Once started, keep the Cloud Shell browser window/tab open and allow the process to complete. No further user interaction will be required once it is started. <strong>Not completing this section in a single instance of IBM Cloud Shell will leave the B2Bi deployment to OpenShift in an inconsistent state. A new ITZ environment will need to be provisioned and this section will need to be re-executed.</strong></p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Use the <strong>copy</strong> capability of the demonstration guide to copy and paste commands to the IBM Cloud Command Shell to avoid typing errors.</p>
-</div>
-<ol start="8">
-<li>In the IBM Cloud Portal, with the demonstration account selected (<strong>2112072 - ITZ - V2</strong>), click the IBM Cloud Shell icon.</li>
-</ol>
-<p><img alt="" src="../_attachments/CloudShellMenu2.png" /></p>
-<p>The IBM Cloud Shell will open in a new browser tab or window. It may take a few seconds for the shell to initialize.</p>
-<p><img alt="" src="../_attachments/CloudShell.png" /></p>
+<p><img alt="" src="../_attachments/BastionCLI-1.png" /></p>
 <ol start="9">
+<li>If prompted to accept the fingerprint, enter <strong>yes</strong></li>
+</ol>
+<p><img alt="" src="../_attachments/BastionCLI-2.png" /></p>
+<ol start="10">
+<li>Enter the <strong>Bastion Password</strong> when prompted for a password.</li>
+</ol>
+<p><img alt="" src="../_attachments/BastionCLI-3.png" /></p>
+<h2 id="create-install-directory-and-retrieve-the-b2bi-installation-scripts">Create install directory and retrieve the B2Bi installation scripts</h2>
+<ol start="11">
 <li>Create a new directory for the B2Bi installation scripts.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir b2bi
 </code></pre></div>
-<ol start="10">
+<ol start="12">
 <li>Set the <strong>PROJECT_DIR</strong> environment variable.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>export PROJECT_DIR=$HOME/b2bi
 </code></pre></div>
-<ol start="11">
+<ol start="13">
 <li>Change directories to <strong>PROJECT_DIR</strong>.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd $PROJECT_DIR
 </code></pre></div>
-<ol start="12">
+<ol start="14">
 <li>Download the B2Bi installation script.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget -O rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip?raw=true
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
-<p>--2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-61051.zip?raw=true</p>
-<p>Resolving github.com (github.com)... 140.82.113.4</p>
-<p>Connecting to github.com (github.com)|140.82.113.4|:443... connected.</p>
-<p>HTTP request sent, awaiting response... 302 Found</p>
-<p>Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]</p>
-<p>--2022-10-18 20:12:56--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-61051.zip</p>
+<p>[admin@bastion b2bi]$  wget -O rapid-lab-b2bi-newdb-61051-CloudShell.zip https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip?raw=true</p>
+<p>--2023-03-22 17:43:41--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/blob/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip?raw=true</p>
+<p>Resolving github.com (github.com)... 140.82.114.4</p>
+<p>Connecting to github.com (github.com)|140.82.114.4|:443... connected.</p>
+<p>HTTP request sent, awaiting response... 302 Found
+Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip [following]</p>
+<p>--2023-03-22 17:43:41--  https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip</p>
 <p>Reusing existing connection to github.com:443.</p>
 <p>HTTP request sent, awaiting response... 302 Found</p>
-<p>Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip [following]</p>
-<p>--2022-10-18 20:12:57--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-61051.zip</p>
-<p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...</p>
-<p>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.</p>
+<p>Location: https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip [following]</p>
+<p>--2023-03-22 17:43:41--  https://raw.githubusercontent.com/IBM/SalesEnablement-SterlingDataExchange-L3/main/tools/rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip</p>
+<p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...</p>
+<p>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.</p>
 <p>HTTP request sent, awaiting response... 200 OK</p>
-<p>Length: 4061226 (3.9M) [application/zip]</p>
-<p>Saving to: ‘rapid-lab-b2bi-newlab-61051.zip’</p>
-<p>rapid-lab-b2bi-newlab-61051.zip                             100%[=========================================================================================================================================&gt;]   3.87M  --.-KB/s    in 0.03s</p>
-<p>2022-10-18 20:12:57 (147 MB/s) - ‘rapid-lab-b2bi-newlab-61051.zip’ saved [4061226/4061226]</p>
+<p>Length: 26769 (26K) [application/zip]</p>
+<p>Saving to: ‘rapid-lab-b2bi-newdb-61051-CloudShell.zip’</p>
+<p>rapid-lab-b2bi-newdb-610 100%[===============================&gt;]  26.14K  --.-KB/s    in 0s      </p>
+<p>2023-03-22 17:43:42 (98.2 MB/s) - ‘rapid-lab-b2bi-newdb-61051-CloudShell.zip’ saved [26769/26769]</p>
+<p>[admin@bastion b2bi]$ </p>
 </details>
-<ol start="13">
+<ol start="15">
 <li>Unzip the installation script.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>unzip rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
-<p>Archive:  rapid-lab-b2bi-newdb-6122-ocpodf-bastion.zip</p>
-<p>inflating: deploy_mq.sh</p>
-<p>inflating: edited-values.yaml</p>
-<p>inflating: prepare_db2.sh</p>
-<p>inflating: deploy_db2.sh</p>
-<p>inflating: README.md</p>
-<p>inflating: COPYING</p>
-<p>inflating: env.sh</p>
-<p>inflating: deploy_b2bi.sh</p>
-<p>inflating: db2jcc4.jar</p>
+<p>[admin@bastion b2bi]$ unzip rapid-lab-b2bi-newdb-61051-CloudShell.zip </p>
+<p>Archive:  rapid-lab-b2bi-newdb-61051-CloudShell.zip</p>
+<p>inflating: COPYING                 </p>
+<p>inflating: README.md               </p>
+<p>inflating: deploy_b2bi.sh          </p>
+<p>inflating: deploy_db2.sh           </p>
+<p>inflating: deploy_mq.sh            </p>
+<p>inflating: edited-values.yaml      </p>
+<p>inflating: env.sh                  </p>
+<p>inflating: ocp-cli.sh              </p>
+<p>inflating: prepare_db2.sh          </p>
+<p>[admin@bastion b2bi]$ </p>
+</details>
+<h2 id="install-the-ibm-cloud-command-line-interfaces-clis-openshift-clis-and-helm">Install the IBM Cloud command line interfaces (CLIs), OpenShift CLIs, and Helm</h2>
+<ol start="16">
+<li>Run the <strong>ocp-cli.sh</strong> shell script to install the required tools.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./ocp-cli.sh
+</code></pre></div>
+<details class="example">
+<summary>Example output</summary>
+<p>[admin@bastion b2bi]$ ./ocp-cli.sh </p>
+<p>Installing ibmcloud utility. Wait!</p>
+<p>Installing Helm. Wait!</p>
+<p>Installing OpenShift oc utility. Wait!</p>
+<p>Installing Kubernetes kubectl. Wait!</p>
+<p>cleaning up. Wait!</p>
+<p>Checking versions</p>
+<p>Client Version: 4.11.31</p>
+<p>Kustomize Version: v4.5.4</p>
+<p>version.BuildInfo{Version:"v3.11.2", GitCommit:"912ebc1cd10d38d340f048efaf0abda047c3468e", GitTreeState:"clean", GoVersion:"go1.18.10"}</p>
+<p>Flag --short has been deprecated, and will be removed in the future. The --short output will become the default.</p>
+<p>Client Version: v1.24.11</p>
+<p>Kustomize Version: v4.5.4</p>
+<p>ibmcloud version 2.15.0+79fb346-2023-02-21T22:06:52+00:00</p>
+<p>[admin@bastion b2bi]$ </p>
 </details>
 <h2 id="authenticate-to-the-openshift-cluster">Authenticate to the OpenShift cluster</h2>
 <p>For the next steps, the <strong>OpenShift</strong> login command to authenticate to the OpenShift cluster must be retrieved and executed.</p>
-<ol start="14">
-<li>Switch to the <strong>OpenShift web console</strong> browser window or tab.</li>
+<ol start="17">
+<li>
+<p>Switch to the <strong>OpenShift web console</strong> browser window or tab opened earlier.</p>
+</li>
+<li>
+<p>Click the <strong>IAM</strong> identity drop-down menu at top right of the <strong>OpenShift web console</strong> and click the <strong>Copy login command</strong> option.</p>
+</li>
 </ol>
-<p><img alt="" src="../_attachments/OSWebConsoleOverview.png" /></p>
-<ol start="15">
-<li>Click the <strong>IAM</strong> identity drop-down menu at top right of the <strong>OpenShift web console</strong> and click the <strong>Copy login command</strong> option.</li>
-</ol>
-<p><img alt="" src="../_attachments/OSCopyLoginMenu.png" /></p>
-<ol start="16">
+<p><img alt="" src="../_attachments/OSCopyLoginMenu-2.png" /></p>
+<ol start="19">
 <li>Click the <strong>Display Token</strong> link.</li>
 </ol>
 <p><img alt="" src="../_attachments/DisplayTokenLink.png" /></p>
-<ol start="17">
+<ol start="20">
 <li>Copy the string in the <strong>Log in with this token</strong> field.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSLoginAPIToken.png" /></p>
-<ol start="18">
-<li>Switch back to the IBM Cloud Shell browser window or tab from earlier.</li>
-<li>Paste the <strong>oc login</strong> command line copied in step 17 into the IBM Cloud Shell window and press enter.</li>
+<ol start="21">
+<li>Switch back to the terminal with the open <strong>ssh</strong> session to the <strong>Bastion</strong> server.</li>
+<li>Paste the <strong>oc login</strong> command line copied in step 17.</li>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
-<p>itzuser@itz-2700039nft-srv4:~/b2bi$ oc login --token=sha256~XXXXXXXXXXXXXXXXXX --server=https://c103-e.us-south.containers.cloud.ibm.com:31501</p>
-<p>Logged into "https://c103-e.us-south.containers.cloud.ibm.com:31501" as "IAM#andrew@jones-tx.com" using the token provided.</p>
-<p>You have access to 66 projects, the list has been suppressed. You can list all projects with 'oc projects'</p>
+<p>[admin@bastion b2bi]$ oc login --token=sha256~KGOvFlJmXVd1UhyThw76v5TwGcv4FCMdnZIGJ6KJcaA --server=https://api.ocp-2700039nft-2v51.cloud.techzone.ibm.com:6443</p>
+<p>Logged into "https://api.ocp-2700039nft-2v51.cloud.techzone.ibm.com:6443" as "kube:admin" using the token provided.</p>
+<p>You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'</p>
 <p>Using project "default".</p>
 <p>Welcome! See 'oc help' to get started.</p>
-<p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
+<p>[admin@bastion b2bi]$ </p>
 </div>
 <h2 id="install-db2-in-the-openshift-cluster">Install Db2 in the OpenShift cluster</h2>
-<ol start="20">
+<ol start="23">
 <li>Run the environment setup and Db2 deploy scripts.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>. env.sh ; ./deploy_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>. env.sh ; ./deploy_db2.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -599,10 +733,10 @@ statefulset.apps/db2 created</p>
 <img alt="" src="../_attachments/OSEventsDB2.png" />
 <img alt="" src="../_attachments/OSPodsDB2.png" /></p>
 </details>
-<ol start="21">
+<ol start="24">
 <li>Verify Db2 is up and running in the OpenShift cluster.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc logs -f ${DB2_NAME}-0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc logs -f ${DB2_NAME}-0
 </code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Failure</p>
@@ -651,7 +785,7 @@ PID     : 15858                TID : 139996146354048 PROC : db2start</p>
 <p>Do not proceed to the next step until the following line appears in the output:</p>
 <p><strong>/database/config/db2inst1/sqllib/ctrl/db2strst.lck</strong></p>
 </div>
-<ol start="22">
+<ol start="25">
 <li>Stop the <strong>oc logs</strong> command by entering <span class="keys"><kbd class="key-control">Ctrl</kbd></span><strong>+c</strong> on the keyboard.</li>
 </ol>
 <div class="admonition example">
@@ -665,16 +799,16 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
 <h2 id="configure-db2-and-create-the-required-b2bi-tables">Configure Db2 and create the required B2Bi tables</h2>
-<ol start="23">
+<ol start="26">
 <li>Prepare the Db2 instance running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./prepare_db2.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>./prepare_db2.sh
 </code></pre></div>
 <p>This script does not generate output.</p>
-<ol start="36">
+<ol start="27">
 <li>Remotely connect to the Db2 container running in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc rsh pod/${DB2_NAME}-0 su - db2inst1
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -682,10 +816,10 @@ FUNCTION: DB2 UDB, base sys utilities, sqleReleaseStStLockFile, probe:16078</p>
 <p>[db2inst1@db2-0 ~]$</p>
 </div>
 <p>A remote connection is now open to the Db2 container running in OpenShift as shown by the change in the command prompt to: <strong>[db2inst1@db2-0 ~]$</strong></p>
-<ol start="24">
+<ol start="28">
 <li>Run the <strong>db2reg.sh</strong> script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>./db2reg.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./db2reg.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -706,10 +840,10 @@ successfully.</p>
 <p>DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed
 successfully.</p>
 </details>
-<ol start="25">
+<ol start="29">
 <li>Create the B2Bi tables in Db2.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>db2 -stvf create_scc_db_b2bidb.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>db2 -stvf create_scc_db_b2bidb.sql
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">This will take ~5 minutes</p>
@@ -734,10 +868,10 @@ successfully.</p>
 <p>CONNECT RESET</p>
 <p>DB20000I  The SQL command completed successfully.</p>
 </details>
-<ol start="26">
+<ol start="30">
 <li>Run the final Db2 update script.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./db2-update.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./db2-update.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -755,22 +889,17 @@ DB21024I  This command is asynchronous and may not be effective immediately.</p>
 <p>10/18/2022 16:53:41     0   0   SQL1063N  DB2START processing was successful.</p>
 <p>SQL1063N  DB2START processing was successful.</p>
 </details>
-<ol start="27">
+<ol start="31">
 <li>Exit the connection to the Db2 container in OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>exit
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>exit
 </code></pre></div>
-<details class="example">
-<summary>Example output</summary>
-<p>logout
-itzuser@itz-2700039nft-srv4:~/b2bi$</p>
-</details>
-<p>Notice the command line prompt has changed back to the prompt for IBM Cloud Shell.</p>
+<p>Notice the command line prompt has changed back to the prompt for the <strong>ssh</strong> session to the <strong>Bastion</strong> server.</p>
 <h2 id="install-mq-in-the-openshift-cluster">Install MQ in the OpenShift cluster</h2>
-<ol start="28">
+<ol start="32">
 <li>Deploy MQ to OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./deploy_mq.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>./deploy_mq.sh
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -791,26 +920,26 @@ service/mq-web created</p>
 <h2 id="update-the-environment-variables-with-ibm-container-entitlement-key-and-e-mail-address">Update the environment variables with IBM container entitlement key and e-mail address</h2>
 <p>The next steps require editing of a file using the <strong>vi</strong> editor. If you are not familiar with the <strong>vi</strong> editor, it is strongly recommend to watch the following video before proceeding. There is no audio for this video.</p>
 <p><div class="video-container"><iframe src="../_videos/EditENV-sh-final.mp4" style="position: relative; width: 100%; height: 22.172vw" frameborder="0" allowfullscreen></iframe></div></p>
-<ol start="29">
+<ol start="33">
 <li>Open the <strong>vi</strong> editor.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>vi  env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>vi  env.sh
 </code></pre></div>
-<ol start="30">
+<ol start="34">
 <li>Open the IBM <strong>Entitlement key</strong> page <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.</li>
 </ol>
 <!-- https://www.ibm.com/partnerworld/program/benefits/partner-package -->
 
 <p>Note, re-authentication to ibm.com may be required.</p>
-<ol start="31">
+<ol start="35">
 <li>If an entitlement key does not already exist, click <strong>Add new key</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/EntitlementKey4.png" /></p>
-<ol start="32">
+<ol start="36">
 <li>Click the <strong>Copy</strong> button.</li>
 </ol>
 <p><img alt="" src="../_attachments/EntitlementKey5.png" /></p>
-<ol start="33">
+<ol start="37">
 <li>Return to the IBM Cloud Shell window, use the arrow keys to move the cursor between the quotes in the <strong>export APIKEY</strong> line, press <strong>i</strong> to enter input mode, and paste the copied <strong>entitlement key</strong> between the quotes.</li>
 <li>Press the <strong>esc</strong> key to exit input mode.</li>
 <li>Arrow key down and over to between the quotes in the <strong>export EMAIL=""</strong> line and enter a your e-mail address.</li>
@@ -819,7 +948,7 @@ service/mq-web created</p>
 <li>Press the <strong>:</strong> key and then the <strong>x</strong> key and enter to save and exit the <strong>vi</strong> editor.</li>
 <li>Verify the env.sh file looks like the example output below.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cat env.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cat env.sh
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -837,92 +966,79 @@ service/mq-web created</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
 <h2 id="install-b2bi-in-the-openshift-cluster">Install B2Bi in the OpenShift cluster</h2>
-<ol start="40">
+<ol start="44">
 <li>Deploy the B2Bi related containers on OpenShift.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./deploy_b2bi.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./deploy_b2bi.sh
 </code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">This will take approximately 10 minutes</p>
-<p>This command will take approximately 10 minutes to complete.</p>
+<p class="admonition-title">This will take approximately 70 minutes</p>
+<p>This script will take approximately 70 minutes to complete.</p>
 </div>
 <details class="tip">
 <summary>Optional: monitor events in the OpenShift web console</summary>
 <p>Use the OpenShift web console to monitor the <strong>b2bi</strong> project events and pod creation.
-<img alt="" src="../_attachments/OSEventsB2Bi.png" /></p>
-<p><img alt="" src="../_attachments/OSPodsB2Bi.png" /></p>
+<img alt="" src="../_attachments/OSEventsB2Bi.png" />
+<img alt="" src="../_attachments/OSPodsB2Bi.png" /></p>
 </details>
 <details class="example">
-<summary>Example output</summary>
+<summary>Example output beginning.</summary>
 <p>Now using project "b2bi" on server "https://c103-e.us-south.containers.cloud.ibm.com:31501".</p>
 <p>You can add applications to this project with the 'new-app' command. For example, try:</p>
 <p>oc new-app rails-postgresql-example</p>
 <p>to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:</p>
 <p>kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname</p>
-<p>persistentvolumeclaim/ibm-cloud-file-nfs-storage-pvc created
-clusterrole.rbac.authorization.k8s.io/system:openshift:scc:anyuid added: "default"
-deployment.apps/ibm-cloud-file-nfs-storage-pod created
-Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-storage-pod, permissionsfix (init)</p>
 <p>...
 <strong>Long output - truncated in this example</strong>
 ...</p>
-</details>
-<ol start="41">
-<li>Set environment variables for final install step.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>export DB2_IP=$(oc get svc db2-ci -n ${DB2_NAME} -o jsonpath=&#39;{.spec.clusterIP}&#39;)
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>export MQ_IP=$(oc get svc mq-data -n ${MQ_NAME} -o jsonpath=&#39;{.spec.clusterIP}&#39;)
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>export INGRESS_SUBDOMAIN=$(oc get IngressController default -n openshift-ingress-operator -o jsonpath=&#39;{.status.domain}&#39;)
-</code></pre></div>
-<ol start="42">
-<li>Finalize the B2Bi install Yet Another Markup Language (YAML) file.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>envsubst &lt; $PROJECT_DIR/ibm-b2bi-prod/values.yaml &gt; b2biInstall.yaml
-</code></pre></div>
-<ol start="43">
-<li>Run the helm chart to install the B2Bi containers in OpenShift.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>helm install sterling-fg $PROJECT_DIR/ibm-b2bi-prod --timeout 120m0s --namespace ${PROJECT_NAME} --values b2biInstall.yaml --debug
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">This will take approximately 60 minutes</p>
-<p>This command will take approximately 60 minutes to complete.</p>
-</div>
-<details class="info">
-<summary>Learn an interesting detail about IBM Cloud Shell while you wait...</summary>
-<p>IBM Cloud Shell is a very useful tool when working with IBM Cloud command line interfaces as well as other Cloud-related tools like Red Hat OpenShift, kubernetes, helm, etc. as many of these tools are preinstalled and alleviate the need to install tools on personal workstations. However, IBM Cloud Shell has some limitations that you can read about <a href="https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-issues-limitations" target="_blank">here</a>.</p>
-<p>One additional limitation not listed in the above doc is that IBM Cloud Shell will kill long running processes running in scripts (e.g. bash scripts). This issue was encountered while creating these installation scripts.  Originally, steps 37 through 39 above were contained in the deploy_b2bi.sh script. However, when executed, the deploy_b2bi.sh script would get killed (which in turn killed helm) after running approximately 20 minutes. By pulling the helm command out of the script and running it directly in the initial shell process, helm is able to complete the install of the B2Bi containers.</p>
+<p>ibm-b2bi-prod/charts/ibm-sch/ibm_cloud_pak/pak_extensions/pre-install/namespace-administration/role.yaml</p>
+<p>ibm-b2bi-prod/charts/ibm-sch/ibm_cloud_pak/pak_extensions/pre-install/namespace-administration/rolebinding.yaml</p>
+<p>ibm-b2bi-prod/charts/ibm-sch/ibm_cloud_pak/pak_extensions/pre-install/namespace-administration/serviceaccount.yaml</p>
+<p>ibm-b2bi-prod/charts/ibm-sch/ibm_cloud_pak/pak_extensions/pre-install/namespace-administration/setupNamespace.sh</p>
 </details>
 <details class="example">
-<summary>Example output</summary>
+<summary>Example output ending.</summary>
 <p>...
 <strong>Long output - truncated in this example</strong>
 ...</p>
 <p>NAME: sterling-fg</p>
-<p>LAST DEPLOYED: Wed Oct 19 17:11:30 2022</p>
+<p>LAST DEPLOYED: Wed Mar 22 18:06:32 2023</p>
 <p>NAMESPACE: b2bi</p>
 <p>STATUS: deployed</p>
 <p>REVISION: 1</p>
 <p>NOTES:</p>
 <p>Please wait while the application is getting deployed.</p>
 <ol>
-<li>
-<p>Run the below command to check the status of application server replica sets. At least 1 replica must be in 'READY' state.</p>
-<p>kubectl get replicasets -l release=sterling-fg -n b2bi</p>
-</li>
-<li>
-<p>Run the below command to check the status of the application server pods for the release.</p>
-<p>kubectl get pods -l release=sterling-fg -n b2bi -o wide</p>
-</li>
+<li>Run the below command to check the status of application server replica sets. At least 1 replica must be in 'READY' state. </li>
 </ol>
+<p>kubectl get replicasets -l release=sterling-fg -n b2bi</p>
+<ol start="2">
+<li>Run the below command to check the status of the application 
+server pods for the release.</li>
+</ol>
+<p>kubectl get pods -l release=sterling-fg -n b2bi -o wide</p>
 <p>To view the logs for a pod, run the below command.</p>
-<div class="highlight"><pre><span></span><code>kubectl logs &lt;pod name&gt; -n b2bi
-</code></pre></div>
+<p>kubectl logs <pod name> -n b2bi</p>
 <ol start="3">
 <li>Access the application by running the following url</li>
 </ol>
+<hr />
+<p>Below app defined PVC name configuration will be deprecated in future release</p>
 </details>
-<p>Do not close the IBM Cloud Shell browser window/tab until the command completes. Once the command  successfully completes, the IBM Cloud Shell can be closed (type <strong>exit</strong> at the command prompt or simply close the browser window/tab).</p>
+<p>Do not close the <strong>ssh</strong> session or the terminal window until the command completes. Once the command  successfully completes, the <strong>ssh</strong> session can be closed (type <strong>exit</strong> at the command prompt or simply close the terminal window).</p>
+<h2 id="verify-all-three-b2bi-pods-are-running-in-openshift">Verify all three B2Bi <strong>pods</strong> are running in OpenShift</h2>
+<ol start="44">
+<li>Return to the OpenShift web console window in your browser.</li>
+<li>Click the <strong>Home</strong> menu on the right-hand menu bar, and then click <strong>Projects</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/OpenShiftProjects.png" /></p>
+<ol start="46">
+<li>Click the <strong>b2bi</strong> project link.</li>
+<li>Click the <strong>Pods</strong> link under <strong>Inventory</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/OpenShiftB2BiInventory.png" /></p>
+<p>There should be 3 <strong>pods</strong> in the <strong>b2bi</strong> project. The <strong>pods</strong> will go through various states while starting up. Do not proceed to the next chapter until all 3 <strong>pods</strong> have a <strong>Status</strong> of <strong>Running</strong> AND the <strong>Ready</strong> column shows <strong>1/1</strong> for each <strong>pod</strong>! Note, it may take several minutes for the <strong>sterling-fg-b2bi-asi-server-0</strong> pod to change the <strong>Ready</strong> state from <strong>0/1</strong> to <strong>1/1</strong>. You may observe this <strong>pod</strong> restarting multiple times.  This is normal, just be patient.</p>
+<p><img alt="" src="../_attachments/OpenShiftB2BiAllPodsReady.png" /></p>
 <p>That concludes the setup of the environment. Proceed to the next part of the demonstration guide to configure B2Bi.</p>
 
 
@@ -937,6 +1053,42 @@ Defaulted container "ibm-cloud-file-nfs-storage-pod" out of: ibm-cloud-file-nfs-
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Demonstration Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Demonstration Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ConfigurationPart1/" class="md-footer__link md-footer__link--next" aria-label="Next: B2Bi Configuration Part 1" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              B2Bi Configuration Part 1
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

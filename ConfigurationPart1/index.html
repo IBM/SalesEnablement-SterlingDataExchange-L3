@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-the-b2bi-dashboard" class="md-skip">
+        <a href="#open-the-b2bi-dashboard-and-change-password-policies" class="md-skip">
           Skip to content
         </a>
       
@@ -239,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DemoPreparation-CloudShell/" class="md-nav__link">
+      <a href="../DemoPreparation-Bastion/" class="md-nav__link">
         Environment Preparation and B2Bi Installation using IBM Cloud Shell
       </a>
     </li>
@@ -284,8 +284,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#open-the-b2bi-dashboard" class="md-nav__link">
-    Open the B2Bi dashboard
+  <a href="#open-the-b2bi-dashboard-and-change-password-policies" class="md-nav__link">
+    Open the B2Bi dashboard and change password policies
   </a>
   
 </li>
@@ -382,8 +382,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#open-the-b2bi-dashboard" class="md-nav__link">
-    Open the B2Bi dashboard
+  <a href="#open-the-b2bi-dashboard-and-change-password-policies" class="md-nav__link">
+    Open the B2Bi dashboard and change password policies
   </a>
   
 </li>
@@ -419,9 +419,9 @@
   <h1>B2Bi Configuration Part 1</h1>
 
 <p>In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.</p>
-<h2 id="open-the-b2bi-dashboard">Open the B2Bi dashboard</h2>
+<h2 id="open-the-b2bi-dashboard-and-change-password-policies">Open the B2Bi dashboard and change password policies</h2>
 <ol>
-<li>In the OpenShift web console, click <strong>Routes</strong> under the <strong>Network</strong> section in left-hand panel.</li>
+<li>In the OpenShift web console, click <strong>Routes</strong> under the <strong>Networking</strong> section in left-hand panel.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSOverviewToRoutes.png" /></p>
 <ol start="2">
@@ -454,80 +454,114 @@
 <li>Enter <strong>admin</strong> in the <strong>User ID</strong> field and <strong>password</strong> in the <strong>Password</strong> field, and then click <strong>Sign In</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiAdminLogin.png" /></p>
+<p>In the latest IBM Sterling B2B Integrator release, new password policies have been set that require users to change their password the first time they authenticate. </p>
+<ol start="7">
+<li>Enter <strong>password</strong> in the <strong>Old Password</strong> field, and then enter <strong>passw0rd!</strong> in both the <strong>New Password</strong> and <strong>Retype Password</strong> fields and click <strong>Sign In</strong>. </li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiAdminChangePassword.png" /></p>
+<p>For this demonstration environment, change the password policies to simplify the demonstration flow. </p>
+<ol start="8">
+<li>Click <strong>Accounts</strong> in left-hand menu and then click <strong>Password Policy</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-Accounts.png" /></p>
+<ol start="9">
+<li>Enter <strong>default</strong> in the <strong>Password Policy Name</strong> text entry field and click the <strong>Go!</strong> button in the <strong>Search</strong> section.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-AccountsSearch.png" /></p>
+<ol start="10">
+<li>Click the <strong>edit</strong> icon for the <strong>Default User Policy</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicy.png" /></p>
+<ol start="11">
+<li>Uncheck the <strong>Password required to contain special characters</strong> and <strong>Required password change on next login attempt</strong> check boxes and then click <strong>Save</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyChange.png" /></p>
+<ol start="12">
+<li>Click <strong>Finish</strong> on the confirmation screen.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyFinish.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In most cases, clients will typically strengthen the default password policy to match their corporate standards for passwords. Again, they are being reduced here to simplify the demonstration flow.</p>
+</div>
+<ol start="13">
+<li>Click <strong>Return</strong> on the completion screen.</li>
+</ol>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyComplete.png" /></p>
 <h2 id="create-a-ssh-host-identity-key">Create a SSH Host Identity key</h2>
 <p>First, a <strong>SSH Host Identity</strong> needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.</p>
 <details class="question">
 <summary>BP quiz question</summary>
 <p>Several BP quiz questions will come from the <strong>B2Bi dashboard</strong>. When taking the BP quiz make sure the ITZ environment is still active and keep this demonstration script open.</p>
 </details>
-<ol start="7">
-<li>Click the <strong>Deployment</strong> menu item in left-hand menu bar.</li>
+<ol start="14">
+<li>Click the <strong>Deployment</strong> menu item in left-hand menu bar and then click the <strong>SSH Host Identity Key</strong> option.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenuToDeployment.png" /></p>
-<ol start="8">
-<li>Click the <strong>SSH Host Identity Key</strong> menu item in the left-hand menu bar.</li>
-</ol>
-<p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToHIK.png" /></p>
-<ol start="9">
+<p><img alt="" src="../_attachments/B2BiMainMenuToDeployment-2.png" /></p>
+<ol start="15">
 <li>Click the <strong>Go!</strong> button in the <strong>Create: New Host Identity Key</strong> box.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiHIK-CreatePage.png" /></p>
-<ol start="10">
+<ol start="16">
 <li>Enter <strong>demo</strong> in the <strong>Host Name:</strong> field of the "New Host Identity Key" form and then click the <strong>Next</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-HostName.png" /></p>
-<ol start="11">
+<p><img alt="" src="../_attachments/B2BiHIK-HostName-2.png" /></p>
+<ol start="17">
 <li>Click <strong>Finish</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-Finish.png" /></p>
-<ol start="12">
-<li>Click <strong>OK</strong></li>
+<p><img alt="" src="../_attachments/B2BiHIK-Finish-2.png" /></p>
+<ol start="18">
+<li>Click <strong>Close</strong> on the pop-up dialog.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIKCreated.png" /></p>
-<ol start="13">
+<p><img alt="" src="../_attachments/B2BiHIK-PopUp.png" /></p>
+<ol start="19">
 <li>Wait until the completed message is received and the click the <strong>Return</strong> button.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiHIKCreatedCompleted.png" /></p>
 <h2 id="create-an-sftp-adapter">Create an SFTP adapter</h2>
 <p>Next, an SFTP adapter must be created which will utilize the OpenShift service port for B2Bi.</p>
-<ol start="14">
+<ol start="20">
 <li>Click the <strong>Services</strong> menu item under <strong>Deployment</strong> in the left-hand menu bar.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToServices.png" /></p>
-<ol start="15">
+<ol start="21">
 <li>Click the <strong>Configuration</strong> menu item under <strong>Services</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiMainMenuServicesToConfiguration.png" /></p>
-<ol start="16">
+<ol start="22">
 <li>Enter <strong>sftp</strong> in the <strong>Service Name</strong> field and click the <strong>Go!</strong> button in the <strong>Search</strong> box.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiServicesConfiguratonForm.png" /></p>
-<ol start="17">
+<ol start="23">
 <li>Locate the <strong>SFTP Server Adapter</strong> entry in the table and click the <strong>edit</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiServicesConfigurationSearchResults.png" /></p>
-<ol start="18">
+<p><img alt="" src="../_attachments/B2BiServicesConfigurationSearchResults-2.png" /></p>
+<ol start="24">
 <li>Review the default settings and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPAdapterName1.png" /></p>
-<ol start="19">
+<ol start="25">
 <li>Review the settings on the <strong>SFTP Server Adapter: Configuration</strong> form.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1-2.png" /></p>
 <p>The default <strong>SFTP Server Listen Port</strong> must be changed to the B2Bi service port configured in OpenShift.</p>
-<ol start="20">
+<ol start="26">
 <li>Switch back to the OpenShift web console browser window or tab and click <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</li>
 </ol>
 <p><img alt="" src="../_attachments/OpenShiftRoutesPageToServices.png" /></p>
-<ol start="21">
+<details class="question">
+<summary>BP quiz question</summary>
+<p>There is a quiz question related to other B2Bi services. You may want to take note of the other service names or take a screen capture.</p>
+</details>
+<ol start="27">
 <li>Find and click the <strong>sterling-fg-b2bi-asi-backend-svc</strong> link.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSServicesASI.png" /></p>
-<ol start="22">
+<ol start="28">
 <li>Locate and copy the <strong>Node Port</strong> number for <strong>adapters-1</strong> in the <strong>Service port mapping</strong> table.</li>
 </ol>
 <p><img alt="" src="../_attachments/OSServicesASIOverview-NodePort.png" /></p>
-<ol start="23">
+<ol start="29">
 <li>
 <p>Record the <strong>Node Port</strong> number, it will be used several times during this demonstration.</p>
 </li>
@@ -535,55 +569,54 @@
 <p>Switch back to the <strong>B2Bi Dashboard</strong> browser window or tab.</p>
 </li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1.png" /></p>
-<ol start="25">
+<details class="question">
+<summary>BP quiz question</summary>
+<p>There is a quiz question related to configuring the SFTP adapter. Before clicking <strong>Next</strong> in the following step, look at the alternate <strong>Compression</strong> type available for the SFTP adapter. You may want to record that value.</p>
+</details>
+<ol start="31">
 <li>Enter or copy the recorded <strong>Service Port</strong> number into the <strong>SFTP Server Listen Port</strong> entry field and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2.png" /></p>
-<ol start="26">
+<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2-2.png" /></p>
+<ol start="32">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPStroage.png" /></p>
-<ol start="27">
+<ol start="33">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Add Policies</strong> page and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFPPolicies.png" /></p>
-<ol start="28">
+<ol start="34">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Configuration</strong> page and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPConfigPage.png" /></p>
-<ol start="29">
+<ol start="35">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Extractability</strong> page and click <strong>Next</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPExtractability.png" /></p>
-<ol start="30">
+<ol start="36">
 <li>Review the <strong>SFTP Server Adapter: Confirmation</strong> page and click <strong>Finish</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPFinish.png" /></p>
-<ol start="31">
+<ol start="37">
 <li>Click <strong>Return</strong> after the new SFTP adapter has been created.</li>
 </ol>
 <p><img alt="" src="../_attachments/B2BiSFTPConfirmation.png" /></p>
-<ol start="32">
+<ol start="38">
 <li>Click the <strong>checkbox</strong> next to the <strong>SFTP Server Adapter</strong> to start the adapter.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPStartAdapter.png" /></p>
-<ol start="33">
+<p><img alt="" src="../_attachments/B2BiSFTPStartAdapter-2.png" /></p>
+<ol start="39">
 <li>Click the <img alt="" src="../_attachments/BangIcon.png" /> icon next to the <strong>SFTP Server Adapter</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled.png" /></p>
-<ol start="34">
-<li>Verify the <strong>SFTP Server Adapter</strong> is <strong>Running</strong>.</li>
+<p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled-2.png" /></p>
+<ol start="40">
+<li>Verify the <strong>SFTP Server Adapter</strong> is <strong>Running</strong> and then click the <strong>Close</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus.png" /></p>
-<ol start="35">
-<li>Close the <strong>Adapter Information</strong> pop-up window.</li>
-</ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus2.png" /></p>
-<ol start="36">
+<p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus-2.png" /></p>
+<ol start="41">
 <li>Click the <strong>Logout</strong> link to log out of the <strong>B2Bi dashboard</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiLogout.png" /></p>
+<p><img alt="" src="../_attachments/B2BiLogout-2.png" /></p>
 <p>Now that the SFTP adapter is running, it time to move to the next step in the configuration of B2Bi.</p>
 
 
@@ -603,7 +636,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../DemoPreparation-CloudShell/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Environment Preparation and B2Bi Installation using IBM Cloud Shell" rel="prev">
+        <a href="../DemoPreparation-Bastion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Environment Preparation and B2Bi Installation using IBM Cloud Shell" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
