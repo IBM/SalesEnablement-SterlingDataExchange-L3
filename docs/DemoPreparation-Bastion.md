@@ -1,6 +1,10 @@
-This demonstration guide assumes a Red Hat OpenShift cluster running on VMware on IBM Cloud environment provisioned in IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/my/reservations/create/63dba359cc19150018af084f" target="_blank">here</a>.
+This demonstration guide assumes a Red Hat OpenShift cluster running on VMware on IBM Cloud environment provisioned in IBM Technology Zone (ITZ) <a href="https://techzone.ibm.com/my/reservations/create/63a3a25a3a4689001740dbb3" target="_blank">here</a>.
 
 At this point, all users should have completed the steps in the {{learningplan.name}} learning plan to reserve the Red Hat OpenShift environment as described in the {{learningplan.name}} <a href="https://ibm.seismic.com/Link/Content/DC8JQcd2PWDTR8fB2FmjmV3cPC8P" target="_blank">Introduction video</a>. Before proceeding, validate that the reservation has been fully provisioned and is in the **Ready** state in ITZ. If not, please complete those steps before proceeding.
+
+!!! warning 
+
+    Note, some screen captures below will show the name of the ITZ environment as **OpenShift Cluster (VMware on IBM Cloud) - IPI**. This demonstration script now uses the ITZ environment **OpenShift Cluster (VMware on IBM Cloud) - UPI**. 
 
 ![](_attachments/TZReady-2.png)
 
