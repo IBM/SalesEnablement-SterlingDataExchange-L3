@@ -696,7 +696,7 @@ Location: https://github.com/IBM/SalesEnablement-SterlingDataExchange-L3/raw/mai
 <p><img alt="" src="../_attachments/OSLoginAPIToken.png" /></p>
 <ol start="21">
 <li>Switch back to the terminal with the open <strong>ssh</strong> session to the <strong>Bastion</strong> server.</li>
-<li>Paste the <strong>oc login</strong> command line copied in step 17.</li>
+<li>Paste the <strong>oc login</strong> command line copied in step 20.</li>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example output</p>
@@ -946,9 +946,8 @@ service/mq-web created</p>
 <ol start="37">
 <li>Return to the IBM Cloud Shell window, use the arrow keys to move the cursor between the quotes in the <strong>export APIKEY</strong> line, press <strong>i</strong> to enter input mode, and paste the copied <strong>entitlement key</strong> between the quotes.</li>
 <li>Press the <strong>esc</strong> key to exit input mode.</li>
-<li>Arrow key down and over to between the quotes in the <strong>export EMAIL=""</strong> line and enter a your e-mail address.</li>
+<li>Arrow key down and over to between the quotes in the <strong>export EMAIL=""</strong> line, press <strong>i</strong> to enter input mode, and enter a your e-mail address.</li>
 <li>Press the <strong>esc</strong> key to exit input mode.</li>
-<li>Move cursor between the quotes on the <strong>export EMAIL=""</strong> line, press <strong>i</strong> to enter input mode, and enter your e-mail address.</li>
 <li>Press the <strong>:</strong> key and then the <strong>x</strong> key and enter to save and exit the <strong>vi</strong> editor.</li>
 <li>Verify the env.sh file looks like the example output below.</li>
 </ol>
@@ -970,7 +969,7 @@ service/mq-web created</p>
 <p>itzuser@itz-2700039nft-srv4:~/b2bi$</p>
 </div>
 <h2 id="install-b2bi-in-the-openshift-cluster">Install B2Bi in the OpenShift cluster</h2>
-<ol start="44">
+<ol start="43">
 <li>Deploy the B2Bi related containers on OpenShift.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./deploy_b2bi.sh
@@ -1031,12 +1030,12 @@ server pods for the release.</li>
 </details>
 <p>Do not close the <strong>ssh</strong> session or the terminal window until the command completes. Once the command  successfully completes, the <strong>ssh</strong> session can be closed (type <strong>exit</strong> at the command prompt or simply close the terminal window).</p>
 <h2 id="verify-all-three-b2bi-pods-are-running-in-openshift">Verify all three B2Bi <strong>pods</strong> are running in OpenShift</h2>
-<ol start="45">
+<ol start="44">
 <li>Return to the OpenShift web console window in your browser.</li>
 <li>Click the <strong>Home</strong> menu on the right-hand menu bar, and then click <strong>Projects</strong>.</li>
 </ol>
 <p><img alt="" src="../_attachments/OpenShiftProjects.png" /></p>
-<ol start="47">
+<ol start="46">
 <li>Click the <strong>b2bi</strong> project link.</li>
 <li>Click the <strong>Pods</strong> link under <strong>Inventory</strong>.</li>
 </ol>
