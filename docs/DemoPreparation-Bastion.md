@@ -225,7 +225,7 @@ For the next steps, the **OpenShift** login command to authenticate to the OpenS
 ![](_attachments/OSLoginAPIToken.png)
 
 21. Switch back to the terminal with the open **ssh** session to the **Bastion** server.
-22. Paste the **oc login** command line copied in step 17.
+22. Paste the **oc login** command line copied in step 20.
 
 !!! example "Example output"
     
@@ -549,11 +549,10 @@ Note, re-authentication to ibm.com may be required.
 
 37. Return to the IBM Cloud Shell window, use the arrow keys to move the cursor between the quotes in the **export APIKEY** line, press **i** to enter input mode, and paste the copied **entitlement key** between the quotes.
 38. Press the **esc** key to exit input mode.
-39. Arrow key down and over to between the quotes in the **export EMAIL=""** line and enter a your e-mail address.
+39. Arrow key down and over to between the quotes in the **export EMAIL=""** line, press **i** to enter input mode, and enter a your e-mail address.
 40. Press the **esc** key to exit input mode.
-41. Move cursor between the quotes on the **export EMAIL=""** line, press **i** to enter input mode, and enter your e-mail address.
-42. Press the **:** key and then the **x** key and enter to save and exit the **vi** editor.
-43. Verify the env.sh file looks like the example output below.
+41. Press the **:** key and then the **x** key and enter to save and exit the **vi** editor.
+42. Verify the env.sh file looks like the example output below.
 
 ```
 cat env.sh
@@ -587,7 +586,7 @@ cat env.sh
 
 ## Install B2Bi in the OpenShift cluster
 
-44. Deploy the B2Bi related containers on OpenShift.
+43. Deploy the B2Bi related containers on OpenShift.
 
 ```
 ./deploy_b2bi.sh
@@ -666,13 +665,13 @@ Do not close the **ssh** session or the terminal window until the command comple
 
 ## Verify all three B2Bi **pods** are running in OpenShift
 
-45. Return to the OpenShift web console window in your browser.
-46. Click the **Home** menu on the right-hand menu bar, and then click **Projects**.
+44. Return to the OpenShift web console window in your browser.
+45. Click the **Home** menu on the right-hand menu bar, and then click **Projects**.
 
 ![](_attachments/OpenShiftProjects.png)
 
-47. Click the **b2bi** project link.
-48. Click the **Pods** link under **Inventory**.
+46. Click the **b2bi** project link.
+47. Click the **Pods** link under **Inventory**.
 
 ![](_attachments/OpenShiftB2BiInventory.png)
 
