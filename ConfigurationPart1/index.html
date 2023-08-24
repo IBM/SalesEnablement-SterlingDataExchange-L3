@@ -12,8 +12,15 @@
         <meta name="author" content="Andrew R. Jones (andrewj@us.ibm.com)">
       
       
+      
+        <link rel="prev" href="../DemoPreparation-Bastion/">
+      
+      
+        <link rel="next" href="../ConfigurationPart2/">
+      
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
@@ -21,14 +28,17 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
       
       
+
+
     
+    
+      
     
     
       
@@ -46,6 +56,7 @@
 
     
     
+    
   </head>
   
   
@@ -56,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -80,7 +91,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="IBM Sterling Data Exchange Level 3 Demonstration Guide" class="md-header__button md-logo" aria-label="IBM Sterling Data Exchange Level 3 Demonstration Guide" data-md-component="logo">
       
@@ -89,6 +102,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -108,31 +122,36 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -141,12 +160,15 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -158,7 +180,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -188,6 +210,7 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="IBM Sterling Data Exchange Level 3 Demonstration Guide" class="md-nav__button md-logo" aria-label="IBM Sterling Data Exchange Level 3 Demonstration Guide" data-md-component="logo">
@@ -203,14 +226,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        Introduction
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
       </a>
     </li>
   
@@ -218,14 +245,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href="../Overview/" class="md-nav__link">
-        Demonstration Overview
+        
+  
+  <span class="md-ellipsis">
+    Demonstration Overview
+  </span>
+  
+
       </a>
     </li>
   
@@ -233,14 +264,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href="../DemoPreparation-Bastion/" class="md-nav__link">
-        Environment Preparation and B2Bi Installation using IBM Cloud Shell
+        
+  
+  <span class="md-ellipsis">
+    Environment Preparation and B2Bi Installation using IBM Cloud Shell
+  </span>
+  
+
       </a>
     </li>
   
@@ -248,8 +283,6 @@
     
       
       
-      
-
   
   
     
@@ -257,17 +290,29 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          B2Bi Configuration Part 1
+          
+  
+  <span class="md-ellipsis">
+    B2Bi Configuration Part 1
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        B2Bi Configuration Part 1
+        
+  
+  <span class="md-ellipsis">
+    B2Bi Configuration Part 1
+  </span>
+  
+
       </a>
       
         
@@ -314,14 +359,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href="../ConfigurationPart2/" class="md-nav__link">
-        B2Bi Configuration Part 2
+        
+  
+  <span class="md-ellipsis">
+    B2Bi Configuration Part 2
+  </span>
+  
+
       </a>
     </li>
   
@@ -329,14 +378,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href="../ClientDemonstration/" class="md-nav__link">
-        Client Demonstration
+        
+  
+  <span class="md-ellipsis">
+    Client Demonstration
+  </span>
+  
+
       </a>
     </li>
   
@@ -344,14 +397,18 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href="../NextSteps/" class="md-nav__link">
-        Next Steps
+        
+  
+  <span class="md-ellipsis">
+    Next Steps
+  </span>
+  
+
       </a>
     </li>
   
@@ -410,24 +467,25 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
   <h1>B2Bi Configuration Part 1</h1>
 
-<p>In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.</p>
+<div><p>In this chapter, learn how to configure a Secure File Transfer Protocol (SFTP) adapter using the containerized B2Bi deployment.</p>
 <h2 id="open-the-b2bi-dashboard-and-change-password-policies">Open the B2Bi dashboard and change password policies</h2>
 <ol>
 <li>In the OpenShift web console, click <strong>Routes</strong> under the <strong>Networking</strong> section in left-hand panel.</li>
 </ol>
-<p><img alt="" src="../_attachments/OSOverviewToRoutes.png" /></p>
+<p><img alt="" src="../_attachments/OSOverviewToRoutes.png"></p>
 <ol start="2">
 <li>Click the <strong>All Projects</strong> pull-down menu and click the <strong>b2bi</strong> project.</li>
 </ol>
-<p><img alt="" src="../_attachments/OSRoutesMenu.png" /></p>
+<p><img alt="" src="../_attachments/OSRoutesMenu.png"></p>
 <details class="question">
 <summary>BP quiz question</summary>
 <p>Several BP quiz questions will come from the <strong>OpenShift web console</strong>. When taking the BP quiz make sure the ITZ environment is still active and keep this demonstration script open.</p>
@@ -435,16 +493,16 @@
 <ol start="3">
 <li>Notice all the routes that are currently defined in the b2bi Project, there are 15 of them</li>
 </ol>
-<p><img alt="" src="../_attachments/OSB2BiAllRoutes.png" /></p>
+<p><img alt="" src="../_attachments/OSB2BiAllRoutes.png"></p>
 <ol start="4">
 <li>To start the setup of the SFTP adapter, launch the IBM Sterling B2Bi dashboard by clicking on the route for the <strong>sterling-fg-b2bi-asi-internal-route-dashboard</strong> route in the <strong>Location</strong> column. Do not click the Route name, rather click the Route link in the <strong>Location</strong> column of the table.</li>
 </ol>
-<p><img alt="" src="../_attachments/OSB2BiDashboardRoute.png" /></p>
+<p><img alt="" src="../_attachments/OSB2BiDashboardRoute.png"></p>
 <ol start="5">
 <li>If a security risk is received in the browser, accept it. In a production environment certificates would be configured for these web pages.</li>
 </ol>
-<p><img alt="" src="../_attachments/FFSecurityRisk1.png" />
-<img alt="" src="../_attachments/FFSecurityRisk2.png" /></p>
+<p><img alt="" src="../_attachments/FFSecurityRisk1.png">
+<img alt="" src="../_attachments/FFSecurityRisk2.png"></p>
 <p>Note: the images above are from Firefox running on MacOS. They will look different depending on browser and operating system.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -453,33 +511,33 @@
 <ol start="6">
 <li>Enter <strong>admin</strong> in the <strong>User ID</strong> field and <strong>password</strong> in the <strong>Password</strong> field, and then click <strong>Sign In</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiAdminLogin.png" /></p>
+<p><img alt="" src="../_attachments/B2BiAdminLogin.png"></p>
 <p>In the latest IBM Sterling B2B Integrator release, new password policies have been set that require users to change their password the first time they authenticate. </p>
 <ol start="7">
 <li>Enter <strong>password</strong> in the <strong>Old Password</strong> field, and then enter <strong>passw0rd!</strong> in both the <strong>New Password</strong> and <strong>Retype Password</strong> fields and click <strong>Sign In</strong>. </li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiAdminChangePassword.png" /></p>
+<p><img alt="" src="../_attachments/B2BiAdminChangePassword.png"></p>
 <p>For this demonstration environment, change the password policies to simplify the demonstration flow. </p>
 <ol start="8">
 <li>Click <strong>Accounts</strong> in left-hand menu and then click <strong>Password Policy</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-Accounts.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-Accounts.png"></p>
 <ol start="9">
 <li>Enter <strong>default</strong> in the <strong>Password Policy Name</strong> text entry field and click the <strong>Go!</strong> button in the <strong>Search</strong> section.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-AccountsSearch.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-AccountsSearch.png"></p>
 <ol start="10">
 <li>Click the <strong>edit</strong> icon for the <strong>Default User Policy</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicy.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicy.png"></p>
 <ol start="11">
 <li>Uncheck the <strong>Password required to contain special characters</strong> and <strong>Required password change on next login attempt</strong> check boxes and then click <strong>Save</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyChange.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyChange.png"></p>
 <ol start="12">
 <li>Click <strong>Finish</strong> on the confirmation screen.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyFinish.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyFinish.png"></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>In most cases, clients will typically strengthen the default password policy to match their corporate standards for passwords. Again, they are being reduced here to simplify the demonstration flow.</p>
@@ -487,7 +545,7 @@
 <ol start="13">
 <li>Click <strong>Return</strong> on the completion screen.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyComplete.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenu-DefaultPolicyComplete.png"></p>
 <h2 id="create-a-ssh-host-identity-key">Create a SSH Host Identity key</h2>
 <p>First, a <strong>SSH Host Identity</strong> needs to be created. The Host Identity Key is a Private/Public key pair used to identify the Application SFTP Server to remote clients.  Note, for this demonstration, default values will be used where possible, but production deployments may use other values depending on client requirements.</p>
 <details class="question">
@@ -497,58 +555,58 @@
 <ol start="14">
 <li>Click the <strong>Deployment</strong> menu item in left-hand menu bar and then click the <strong>SSH Host Identity Key</strong> option.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenuToDeployment-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenuToDeployment-2.png"></p>
 <ol start="15">
 <li>Click the <strong>Go!</strong> button in the <strong>Create: New Host Identity Key</strong> box.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-CreatePage.png" /></p>
+<p><img alt="" src="../_attachments/B2BiHIK-CreatePage.png"></p>
 <ol start="16">
 <li>Enter <strong>demo</strong> in the <strong>Host Name:</strong> field of the "New Host Identity Key" form and then click the <strong>Next</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-HostName-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiHIK-HostName-2.png"></p>
 <ol start="17">
 <li>Click <strong>Finish</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-Finish-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiHIK-Finish-2.png"></p>
 <ol start="18">
 <li>Click <strong>Close</strong> on the pop-up dialog.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIK-PopUp.png" /></p>
+<p><img alt="" src="../_attachments/B2BiHIK-PopUp.png"></p>
 <ol start="19">
 <li>Wait until the completed message is received and the click the <strong>Return</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiHIKCreatedCompleted.png" /></p>
+<p><img alt="" src="../_attachments/B2BiHIKCreatedCompleted.png"></p>
 <h2 id="create-an-sftp-adapter">Create an SFTP adapter</h2>
 <p>Next, an SFTP adapter must be created which will utilize the OpenShift service port for B2Bi.</p>
 <ol start="20">
 <li>Click the <strong>Services</strong> menu item under <strong>Deployment</strong> in the left-hand menu bar.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToServices.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenuDeploymentToServices.png"></p>
 <ol start="21">
 <li>Click the <strong>Configuration</strong> menu item under <strong>Services</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiMainMenuServicesToConfiguration.png" /></p>
+<p><img alt="" src="../_attachments/B2BiMainMenuServicesToConfiguration.png"></p>
 <ol start="22">
 <li>Enter <strong>sftp</strong> in the <strong>Service Name</strong> field and click the <strong>Go!</strong> button in the <strong>Search</strong> box.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiServicesConfiguratonForm.png" /></p>
+<p><img alt="" src="../_attachments/B2BiServicesConfiguratonForm.png"></p>
 <ol start="23">
 <li>Locate the <strong>SFTP Server Adapter</strong> entry in the table and click the <strong>edit</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiServicesConfigurationSearchResults-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiServicesConfigurationSearchResults-2.png"></p>
 <ol start="24">
 <li>Review the default settings and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterName1.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPAdapterName1.png"></p>
 <ol start="25">
 <li>Review the settings on the <strong>SFTP Server Adapter: Configuration</strong> form.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings1-2.png"></p>
 <p>The default <strong>SFTP Server Listen Port</strong> must be changed to the B2Bi service port configured in OpenShift.</p>
 <ol start="26">
 <li>Switch back to the OpenShift web console browser window or tab and click <strong>Services</strong> under the <strong>Networking</strong> in the left-hand menu bar.</li>
 </ol>
-<p><img alt="" src="../_attachments/OpenShiftRoutesPageToServices.png" /></p>
+<p><img alt="" src="../_attachments/OpenShiftRoutesPageToServices.png"></p>
 <details class="question">
 <summary>BP quiz question</summary>
 <p>There is a quiz question related to other B2Bi services. You may want to take note of the other service names or take a screen capture.</p>
@@ -556,11 +614,11 @@
 <ol start="27">
 <li>Find and click the <strong>sterling-fg-b2bi-asi-backend-svc</strong> link.</li>
 </ol>
-<p><img alt="" src="../_attachments/OSServicesASI.png" /></p>
+<p><img alt="" src="../_attachments/OSServicesASI.png"></p>
 <ol start="28">
 <li>Locate and copy the <strong>Node Port</strong> number for <strong>adapters-1</strong> in the <strong>Service port mapping</strong> table.</li>
 </ol>
-<p><img alt="" src="../_attachments/OSServicesASIOverview-NodePort.png" /></p>
+<p><img alt="" src="../_attachments/OSServicesASIOverview-NodePort.png"></p>
 <ol start="29">
 <li>
 <p>Record the <strong>Node Port</strong> number, it will be used several times during this demonstration.</p>
@@ -576,97 +634,63 @@
 <ol start="31">
 <li>Enter or copy the recorded <strong>Service Port</strong> number into the <strong>SFTP Server Listen Port</strong> entry field and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPDefaultSettings2-2.png"></p>
 <ol start="32">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Configuration: Document Storage</strong> page and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPStroage.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPStroage.png"></p>
 <ol start="33">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Add Policies</strong> page and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFPPolicies.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFPPolicies.png"></p>
 <ol start="34">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Configuration</strong> page and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPConfigPage.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPConfigPage.png"></p>
 <ol start="35">
 <li>Review the default settings on the <strong>SFTP Server Adapter: Extractability</strong> page and click <strong>Next</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPExtractability.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPExtractability.png"></p>
 <ol start="36">
 <li>Review the <strong>SFTP Server Adapter: Confirmation</strong> page and click <strong>Finish</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPFinish.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPFinish.png"></p>
 <ol start="37">
 <li>Click <strong>Return</strong> after the new SFTP adapter has been created.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPConfirmation.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPConfirmation.png"></p>
 <ol start="38">
 <li>Click the <strong>checkbox</strong> next to the <strong>SFTP Server Adapter</strong> to start the adapter.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPStartAdapter-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPStartAdapter-2.png"></p>
 <ol start="39">
-<li>Click the <img alt="" src="../_attachments/BangIcon.png" /> icon next to the <strong>SFTP Server Adapter</strong>.</li>
+<li>Click the <img alt="" src="../_attachments/BangIcon.png"> icon next to the <strong>SFTP Server Adapter</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPAdapterEnabled-2.png"></p>
 <ol start="40">
 <li>Verify the <strong>SFTP Server Adapter</strong> is <strong>Running</strong> and then click the <strong>Close</strong> button.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus-2.png" /></p>
+<p><img alt="" src="../_attachments/B2BiSFTPAdapterStatus-2.png"></p>
 <ol start="41">
 <li>Click the <strong>Logout</strong> link to log out of the <strong>B2Bi dashboard</strong>.</li>
 </ol>
-<p><img alt="" src="../_attachments/B2BiLogout-2.png" /></p>
-<p>Now that the SFTP adapter is running, it time to move to the next step in the configuration of B2Bi.</p>
+<p><img alt="" src="../_attachments/B2BiLogout-2.png"></p>
+<p>Now that the SFTP adapter is running, it time to move to the next step in the configuration of B2Bi.</p></div>
 
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../DemoPreparation-Bastion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Environment Preparation and B2Bi Installation using IBM Cloud Shell" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Environment Preparation and B2Bi Installation using IBM Cloud Shell
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../ConfigurationPart2/" class="md-footer__link md-footer__link--next" aria-label="Next: B2Bi Configuration Part 2" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              B2Bi Configuration Part 2
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -688,10 +712,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>
